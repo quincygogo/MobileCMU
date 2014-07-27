@@ -22,6 +22,10 @@
 		2C3C2C0F19857D5200E970FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3C2BEE19857D5200E970FB /* UIKit.framework */; };
 		2C3C2C1719857D5200E970FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C3C2C1519857D5200E970FB /* InfoPlist.strings */; };
 		2C3C2C1919857D5200E970FB /* MovieTogetherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3C2C1819857D5200E970FB /* MovieTogetherTests.m */; };
+		2C3C2C2419858D7200E970FB /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3C2C2319858D7200E970FB /* PageContentViewController.m */; };
+		2C3C2C271985A72400E970FB /* movie.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C3C2C261985A72400E970FB /* movie.png */; };
+		2C3C2C2A1985A77D00E970FB /* u2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C3C2C281985A77D00E970FB /* u2.png */; };
+		2C3C2C2B1985A77D00E970FB /* u1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C3C2C291985A77D00E970FB /* u1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,11 @@
 		2C3C2C1419857D5200E970FB /* MovieTogetherTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MovieTogetherTests-Info.plist"; sourceTree = "<group>"; };
 		2C3C2C1619857D5200E970FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C3C2C1819857D5200E970FB /* MovieTogetherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieTogetherTests.m; sourceTree = "<group>"; };
+		2C3C2C2219858D7200E970FB /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
+		2C3C2C2319858D7200E970FB /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
+		2C3C2C261985A72400E970FB /* movie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movie.png; sourceTree = "<group>"; };
+		2C3C2C281985A77D00E970FB /* u2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = u2.png; sourceTree = "<group>"; };
+		2C3C2C291985A77D00E970FB /* u1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = u1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +127,8 @@
 				2C3C2BF919857D5200E970FB /* AppDelegate.h */,
 				2C3C2BFA19857D5200E970FB /* AppDelegate.m */,
 				2C3C2BFC19857D5200E970FB /* Main.storyboard */,
+				2C3C2C2219858D7200E970FB /* PageContentViewController.h */,
+				2C3C2C2319858D7200E970FB /* PageContentViewController.m */,
 				2C3C2BFF19857D5200E970FB /* FirstViewController.h */,
 				2C3C2C0019857D5200E970FB /* FirstViewController.m */,
 				2C3C2C0219857D5200E970FB /* SecondViewController.h */,
@@ -131,6 +142,7 @@
 		2C3C2BF119857D5200E970FB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2C3C2C251985A70A00E970FB /* images */,
 				2C3C2BF219857D5200E970FB /* MovieTogether-Info.plist */,
 				2C3C2BF319857D5200E970FB /* InfoPlist.strings */,
 				2C3C2BF619857D5200E970FB /* main.m */,
@@ -155,6 +167,16 @@
 				2C3C2C1519857D5200E970FB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2C3C2C251985A70A00E970FB /* images */ = {
+			isa = PBXGroup;
+			children = (
+				2C3C2C281985A77D00E970FB /* u2.png */,
+				2C3C2C291985A77D00E970FB /* u1.png */,
+				2C3C2C261985A72400E970FB /* movie.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +255,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C3C2C2A1985A77D00E970FB /* u2.png in Resources */,
+				2C3C2C271985A72400E970FB /* movie.png in Resources */,
 				2C3C2C0619857D5200E970FB /* Images.xcassets in Resources */,
+				2C3C2C2B1985A77D00E970FB /* u1.png in Resources */,
 				2C3C2BF519857D5200E970FB /* InfoPlist.strings in Resources */,
 				2C3C2BFE19857D5200E970FB /* Main.storyboard in Resources */,
 			);
@@ -256,6 +281,7 @@
 			files = (
 				2C3C2C0419857D5200E970FB /* SecondViewController.m in Sources */,
 				2C3C2BFB19857D5200E970FB /* AppDelegate.m in Sources */,
+				2C3C2C2419858D7200E970FB /* PageContentViewController.m in Sources */,
 				2C3C2C0119857D5200E970FB /* FirstViewController.m in Sources */,
 				2C3C2BF719857D5200E970FB /* main.m in Sources */,
 			);
