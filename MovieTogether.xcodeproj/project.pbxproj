@@ -26,6 +26,10 @@
 		2C3C2C271985A72400E970FB /* movie.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C3C2C261985A72400E970FB /* movie.png */; };
 		2C3C2C2A1985A77D00E970FB /* u2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C3C2C281985A77D00E970FB /* u2.png */; };
 		2C3C2C2B1985A77D00E970FB /* u1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C3C2C291985A77D00E970FB /* u1.png */; };
+		2C3C2CB41986BF2A00E970FB /* LikedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3C2CB21986BF2A00E970FB /* LikedTableCell.m */; };
+		2C3C2CB51986BF2A00E970FB /* LikedTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3C2CB31986BF2A00E970FB /* LikedTableCell.xib */; };
+		2C3C2CB91986C9ED00E970FB /* UserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3C2CB71986C9ED00E970FB /* UserTableViewCell.m */; };
+		2C3C2CBA1986C9ED00E970FB /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3C2CB81986C9ED00E970FB /* UserTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +69,12 @@
 		2C3C2C261985A72400E970FB /* movie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movie.png; sourceTree = "<group>"; };
 		2C3C2C281985A77D00E970FB /* u2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = u2.png; sourceTree = "<group>"; };
 		2C3C2C291985A77D00E970FB /* u1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = u1.png; sourceTree = "<group>"; };
+		2C3C2CB11986BF2A00E970FB /* LikedTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikedTableCell.h; sourceTree = "<group>"; };
+		2C3C2CB21986BF2A00E970FB /* LikedTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikedTableCell.m; sourceTree = "<group>"; };
+		2C3C2CB31986BF2A00E970FB /* LikedTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LikedTableCell.xib; sourceTree = "<group>"; };
+		2C3C2CB61986C9ED00E970FB /* UserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTableViewCell.h; sourceTree = "<group>"; };
+		2C3C2CB71986C9ED00E970FB /* UserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTableViewCell.m; sourceTree = "<group>"; };
+		2C3C2CB81986C9ED00E970FB /* UserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +145,12 @@
 				2C3C2C0319857D5200E970FB /* SecondViewController.m */,
 				2C3C2C0519857D5200E970FB /* Images.xcassets */,
 				2C3C2BF119857D5200E970FB /* Supporting Files */,
+				2C3C2CB11986BF2A00E970FB /* LikedTableCell.h */,
+				2C3C2CB21986BF2A00E970FB /* LikedTableCell.m */,
+				2C3C2CB31986BF2A00E970FB /* LikedTableCell.xib */,
+				2C3C2CB61986C9ED00E970FB /* UserTableViewCell.h */,
+				2C3C2CB71986C9ED00E970FB /* UserTableViewCell.m */,
+				2C3C2CB81986C9ED00E970FB /* UserTableViewCell.xib */,
 			);
 			path = MovieTogether;
 			sourceTree = "<group>";
@@ -255,9 +271,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C3C2CBA1986C9ED00E970FB /* UserTableViewCell.xib in Resources */,
 				2C3C2C2A1985A77D00E970FB /* u2.png in Resources */,
 				2C3C2C271985A72400E970FB /* movie.png in Resources */,
 				2C3C2C0619857D5200E970FB /* Images.xcassets in Resources */,
+				2C3C2CB51986BF2A00E970FB /* LikedTableCell.xib in Resources */,
 				2C3C2C2B1985A77D00E970FB /* u1.png in Resources */,
 				2C3C2BF519857D5200E970FB /* InfoPlist.strings in Resources */,
 				2C3C2BFE19857D5200E970FB /* Main.storyboard in Resources */,
@@ -279,8 +297,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C3C2CB91986C9ED00E970FB /* UserTableViewCell.m in Sources */,
 				2C3C2C0419857D5200E970FB /* SecondViewController.m in Sources */,
 				2C3C2BFB19857D5200E970FB /* AppDelegate.m in Sources */,
+				2C3C2CB41986BF2A00E970FB /* LikedTableCell.m in Sources */,
 				2C3C2C2419858D7200E970FB /* PageContentViewController.m in Sources */,
 				2C3C2C0119857D5200E970FB /* FirstViewController.m in Sources */,
 				2C3C2BF719857D5200E970FB /* main.m in Sources */,
