@@ -12,7 +12,3 @@
 
 @end
 
-
-@property NSString *movieName;
-@property NSString *imageFile;
-

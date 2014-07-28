@@ -222,7 +222,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="QUy-BD-bpt" id="HRW-P1-Hlu"/>
+                                    <outlet property="dataSource" destination="QUy-BD-bpt" id="yDQ-AN-RDd"/>
+                                    <outlet property="delegate" destination="QUy-BD-bpt" id="El9-Ur-fZN"/>
                                 </connections>
                             </tableView>
                         </subviews>
