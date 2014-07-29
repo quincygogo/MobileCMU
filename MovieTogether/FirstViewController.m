@@ -15,12 +15,16 @@
 @end
 
 @implementation FirstViewController {
+    NSMutableArray *movies;
+    
     NSMutableArray *imgList;
     NSMutableArray *userList;
     NSMutableArray *genderList;
     NSMutableArray *dateList;
     NSMutableArray *theatreList;
 }
+
+@synthesize userTableView;
 
 - (void)viewDidLoad
 {
@@ -68,14 +72,14 @@
     return cell;
 }
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([segue.identifier isEqualToString:@"showMovieDetail"]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        MovieDetailViewController *movieDetailVC = segue.moviewDetailVC;
-//        self.navigationController.
-//    }
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showMovieDetail"]) {
+        NSIndexPath *indexPath = [self.userTableView indexPathForSelectedRow];
+        MovieDetailViewController *movieDetailVC = segue.destinationViewController;
+ //       movieDetailVC.movieName = [movies]
+    }
+}
 
 
 @end

@@ -10,4 +10,7 @@
 
 @interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) IBOutlet UITableView *userTableView;
+
+
 @end
