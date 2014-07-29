@@ -49,14 +49,14 @@
     /*
     if (cell == nil) {
         cell = [[LikedTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableIdentifier];
-    }
-    */
+     }
+     */
+    
     if (cell == nil)
     {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"LikedTableCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-    
     cell.movieName.text = [list objectAtIndex:indexPath.row];
     cell.dateLabel.text = [movieDate objectAtIndex:indexPath.row];
     return cell;

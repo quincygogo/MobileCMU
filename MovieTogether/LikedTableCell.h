@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface LikedTableCell : UITableViewCell
+
 @property (strong, nonatomic) IBOutlet UILabel *movieName;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 

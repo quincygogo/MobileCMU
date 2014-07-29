@@ -9,8 +9,6 @@
 #import "LikedTableCell.h"
 
 @implementation LikedTableCell
-@synthesize movieName = _movieName;
-@synthesize dateLabel = _dateLabel;
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

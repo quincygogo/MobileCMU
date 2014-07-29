@@ -9,11 +9,13 @@
 #import "UserTableViewCell.h"
 
 @implementation UserTableViewCell
-
-- (void)awakeFromNib
-{
-    // Initialization code
-}
+/*
+@synthesize userImg;
+@synthesize userName;
+@synthesize gender;
+@synthesize dateLabel;
+@synthesize theatre;
+*/
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
