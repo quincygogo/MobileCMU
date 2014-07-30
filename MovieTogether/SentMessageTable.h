@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface SentMessageTable : NSObject <UITableViewDelegate, UITableViewDataSource>
-
+{
+    NSMutableIndexSet *expandedSections;
+}
 @end
