@@ -15,7 +15,9 @@
     NSMutableDictionary *dicClicked;
     NSInteger count;
     CGFloat mHeight;
-    NSInteger sectionIndex;}
+    NSInteger sectionIndex;
+    NSInteger *check;
+}
 
 - (id) init
 {
@@ -26,7 +28,8 @@
         mHeight = originalHeight;
         sectionIndex = 0;
         dicClicked = [NSMutableDictionary dictionaryWithCapacity:3];
-
+//        firstTime = [NSMutableArray arrayWithCapacity:20];
+        check = 0;
     }
     return self;
 }
@@ -41,7 +44,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 50;
+    return 20;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -52,19 +55,57 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *contentIndentifer = @"Container";
+    float FONT_SIZE = 12.0f;
     if (indexPath.row == 0) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:contentIndentifer];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:contentIndentifer];
+            CGRect nameFrame = CGRectMake(0.0f, 2.0f, 60.0f, 20.0f);
+            UILabel *name = [[UILabel alloc] initWithFrame:nameFrame];
+            name.text = @"From";
+            [name setLineBreakMode:NSLineBreakByWordWrapping];
+            [name setMinimumScaleFactor:FONT_SIZE];
+            [name setNumberOfLines:0];
+            [name setFont:[UIFont systemFontOfSize:FONT_SIZE]];
+            [name setTag:0];
+            
+            CGRect movieFrame = CGRectMake(0.0f, 22.0f, 60.0f, 20.0f);
+            UILabel *movie = [[UILabel alloc] initWithFrame:movieFrame];
+            movie.text = @"Transformer";
+            [movie setLineBreakMode:NSLineBreakByWordWrapping];
+            [movie setMinimumScaleFactor:FONT_SIZE];
+            [movie setNumberOfLines:0];
+            [movie setFont:[UIFont systemFontOfSize:FONT_SIZE]];
+            [movie setTag:1];
+
+            [[cell contentView] addSubview:name];
+            [[cell contentView] addSubview:movie];
+//            if ([firstTime count] >= indexPath.section && [[firstTime objectAtIndex:indexPath.section] isEqualToString: @"done"])
+//            {
+//                [cell viewWithTag:1].hidden = YES;
+//                NSLog(@"hehe");
+//                [firstTime replaceObjectAtIndex:indexPath.section withObject:@"done"];
+//            }
+//            else
+//            {
+//                [cell viewWithTag:1].hidden = NO;
+//            }
+            if (check <= indexPath.section) {
+                [cell viewWithTag:1].hidden = YES;
+                check = indexPath.section;
+            } else {
+                [cell viewWithTag:1].hidden = NO;
+            }
         }
-        NSString *statisticsContent = [[NSString alloc] initWithString:@"rlf:岁月流芳，花开几度，走在岁月里，醉在流香里，总在时光里辗转徘徊。花开几许，落花几度，岁月寒香，飘进谁的诗行，一抹幽香，掺入几许愁伤，流年似花，春来秋往，睁开迷离的双眼，回首张望，随风的尘烟荡漾着迷忙，昨日的光阴已逝去."];
-        
-        cell.textLabel.font = [UIFont systemFontOfSize:12.0f];
-        cell.textLabel.text = statisticsContent;
-        cell.textLabel.textColor = [UIColor brownColor];
-        cell.textLabel.opaque = NO; // 选中Opaque表示视图后面的任何内容都不应该绘制
-        cell.textLabel.numberOfLines = 10;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+//        NSString *statisticsContent = [[NSString alloc] initWithString:@"From:"];
+//        
+//        cell.textLabel.font = [UIFont systemFontOfSize:12.0f];
+//        cell.textLabel.text = statisticsContent;
+//        cell.textLabel.textColor = [UIColor brownColor];
+//        cell.textLabel.opaque = NO; // 选中Opaque表示视图后面的任何内容都不应该绘制
+//        cell.textLabel.numberOfLines = 10;
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     static NSString *CellIdentifier = @"Cell";
@@ -152,6 +193,7 @@
 {
     if (indexPath.row == 0) {
         UITableViewCell *targetCell = [tableView cellForRowAtIndexPath:indexPath];
+        
         if (targetCell.frame.size.height == originalHeight){
             [dicClicked setObject:isOpen forKey:indexPath];
         }
@@ -159,10 +201,9 @@
             [dicClicked removeObjectForKey:indexPath];
         }
         [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
-    }
-    NSLog(@"indexPath=%@",indexPath);
-    NSLog(@"dicClicked=%@",dicClicked);
+      }
+//    NSLog(@"indexPath=%@",indexPath);
+//    NSLog(@"dicClicked=%@",dicClicked);
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

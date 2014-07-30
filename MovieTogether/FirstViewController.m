@@ -78,6 +78,7 @@
         NSIndexPath *indexPath = [self.userTableView indexPathForSelectedRow];
         MovieDetailViewController *movieDetailVC = segue.destinationViewController;
  //       movieDetailVC.movieName = [movies]
+        NSLog(@"%d", indexPath.row);
     }
 }
 

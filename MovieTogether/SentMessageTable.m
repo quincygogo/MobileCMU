@@ -63,7 +63,7 @@
         cell.textLabel.text = statisticsContent;
         cell.textLabel.textColor = [UIColor brownColor];
         cell.textLabel.opaque = NO; // 选中Opaque表示视图后面的任何内容都不应该绘制
-        cell.textLabel.numberOfLines = 20;
+        cell.textLabel.numberOfLines = 0;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
