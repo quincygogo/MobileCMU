@@ -7,6 +7,7 @@
 //
 
 #import "TheatreDetail.h"
+#import <Social/Social.h>
 
 @interface TheatreDetail ()
 
@@ -47,5 +48,25 @@
 */
 
 - (IBAction)like:(id)sender {
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        [controller setInitialText:@"First post from my iPhone app"];
+        [self presentViewController:controller animated:YES completion:Nil];
+    }
+    else
+    {
+//        [self showMessage:@"You're now logged out" withTitle:@""];   
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Facebook account set up"
+                                                        message:@"You must set up your Facebook account to use this feature."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+//        [alert ];
+    }
 }
+
+
 @end

@@ -31,6 +31,7 @@
 		2C3C2CBD1986FB9A00E970FB /* MovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3C2CBC1986FB9A00E970FB /* MovieDetailViewController.m */; };
 		2C57CB21198AAB82006B5FFC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C57CB20198AAB82006B5FFC /* User.m */; };
 		3BE2A835198AC56800048879 /* TheatreDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2A834198AC56800048879 /* TheatreDetail.m */; };
+		3BE2A87C198AE93E00048879 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE2A87B198AE93E00048879 /* Social.framework */; };
 		3BFC2D5A1987695D00918711 /* MessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC2D591987695D00918711 /* MessageController.m */; };
 		3BFC2D5D19876A0F00918711 /* SentMessageTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC2D5C19876A0F00918711 /* SentMessageTable.m */; };
 		3BFC2D601987707F00918711 /* ReceivedMessageTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC2D5F1987707F00918711 /* ReceivedMessageTable.m */; };
@@ -83,6 +84,7 @@
 		2C57CB20198AAB82006B5FFC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3BE2A833198AC56800048879 /* TheatreDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheatreDetail.h; sourceTree = "<group>"; };
 		3BE2A834198AC56800048879 /* TheatreDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheatreDetail.m; sourceTree = "<group>"; };
+		3BE2A87B198AE93E00048879 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3BFC2D581987695D00918711 /* MessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageController.h; sourceTree = "<group>"; };
 		3BFC2D591987695D00918711 /* MessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageController.m; sourceTree = "<group>"; };
 		3BFC2D5B19876A0F00918711 /* SentMessageTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SentMessageTable.h; path = MovieTogether/SentMessageTable.h; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BE2A87C198AE93E00048879 /* Social.framework in Frameworks */,
 				2C3C2BED19857D5200E970FB /* CoreGraphics.framework in Frameworks */,
 				2C3C2BEF19857D5200E970FB /* UIKit.framework in Frameworks */,
 				2C3C2BEB19857D5200E970FB /* Foundation.framework in Frameworks */,
@@ -137,6 +140,7 @@
 		2C3C2BE919857D5200E970FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3BE2A87B198AE93E00048879 /* Social.framework */,
 				2C3C2BEA19857D5200E970FB /* Foundation.framework */,
 				2C3C2BEC19857D5200E970FB /* CoreGraphics.framework */,
 				2C3C2BEE19857D5200E970FB /* UIKit.framework */,
