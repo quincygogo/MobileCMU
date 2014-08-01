@@ -8,12 +8,17 @@
 
 #import "TheatreDetail.h"
 #import <Social/Social.h>
+#import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
+#import "AppDelegate.h"
 
 @interface TheatreDetail ()
 
 @end
 
-@implementation TheatreDetail
+@implementation TheatreDetail {
+    AppDelegate *user;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +33,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    user = [[UIApplication sharedApplication] delegate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,25 +54,91 @@
 */
 
 - (IBAction)like:(id)sender {
-    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        
-        [controller setInitialText:@"First post from my iPhone app"];
-        [self presentViewController:controller animated:YES completion:Nil];
-    }
-    else
+//    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+//        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+//        
+//        [controller setInitialText:@"First post from my iPhone app"];
+//        [self presentViewController:controller animated:YES completion:Nil];
+//    }
+//    else
+//    {
+////        [self showMessage:@"You're now logged out" withTitle:@""];   
+//        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Facebook account set up"
+//                                                        message:@"You must set up your Facebook account to use this feature."
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil];
+//        [alert show];
+////        [alert ];
+//    }
+   
+    
+    if (([PFUser currentUser] && // Check if a user is cached
+        [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])) // Check if user is linked to Facebook
     {
-//        [self showMessage:@"You're now logged out" withTitle:@""];   
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Facebook account set up"
-                                                        message:@"You must set up your Facebook account to use this feature."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-//        [alert ];
+        NSLog(@"user exists");
+        if (user.userName == NULL)
+        {
+            [self getUserInfor];
+        }
+        else
+        {
+            [self addLike];
+        }
+    }
+    // Login PFUser using Facebook
+    else {
+        [self loginFacebook];
     }
 }
 
+
+- (void) addLike
+{
+    NSLog(@"%@, %@", user.userName, @"like");
+}
+
+- (void) getUserInfor
+{
+    FBRequest *request = [FBRequest requestForMe];
+    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        if (!error) {
+            // result is a dictionary with the user's Facebook data
+            NSDictionary *userData = (NSDictionary *)result;
+            
+            NSString *facebookID = userData[@"id"];
+            NSString *name = userData[@"name"];
+            NSString *gender = userData[@"gender"];
+
+//            NSString *location = userData[@"location"][@"name"];
+//            NSString *birthday = userData[@"birthday"];
+//            NSString *relationship = userData[@"relationship_status"];
+//            
+            NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
+            
+            user.userName = name;
+            user.gender = gender;
+            user.picture = pictureURL;
+            [self addLike];
+        }
+    }];
+}
+
+- (void) loginFacebook
+{
+    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+        if (!user) {
+            if (!error) {
+                NSLog(@"Uh oh. The user cancelled the Facebook login.");
+            } else {
+                NSLog(@"Uh oh. An error occurred: %@", error);
+            }
+        } else {
+            [self getUserInfor];
+        }
+        }];
+}
 
 @end

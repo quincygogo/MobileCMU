@@ -7,12 +7,25 @@
 //
 
 #import "AppDelegate.h"
+#import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
+
+@synthesize userName;
+@synthesize gender;
+@synthesize picture;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    userName = nil;
+    gender = nil;
+    picture = nil;
+    [Parse setApplicationId:@"7bOL0GhPNKROKCpeP0PFSkPcNn8fxFXzYOWd8Ucz"
+                  clientKey:@"jyQTuEisaIh7nQp6gW8FFGL4hvZOc6WWuE26vk0V"];
+    [FBSettings setDefaultAppID: @"1439364956345872"];
+    [PFFacebookUtils initializeFacebook];
     return YES;
 }
 							
@@ -36,11 +49,21 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+     [[PFFacebookUtils session] close];
 }
 
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [FBAppCall handleOpenURL:url
+                  sourceApplication:sourceApplication
+                        withSession:[PFFacebookUtils session]];
+}
 @end
