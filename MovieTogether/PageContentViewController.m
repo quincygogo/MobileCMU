@@ -40,7 +40,7 @@
     global = [[UIApplication sharedApplication] delegate];
     tomorrow = [[NSMutableArray alloc] init];
     transformer = [[NSMutableArray alloc] init];
-    [self addToList];
+//    [self addToList];
     
     for (id objcet in global.userList)
     {
