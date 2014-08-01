@@ -13,6 +13,7 @@
 #import <Parse/Parse.h>
 #import "AppDelegate.h"
 #import "User.h"
+#import "Liked.h"
 
 @interface PageContentViewController ()
 
@@ -25,7 +26,8 @@
     NSMutableArray *genderList;
     NSMutableArray *dateList;
     NSMutableArray *theatreList;
-    
+    NSMutableArray *tomorrow;
+    NSMutableArray *transformer;
     AppDelegate *global;
 }
 
@@ -36,7 +38,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     global = [[UIApplication sharedApplication] delegate];
-   
+    tomorrow = [[NSMutableArray alloc] init];
+    transformer = [[NSMutableArray alloc] init];
+    [self addToList];
+    
     for (id objcet in global.userList)
     {
         NSLog(((User *)objcet).name);
@@ -102,4 +107,11 @@
     }
 }
 
+//- (void) addToList
+//{
+//    for (User *user in global.userList)
+//    {
+//        if (user.)
+//    }
+//}
 @end

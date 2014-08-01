@@ -10,6 +10,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <Parse/Parse.h>
 #import "User.h"
+#import "Liked.h"
 
 @implementation AppDelegate
 
@@ -18,6 +19,7 @@
 @synthesize picture;
 @synthesize picHeader;
 @synthesize userList;
+@synthesize likeList;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -74,18 +76,30 @@
 
 - (void) getInfo
 {
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"set" equalTo:@YES];
     userList = [[NSMutableArray alloc] init];
-    NSArray* objects = [query findObjects];
-    NSLog(@"%d", [objects count]);
+    likeList = [[NSMutableArray alloc] init];
+    
+    PFQuery *query1 = [PFUser query];
+    [query1 whereKey:@"set" equalTo:@YES];
+    NSArray* objects = [query1 findObjects];
     for (PFObject *object in objects) {
         User *user = [[User alloc] init];
         user.name =[object objectForKey:@"name"];
         user.gender =[object objectForKey:@"gender"];
         user.pic =[object objectForKey:@"pic"];
         [userList addObject:user];
-        NSLog(user.name);
+    }
+    
+    PFQuery *query2 = [PFQuery queryWithClassName:@"LikedList"];
+    [query2 selectKeys:@[@"playerName", @"score"]];
+    objects = [query2 findObjects];
+    for (PFObject *object in objects) {
+        Liked *like = [[Liked alloc] init];
+        like.movieName =[object objectForKey:@"moviename"];
+        like.showTime =[object objectForKey:@"showtime"];
+        like.theater = [object objectForKey:@"theater"];
+        like.userName = [object objectForKey:@"usernmae"];
+        [likeList addObject:like];
     }
 
 }

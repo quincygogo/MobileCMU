@@ -31,6 +31,7 @@
 		2C3C2CBD1986FB9A00E970FB /* MovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3C2CBC1986FB9A00E970FB /* MovieDetailViewController.m */; };
 		2C57CB21198AAB82006B5FFC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C57CB20198AAB82006B5FFC /* User.m */; };
 		2CC1E214198B254500A87727 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC1E213198B254500A87727 /* Parse.framework */; };
+		3B294594198C2E8400A93E6D /* Liked.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B294593198C2E8400A93E6D /* Liked.m */; };
 		3B79CA1B198AF4EA00AE76AB /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B79CA1A198AF4EA00AE76AB /* FacebookSDK.framework */; };
 		3B79CA1D198AF7A500AE76AB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B79CA1C198AF7A500AE76AB /* Parse.framework */; };
 		3B79CA1F198AFAFA00AE76AB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B79CA1E198AFAFA00AE76AB /* AudioToolbox.framework */; };
@@ -95,6 +96,8 @@
 		2C57CB1F198AAB82006B5FFC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		2C57CB20198AAB82006B5FFC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		2CC1E213198B254500A87727 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		3B294592198C2E8400A93E6D /* Liked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Liked.h; sourceTree = "<group>"; };
+		3B294593198C2E8400A93E6D /* Liked.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Liked.m; sourceTree = "<group>"; };
 		3B79CA1A198AF4EA00AE76AB /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		3B79CA1C198AF7A500AE76AB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3B79CA1E198AFAFA00AE76AB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -269,6 +272,8 @@
 			children = (
 				2C57CB1F198AAB82006B5FFC /* User.h */,
 				2C57CB20198AAB82006B5FFC /* User.m */,
+				3B294592198C2E8400A93E6D /* Liked.h */,
+				3B294593198C2E8400A93E6D /* Liked.m */,
 			);
 			name = Object;
 			sourceTree = "<group>";
@@ -401,6 +406,7 @@
 				2C3C2CB91986C9ED00E970FB /* UserTableViewCell.m in Sources */,
 				2C3C2C0419857D5200E970FB /* SecondViewController.m in Sources */,
 				2C3C2BFB19857D5200E970FB /* AppDelegate.m in Sources */,
+				3B294594198C2E8400A93E6D /* Liked.m in Sources */,
 				2C3C2CB41986BF2A00E970FB /* LikedTableCell.m in Sources */,
 				3BFC2D5A1987695D00918711 /* MessageController.m in Sources */,
 				2C3C2C2419858D7200E970FB /* PageContentViewController.m in Sources */,
