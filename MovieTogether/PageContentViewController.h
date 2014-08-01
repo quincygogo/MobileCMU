@@ -8,7 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PageContentViewController : UIViewController
+@interface PageContentViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+// ----revised-----
+@property (strong, nonatomic) IBOutlet UITableView *userTableView;  // firstVC.h
+@property (strong, nonatomic) IBOutlet UIImageView *movieImg;
+@property (strong, nonatomic) IBOutlet UILabel *movieLabel;
+
+@property NSUInteger pageIndex;
+@property NSString *movieName;
+@property NSString *imgFile;
+
+
+// ???? tableview   ？？？？？？？？？？？？？？？？？？？？？？？
+
 
 @end
 
