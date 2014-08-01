@@ -15,6 +15,7 @@
 @synthesize userName;
 @synthesize gender;
 @synthesize picture;
+@synthesize picHeader;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -22,6 +23,7 @@
     userName = nil;
     gender = nil;
     picture = nil;
+    picHeader = @"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1";
     [Parse setApplicationId:@"7bOL0GhPNKROKCpeP0PFSkPcNn8fxFXzYOWd8Ucz"
                   clientKey:@"jyQTuEisaIh7nQp6gW8FFGL4hvZOc6WWuE26vk0V"];
     [FBSettings setDefaultAppID: @"1439364956345872"];

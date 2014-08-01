@@ -13,6 +13,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSString *userName;
 @property (strong, nonatomic) NSString *gender;
-@property (strong, nonatomic) NSURL *picture;
+@property (strong, nonatomic) NSString *picture;
+@property (strong, nonatomic) NSString *picHeader;
 
 @end

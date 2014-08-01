@@ -17,7 +17,7 @@
 @end
 
 @implementation TheatreDetail {
-    AppDelegate *user;
+    AppDelegate *globalUser;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    user = [[UIApplication sharedApplication] delegate];
+    globalUser = [[UIApplication sharedApplication] delegate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,9 +78,10 @@
         [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])) // Check if user is linked to Facebook
     {
         NSLog(@"user exists");
-        if (user.userName == NULL)
+        if (globalUser.userName == NULL)
         {
             [self getUserInfor];
+            NSLog(@"Setting global user");
         }
         else
         {
@@ -96,7 +97,7 @@
 
 - (void) addLike
 {
-    NSLog(@"%@, %@", user.userName, @"like");
+    NSLog(@"%@, %@", globalUser.userName, @"like");
 }
 
 - (void) getUserInfor
@@ -117,10 +118,35 @@
 //            
             NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
             
-            user.userName = name;
-            user.gender = gender;
-            user.picture = pictureURL;
+            PFUser *user = [PFUser currentUser];
+            if (![user objectForKey:@"pic"])
+            {
+                user[@"set"] = @YES;
+                user[@"name"] = name;
+                user[@"gender"] = gender;
+                user[@"pic"] = [pictureURL absoluteString];
+                [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (!error)
+                    {
+                        NSLog(@"Saved!");
+                    }
+                    else
+                    {
+                        NSLog(error);
+                    }
+                }];
+            }
+            NSLog(@"Done setting global user");
+            globalUser.userName = name;
+            globalUser.gender = gender;
+            globalUser.picture = [pictureURL absoluteString];
+            
             [self addLike];
+        }
+    
+        else
+        {
+            NSLog(error);
         }
     }];
 }
