@@ -15,5 +15,6 @@
 @property (strong, nonatomic) NSString *gender;
 @property (strong, nonatomic) NSString *picture;
 @property (strong, nonatomic) NSString *picHeader;
+@property (strong, nonatomic) NSMutableArray *userList;
 
 @end

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <Parse/Parse.h>
+#import "User.h"
 
 @implementation AppDelegate
 
@@ -16,6 +17,7 @@
 @synthesize gender;
 @synthesize picture;
 @synthesize picHeader;
+@synthesize userList;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -28,6 +30,7 @@
                   clientKey:@"jyQTuEisaIh7nQp6gW8FFGL4hvZOc6WWuE26vk0V"];
     [FBSettings setDefaultAppID: @"1439364956345872"];
     [PFFacebookUtils initializeFacebook];
+    [self getInfo];
     return YES;
 }
 							
@@ -67,5 +70,23 @@
     return [FBAppCall handleOpenURL:url
                   sourceApplication:sourceApplication
                         withSession:[PFFacebookUtils session]];
+}
+
+- (void) getInfo
+{
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"set" equalTo:@YES];
+    userList = [[NSMutableArray alloc] init];
+    NSArray* objects = [query findObjects];
+    NSLog(@"%d", [objects count]);
+    for (PFObject *object in objects) {
+        User *user = [[User alloc] init];
+        user.name =[object objectForKey:@"name"];
+        user.gender =[object objectForKey:@"gender"];
+        user.pic =[object objectForKey:@"pic"];
+        [userList addObject:user];
+        NSLog(user.name);
+    }
+
 }
 @end
