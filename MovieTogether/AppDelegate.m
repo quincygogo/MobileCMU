@@ -91,14 +91,14 @@
     }
     
     PFQuery *query2 = [PFQuery queryWithClassName:@"LikedList"];
-    [query2 selectKeys:@[@"playerName", @"score"]];
+    [query2 selectKeys:@[@"moviename", @"showtime", @"theater", @"username"]];
     objects = [query2 findObjects];
     for (PFObject *object in objects) {
         Liked *like = [[Liked alloc] init];
         like.movieName =[object objectForKey:@"moviename"];
         like.showTime =[object objectForKey:@"showtime"];
         like.theater = [object objectForKey:@"theater"];
-        like.userName = [object objectForKey:@"usernmae"];
+        like.userName = [object objectForKey:@"username"];
         [likeList addObject:like];
     }
 
