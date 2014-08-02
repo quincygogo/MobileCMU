@@ -158,8 +158,6 @@
             global.userName = name;
             global.gender = gender;
             global.picture = [pictureURL absoluteString];
-            //here
-            NSLog([@"hehe" stringByAppendingString:global.userName]);
             [self addLike];
         }
     

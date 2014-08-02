@@ -75,7 +75,7 @@
                                             <outlet property="theatre" destination="xIe-P2-raJ" id="WAM-Gk-jGD"/>
                                             <outlet property="userImg" destination="Nue-Ig-gC2" id="VLE-hK-7V2"/>
                                             <outlet property="userName" destination="1Wc-sd-O0Z" id="Sn3-9Z-9cQ"/>
-                                            <segue destination="B4x-jW-1jk" kind="push" id="yhT-cN-ael"/>
+                                            <segue destination="B4x-jW-1jk" kind="push" identifier="likeDetail" id="yhT-cN-ael"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -179,7 +179,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="75N-UC-LjW" kind="push" id="4fL-xl-t7H"/>
+                                    <segue destination="75N-UC-LjW" kind="push" id="12G-qc-sdM"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eW9-ln-tk7">
@@ -196,11 +196,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="59" id="49Z-p5-mba">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="59" id="49Z-p5-mba">
                                         <rect key="frame" x="0.0" y="22" width="268" height="59"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="49Z-p5-mba" id="WRa-A6-HTB">
-                                            <rect key="frame" x="0.0" y="0.0" width="268" height="58"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="235" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WaterFront" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26c-5g-4E0">
@@ -418,10 +418,10 @@ West Homestead, PA 15120</string>
             </objects>
             <point key="canvasLocation" x="605" y="742"/>
         </scene>
-        <!--User Detail View Controller-->
+        <!--User Detail Controller-->
         <scene sceneID="iuY-aK-22P">
             <objects>
-                <viewController id="B4x-jW-1jk" customClass="UserDetailViewController" sceneMemberID="viewController">
+                <viewController id="B4x-jW-1jk" customClass="UserDetailController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pwA-k7-I9A"/>
                         <viewControllerLayoutGuide type="bottom" id="vFs-Oa-pUb"/>
@@ -544,6 +544,14 @@ West Homestead, PA 15120</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="XY0-i6-HJW"/>
+                    <connections>
+                        <outlet property="date" destination="E4y-3b-wlK" id="Fwm-Ia-o25"/>
+                        <outlet property="gender" destination="e2E-nS-40k" id="Nw5-Tm-6I9"/>
+                        <outlet property="movieName" destination="dfV-gs-HrJ" id="exm-3Z-8vz"/>
+                        <outlet property="theater" destination="ZPV-GT-tXu" id="Hvf-iu-8WL"/>
+                        <outlet property="userImg" destination="ABi-Ah-ZMn" id="nAs-6E-Iao"/>
+                        <outlet property="userName" destination="Bsg-UI-r75" id="Cjr-EO-1sD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vy5-dB-CET" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -561,8 +569,8 @@ West Homestead, PA 15120</string>
                     </tabBar>
                     <connections>
                         <segue destination="Iiu-iV-JDh" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
-                        <segue destination="EP3-oi-Elx" kind="relationship" relationship="viewControllers" id="wBs-vT-koW"/>
                         <segue destination="qTx-IM-A9M" kind="relationship" relationship="viewControllers" id="Lsk-z7-uxR"/>
+                        <segue destination="EP3-oi-Elx" kind="relationship" relationship="viewControllers" id="wBs-vT-koW"/>
                         <segue destination="0PC-xZ-kDc" kind="relationship" relationship="viewControllers" id="opd-fk-afd"/>
                     </connections>
                 </tabBarController>
@@ -570,7 +578,7 @@ West Homestead, PA 15120</string>
             </objects>
             <point key="canvasLocation" x="-728" y="428"/>
         </scene>
-        <!--Sent Message Controller - Sent message-->
+        <!--Sent Message Controller - Sent-->
         <scene sceneID="xxZ-xg-gjF">
             <objects>
                 <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="EP3-oi-Elx" customClass="SentMessageController" sceneMemberID="viewController">
@@ -595,7 +603,7 @@ West Homestead, PA 15120</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7x-gQ-nb4">
-                                            <rect key="frame" x="131" y="24" width="100" height="21"/>
+                                            <rect key="frame" x="123" y="24" width="100" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
@@ -649,13 +657,13 @@ West Homestead, PA 15120</string>
                             <outlet property="delegate" destination="EP3-oi-Elx" id="tPV-JT-l94"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Sent message" id="HNJ-Ll-VTj"/>
+                    <tabBarItem key="tabBarItem" title="Sent" id="HNJ-Ll-VTj"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JL4-0e-abc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-371" y="1311"/>
         </scene>
-        <!--Received Message Controller - Received Message-->
+        <!--Received Message Controller - Receivde-->
         <scene sceneID="B97-o7-SGv">
             <objects>
                 <tableViewController id="0PC-xZ-kDc" customClass="ReceivedMessageController" sceneMemberID="viewController">
@@ -756,7 +764,7 @@ West Homestead, PA 15120</string>
                             <outlet property="delegate" destination="0PC-xZ-kDc" id="DWD-l0-29j"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Received Message" id="fOz-eI-csa"/>
+                    <tabBarItem key="tabBarItem" title="Receivde" id="fOz-eI-csa"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyb-l4-wFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

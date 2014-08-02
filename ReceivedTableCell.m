@@ -7,8 +7,11 @@
 //
 
 #import "ReceivedTableCell.h"
+#import <Parse/Parse.h>
 
 @implementation ReceivedTableCell
+
+@synthesize messageId;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -32,7 +35,30 @@
 }
 
 - (IBAction)accept:(id)sender {
+    PFQuery *query = [PFQuery queryWithClassName:@"Message"];
+    NSLog(messageId);
+    // Retrieve the object by id
+    [query getObjectInBackgroundWithId:messageId block:^(PFObject *message, NSError *error) {
+        
+        // Now let's update it with some new data. In this case, only cheatMode and score
+        // will get sent to the cloud. playerName hasn't changed.
+        message[@"status"] = @"Accepted";
+        [message saveInBackground];
+        
+    }];
 }
+
 - (IBAction)decline:(id)sender {
+    PFQuery *query = [PFQuery queryWithClassName:@"Message"];
+    
+    // Retrieve the object by id
+    [query getObjectInBackgroundWithId:messageId block:^(PFObject *message, NSError *error) {
+        
+        // Now let's update it with some new data. In this case, only cheatMode and score
+        // will get sent to the cloud. playerName hasn't changed.
+        message[@"status"] = @"Declined";
+        [message saveInBackground];
+    }];
 }
+
 @end

@@ -87,7 +87,7 @@
     if (self){
         self.parseClassName = @"Message";
         // Whether the built-in pull-to-refresh is enabled
-        self.title = @"Sent Message";
+        self.title = @"Received Message";
         self.pullToRefreshEnabled = YES;
         
         // Whether the built-in pagination is enabled
@@ -186,11 +186,21 @@
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:user.pic]];
     cell.fromUserImg.image =  [UIImage imageWithData:data];
     
+    cell.messageId = object.objectId;
     if ([[object objectForKey:@"status"] isEqualToString:@"Pending"])
     {
         cell.status.hidden = YES;
         cell.acceptButton.hidden = NO;
         cell.acceptButton.hidden = NO;
+    }
+    else if ([[object objectForKey:@"status"] isEqualToString:@"Declined"])
+    {
+        cell.status.hidden = NO;
+        cell.status.text = @"Declined";
+        [cell.status setTextColor:[UIColor redColor]];
+        cell.acceptButton.hidden = YES;
+        cell.declineButton.hidden = YES;
+        
     }
     else
     {

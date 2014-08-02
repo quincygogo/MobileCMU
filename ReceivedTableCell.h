@@ -20,4 +20,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *acceptButton;
 @property (strong, nonatomic) IBOutlet UIButton *declineButton;
 @property (strong, nonatomic) IBOutlet UILabel *status;
+
+@property (strong, nonatomic) NSString *messageId;
 @end

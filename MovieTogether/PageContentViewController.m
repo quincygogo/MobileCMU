@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "User.h"
 #import "Liked.h"
+#import "UserDetailController.h"
 
 @interface PageContentViewController ()
 
@@ -28,7 +29,7 @@
     NSMutableArray *theatreList;
     NSMutableArray *tomorrow;
     NSMutableArray *transformer;
-//    NSMutableArray *user
+
     AppDelegate *global;
 }
 
@@ -53,16 +54,28 @@
     self.movieLabel.text = self.movieName;
     
     
-    imgList = [NSMutableArray arrayWithObjects:@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png", nil];
+//    imgList = [NSMutableArray arrayWithObjects:@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png", nil];
   //  userList = [NSMutableArray arrayWithObjects:@"Transformer", @"Tomorrow", @"Lucy", @"Ape", @"Transformer", @"The", @"Lucy", @"Transformer", @"Edge", @"Lucy", nil];
-    genderList = [NSMutableArray arrayWithObjects:@"Female", @"Male", @"Female", @"Male", @"Female", @"Male", @"Female", @"Male", @"Female", @"Male", nil];
-    dateList = [NSMutableArray arrayWithObjects:@"Jul 27", @"Jul 28", @"Jul 29", @"Jul 27", @"Jul 28", @"Jul 29", @"Jul 27", @"Jul 28", @"Jul 2923", @"Jul 27", nil];
-    theatreList = [NSMutableArray arrayWithObjects:@"WaterFront", @"EMC", @"CMU", @"WaterFront", @"EMC", @"CMU", @"WaterFront", @"EMC", @"CMU", @"sdf", nil];
-    
+//    genderList = [NSMutableArray arrayWithObjects:@"Female", @"Male", @"Female", @"Male", @"Female", @"Male", @"Female", @"Male", @"Female", @"Male", nil];
+//    dateList = [NSMutableArray arrayWithObjects:@"Jul 27", @"Jul 28", @"Jul 29", @"Jul 27", @"Jul 28", @"Jul 29", @"Jul 27", @"Jul 28", @"Jul 2923", @"Jul 27", nil];
+//    theatreList = [NSMutableArray arrayWithObjects:@"WaterFront", @"EMC", @"CMU", @"WaterFront", @"EMC", @"CMU", @"WaterFront", @"EMC", @"CMU", @"sdf", nil];
+//    
     NSEnumerator * value = [global.userList objectEnumerator];
     for (NSObject *object in value) {
         [userList addObject:object];
    //     NSLog(object);
+    }
+    for (NSObject *object in global.likeList)
+    {
+        Liked *liked = (Liked *) object;
+        if ([liked.movieName isEqualToString:@"Tomorrow"])
+        {
+            [tomorrow addObject :liked];
+        }
+        else if ([liked.movieName isEqualToString:@"Transformer"])
+        {
+            [transformer addObject:liked];
+        }
     }
 }
 
@@ -77,7 +90,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
  //   NSLog(@"%d", [userList count]);
-    return [global.userList count];
+    return [tomorrow count];
 }
 
 // called every time when a table row is displayed - need to implement if has UITableViewDataSource
@@ -92,15 +105,16 @@
         cell = [nib objectAtIndex:0];
     }
     
-    User *user = (User *)[userList objectAtIndex:indexPath.row];
+    Liked *like = (Liked *)[tomorrow objectAtIndex:indexPath.row];
+    User *user = (User *)[global.userList objectForKey:like.userName];
 //    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://scontent-b.xx.fbcdn.net/hphotos-xpa1/t1.0-9/1425657_1441170366110528_269769878_n.jpg"]];
     
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:user.pic]];
     cell.userImg.image = [UIImage imageWithData:data];
     cell.userName.text = user.name;
     cell.gender.text = user.gender;
-    cell.dateLabel.text = [dateList objectAtIndex:indexPath.row];
-    cell.theatre.text = [theatreList objectAtIndex:indexPath.row];
+    cell.dateLabel.text = like.showTime;
+    cell.theatre.text = like.theater;
     
     return cell;
 }
@@ -113,13 +127,16 @@
         //       movieDetailVC.movieName = [movies]
         NSLog(@"%d", indexPath.row);
     }
-}
 
-//- (void) addToList
-//{
-//    for (User *user in global.userList)
-//    {
-//        if (user.)
-//    }
-//}
+   else if ([segue.identifier isEqualToString:@"likeDetail"])
+    {
+        NSIndexPath *indexPath = [self.userTableView indexPathForSelectedRow];
+        UserTableViewCell *cell =(UserTableViewCell *)[self.userTableView cellForRowAtIndexPath:indexPath];
+        NSLog(cell.userName.text);
+        
+        UserDetailController *view = segue.destinationViewController;
+        view.user = (User *)[global.userList objectForKey:cell.userName];
+        view.like = (Liked *)[tomorrow objectAtIndex:indexPath.row];
+    }
+}
 @end
