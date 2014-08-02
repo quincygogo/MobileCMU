@@ -28,6 +28,7 @@
     NSMutableArray *theatreList;
     NSMutableArray *tomorrow;
     NSMutableArray *transformer;
+//    NSMutableArray *user
     AppDelegate *global;
 }
 
@@ -42,10 +43,11 @@
     transformer = [[NSMutableArray alloc] init];
 //    [self addToList];
     
-    for (id objcet in global.userList)
-    {
-        NSLog(((User *)objcet).name);
-    }
+    userList = [[NSMutableArray alloc]init];
+//    for (id objcet in global.userList)
+//    {
+//        NSLog(((User *)objcet).name);
+//    }
     // ---revised-------
     self.movieImg.image = [UIImage imageNamed:self.imgFile];
     self.movieLabel.text = self.movieName;
@@ -56,6 +58,12 @@
     genderList = [NSMutableArray arrayWithObjects:@"Female", @"Male", @"Female", @"Male", @"Female", @"Male", @"Female", @"Male", @"Female", @"Male", nil];
     dateList = [NSMutableArray arrayWithObjects:@"Jul 27", @"Jul 28", @"Jul 29", @"Jul 27", @"Jul 28", @"Jul 29", @"Jul 27", @"Jul 28", @"Jul 2923", @"Jul 27", nil];
     theatreList = [NSMutableArray arrayWithObjects:@"WaterFront", @"EMC", @"CMU", @"WaterFront", @"EMC", @"CMU", @"WaterFront", @"EMC", @"CMU", @"sdf", nil];
+    
+    NSEnumerator * value = [global.userList objectEnumerator];
+    for (NSObject *object in value) {
+        [userList addObject:object];
+   //     NSLog(object);
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,7 +92,7 @@
         cell = [nib objectAtIndex:0];
     }
     
-    User *user = (User *)[global.userList objectAtIndex:indexPath.row];
+    User *user = (User *)[userList objectAtIndex:indexPath.row];
 //    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://scontent-b.xx.fbcdn.net/hphotos-xpa1/t1.0-9/1425657_1441170366110528_269769878_n.jpg"]];
     
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:user.pic]];

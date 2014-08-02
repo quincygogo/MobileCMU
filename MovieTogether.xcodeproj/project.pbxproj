@@ -43,12 +43,13 @@
 		3B79CA2B198AFB6E00AE76AB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B79CA2A198AFB6E00AE76AB /* Security.framework */; };
 		3B79CA2D198AFB7800AE76AB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B79CA2C198AFB7800AE76AB /* StoreKit.framework */; };
 		3B79CA2F198AFB8800AE76AB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B79CA2E198AFB8800AE76AB /* SystemConfiguration.framework */; };
+		3BD5B689198D524B00032D63 /* SentMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5B688198D524B00032D63 /* SentMessageController.m */; };
+		3BD5B68C198D52A100032D63 /* SentTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5B68B198D52A100032D63 /* SentTableCell.m */; };
+		3BD5B68F198D72AB00032D63 /* ReceivedMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5B68E198D72AB00032D63 /* ReceivedMessageController.m */; };
+		3BD5B692198D72E600032D63 /* ReceivedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5B691198D72E600032D63 /* ReceivedTableCell.m */; };
 		3BE2A835198AC56800048879 /* TheatreDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2A834198AC56800048879 /* TheatreDetail.m */; };
 		3BE2A87C198AE93E00048879 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE2A87B198AE93E00048879 /* Social.framework */; };
 		3BE6886C198C765400162264 /* LikeListTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6886B198C765400162264 /* LikeListTable.m */; };
-		3BFC2D5A1987695D00918711 /* MessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC2D591987695D00918711 /* MessageController.m */; };
-		3BFC2D5D19876A0F00918711 /* SentMessageTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC2D5C19876A0F00918711 /* SentMessageTable.m */; };
-		3BFC2D601987707F00918711 /* ReceivedMessageTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC2D5F1987707F00918711 /* ReceivedMessageTable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,17 +111,19 @@
 		3B79CA2A198AFB6E00AE76AB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3B79CA2C198AFB7800AE76AB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3B79CA2E198AFB8800AE76AB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3BD5B687198D524B00032D63 /* SentMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SentMessageController.h; sourceTree = "<group>"; };
+		3BD5B688198D524B00032D63 /* SentMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SentMessageController.m; sourceTree = "<group>"; };
+		3BD5B68A198D52A100032D63 /* SentTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SentTableCell.h; sourceTree = "<group>"; };
+		3BD5B68B198D52A100032D63 /* SentTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SentTableCell.m; sourceTree = "<group>"; };
+		3BD5B68D198D72AB00032D63 /* ReceivedMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceivedMessageController.h; sourceTree = "<group>"; };
+		3BD5B68E198D72AB00032D63 /* ReceivedMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceivedMessageController.m; sourceTree = "<group>"; };
+		3BD5B690198D72E600032D63 /* ReceivedTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceivedTableCell.h; sourceTree = "<group>"; };
+		3BD5B691198D72E600032D63 /* ReceivedTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceivedTableCell.m; sourceTree = "<group>"; };
 		3BE2A833198AC56800048879 /* TheatreDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheatreDetail.h; sourceTree = "<group>"; };
 		3BE2A834198AC56800048879 /* TheatreDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheatreDetail.m; sourceTree = "<group>"; };
 		3BE2A87B198AE93E00048879 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3BE6886A198C765400162264 /* LikeListTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeListTable.h; sourceTree = "<group>"; };
 		3BE6886B198C765400162264 /* LikeListTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeListTable.m; sourceTree = "<group>"; };
-		3BFC2D581987695D00918711 /* MessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageController.h; sourceTree = "<group>"; };
-		3BFC2D591987695D00918711 /* MessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageController.m; sourceTree = "<group>"; };
-		3BFC2D5B19876A0F00918711 /* SentMessageTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SentMessageTable.h; path = MovieTogether/SentMessageTable.h; sourceTree = "<group>"; };
-		3BFC2D5C19876A0F00918711 /* SentMessageTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SentMessageTable.m; path = MovieTogether/SentMessageTable.m; sourceTree = "<group>"; };
-		3BFC2D5E1987707F00918711 /* ReceivedMessageTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReceivedMessageTable.h; path = MovieTogether/ReceivedMessageTable.h; sourceTree = "<group>"; };
-		3BFC2D5F1987707F00918711 /* ReceivedMessageTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReceivedMessageTable.m; path = MovieTogether/ReceivedMessageTable.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,12 +286,14 @@
 		3B2DBB5D19877DAA00D5BA2F /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				3BFC2D5B19876A0F00918711 /* SentMessageTable.h */,
-				3BFC2D5C19876A0F00918711 /* SentMessageTable.m */,
-				3BFC2D581987695D00918711 /* MessageController.h */,
-				3BFC2D591987695D00918711 /* MessageController.m */,
-				3BFC2D5E1987707F00918711 /* ReceivedMessageTable.h */,
-				3BFC2D5F1987707F00918711 /* ReceivedMessageTable.m */,
+				3BD5B687198D524B00032D63 /* SentMessageController.h */,
+				3BD5B688198D524B00032D63 /* SentMessageController.m */,
+				3BD5B68A198D52A100032D63 /* SentTableCell.h */,
+				3BD5B68B198D52A100032D63 /* SentTableCell.m */,
+				3BD5B68D198D72AB00032D63 /* ReceivedMessageController.h */,
+				3BD5B68E198D72AB00032D63 /* ReceivedMessageController.m */,
+				3BD5B690198D72E600032D63 /* ReceivedTableCell.h */,
+				3BD5B691198D72E600032D63 /* ReceivedTableCell.m */,
 			);
 			name = Message;
 			path = ..;
@@ -415,18 +420,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C3C2CBD1986FB9A00E970FB /* MovieDetailViewController.m in Sources */,
-				3BFC2D601987707F00918711 /* ReceivedMessageTable.m in Sources */,
 				2C3C2CB91986C9ED00E970FB /* UserTableViewCell.m in Sources */,
 				2C3C2C0419857D5200E970FB /* SecondViewController.m in Sources */,
 				2C3C2BFB19857D5200E970FB /* AppDelegate.m in Sources */,
+				3BD5B689198D524B00032D63 /* SentMessageController.m in Sources */,
 				3B294594198C2E8400A93E6D /* Liked.m in Sources */,
 				2C3C2CB41986BF2A00E970FB /* LikedTableCell.m in Sources */,
-				3BFC2D5A1987695D00918711 /* MessageController.m in Sources */,
 				2C3C2C2419858D7200E970FB /* PageContentViewController.m in Sources */,
 				2C57CB21198AAB82006B5FFC /* User.m in Sources */,
+				3BD5B68C198D52A100032D63 /* SentTableCell.m in Sources */,
+				3BD5B68F198D72AB00032D63 /* ReceivedMessageController.m in Sources */,
 				2C3C2C0119857D5200E970FB /* FirstViewController.m in Sources */,
-				3BFC2D5D19876A0F00918711 /* SentMessageTable.m in Sources */,
 				3BE2A835198AC56800048879 /* TheatreDetail.m in Sources */,
+				3BD5B692198D72E600032D63 /* ReceivedTableCell.m in Sources */,
 				3BE6886C198C765400162264 /* LikeListTable.m in Sources */,
 				2C3C2BF719857D5200E970FB /* main.m in Sources */,
 			);

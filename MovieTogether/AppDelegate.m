@@ -73,31 +73,32 @@
 
 - (void) getInfo
 {
-    userList = [[NSMutableArray alloc] init];
+    userList = [[NSMutableDictionary alloc] init];
     likeList = [[NSMutableArray alloc] init];
     
     PFQuery *query1 = [PFUser query];
     [query1 whereKey:@"set" equalTo:@YES];
     NSArray* objects = [query1 findObjects];
     for (PFObject *object in objects) {
+        
         User *user = [[User alloc] init];
         user.name =[object objectForKey:@"name"];
         user.gender =[object objectForKey:@"gender"];
         user.pic =[object objectForKey:@"pic"];
-        [userList addObject:user];
+        [userList setObject:user forKey:user.name];
     }
     
-    PFQuery *query2 = [PFQuery queryWithClassName:@"LikedList"];
-    [query2 selectKeys:@[@"moviename", @"showtime", @"theater", @"username"]];
-    objects = [query2 findObjects];
-    for (PFObject *object in objects) {
-        Liked *like = [[Liked alloc] init];
-        like.movieName =[object objectForKey:@"moviename"];
-        like.showTime =[object objectForKey:@"showtime"];
-        like.theater = [object objectForKey:@"theater"];
-        like.userName = [object objectForKey:@"username"];
-        [likeList addObject:like];
-    }
+//    PFQuery *query2 = [PFQuery queryWithClassName:@"LikedList"];
+//    [query2 selectKeys:@[@"moviename", @"showtime", @"theater", @"username"]];
+//    objects = [query2 findObjects];
+//    for (PFObject *object in objects) {
+//        Liked *like = [[Liked alloc] init];
+//        like.movieName =[object objectForKey:@"moviename"];
+//        like.showTime =[object objectForKey:@"showtime"];
+//        like.theater = [object objectForKey:@"theater"];
+//        like.userName = [object objectForKey:@"username"];
+//        [likeList addObject:like];
+//    }
 
 }
 @end
