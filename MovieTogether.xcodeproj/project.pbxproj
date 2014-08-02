@@ -45,6 +45,7 @@
 		3B79CA2F198AFB8800AE76AB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B79CA2E198AFB8800AE76AB /* SystemConfiguration.framework */; };
 		3BE2A835198AC56800048879 /* TheatreDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2A834198AC56800048879 /* TheatreDetail.m */; };
 		3BE2A87C198AE93E00048879 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE2A87B198AE93E00048879 /* Social.framework */; };
+		3BE6886C198C765400162264 /* LikeListTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6886B198C765400162264 /* LikeListTable.m */; };
 		3BFC2D5A1987695D00918711 /* MessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC2D591987695D00918711 /* MessageController.m */; };
 		3BFC2D5D19876A0F00918711 /* SentMessageTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC2D5C19876A0F00918711 /* SentMessageTable.m */; };
 		3BFC2D601987707F00918711 /* ReceivedMessageTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC2D5F1987707F00918711 /* ReceivedMessageTable.m */; };
@@ -112,6 +113,8 @@
 		3BE2A833198AC56800048879 /* TheatreDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheatreDetail.h; sourceTree = "<group>"; };
 		3BE2A834198AC56800048879 /* TheatreDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheatreDetail.m; sourceTree = "<group>"; };
 		3BE2A87B198AE93E00048879 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		3BE6886A198C765400162264 /* LikeListTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeListTable.h; sourceTree = "<group>"; };
+		3BE6886B198C765400162264 /* LikeListTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeListTable.m; sourceTree = "<group>"; };
 		3BFC2D581987695D00918711 /* MessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageController.h; sourceTree = "<group>"; };
 		3BFC2D591987695D00918711 /* MessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageController.m; sourceTree = "<group>"; };
 		3BFC2D5B19876A0F00918711 /* SentMessageTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SentMessageTable.h; path = MovieTogether/SentMessageTable.h; sourceTree = "<group>"; };
@@ -203,6 +206,7 @@
 		2C3C2BF019857D5200E970FB /* MovieTogether */ = {
 			isa = PBXGroup;
 			children = (
+				3BE68869198C752C00162264 /* LikedList */,
 				3BE2A832198AC51300048879 /* Theater  */,
 				2C57CB1E198AAB58006B5FFC /* Object */,
 				3B2DBB5D19877DAA00D5BA2F /* Message */,
@@ -217,8 +221,6 @@
 				2C3C2C0319857D5200E970FB /* SecondViewController.m */,
 				2C3C2C0519857D5200E970FB /* Images.xcassets */,
 				2C3C2BF119857D5200E970FB /* Supporting Files */,
-				2C3C2CB11986BF2A00E970FB /* LikedTableCell.h */,
-				2C3C2CB21986BF2A00E970FB /* LikedTableCell.m */,
 				2C3C2CB61986C9ED00E970FB /* UserTableViewCell.h */,
 				2C3C2CB71986C9ED00E970FB /* UserTableViewCell.m */,
 				2C3C2CBB1986FB9A00E970FB /* MovieDetailViewController.h */,
@@ -299,6 +301,17 @@
 				3BE2A834198AC56800048879 /* TheatreDetail.m */,
 			);
 			name = "Theater ";
+			sourceTree = "<group>";
+		};
+		3BE68869198C752C00162264 /* LikedList */ = {
+			isa = PBXGroup;
+			children = (
+				2C3C2CB11986BF2A00E970FB /* LikedTableCell.h */,
+				2C3C2CB21986BF2A00E970FB /* LikedTableCell.m */,
+				3BE6886A198C765400162264 /* LikeListTable.h */,
+				3BE6886B198C765400162264 /* LikeListTable.m */,
+			);
+			name = LikedList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,6 +427,7 @@
 				2C3C2C0119857D5200E970FB /* FirstViewController.m in Sources */,
 				3BFC2D5D19876A0F00918711 /* SentMessageTable.m in Sources */,
 				3BE2A835198AC56800048879 /* TheatreDetail.m in Sources */,
+				3BE6886C198C765400162264 /* LikeListTable.m in Sources */,
 				2C3C2BF719857D5200E970FB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

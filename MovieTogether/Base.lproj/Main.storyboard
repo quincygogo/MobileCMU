@@ -9,8 +9,8 @@
             <objects>
                 <viewController storyboardIdentifier="PageContentViewController" id="m6f-S2-ir1" customClass="PageContentViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MlX-ON-6cx"/>
-                        <viewControllerLayoutGuide type="bottom" id="p0B-8U-LYR"/>
+                        <viewControllerLayoutGuide type="top" id="cfk-jG-8E7"/>
+                        <viewControllerLayoutGuide type="bottom" id="WFy-Cx-jSw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1eX-HB-Hwl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -112,8 +112,8 @@
             <objects>
                 <viewController id="QDa-2C-hTf" customClass="MovieDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="05t-IE-OEu"/>
-                        <viewControllerLayoutGuide type="bottom" id="0XM-Uz-Esc"/>
+                        <viewControllerLayoutGuide type="top" id="pAp-o7-TaY"/>
+                        <viewControllerLayoutGuide type="bottom" id="C8y-HA-Nr5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RNC-7W-mKf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -246,8 +246,8 @@
             <objects>
                 <viewController id="75N-UC-LjW" customClass="TheatreDetail" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DJi-mE-gwi"/>
-                        <viewControllerLayoutGuide type="bottom" id="l38-8T-nCj"/>
+                        <viewControllerLayoutGuide type="top" id="gP4-Bc-KeC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zx1-Mp-WtK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SQ0-Et-bP1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -325,8 +325,8 @@
             <objects>
                 <viewController title="First" id="CZ4-MO-1fc" customClass="FirstViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="s9W-kb-ARv"/>
-                        <viewControllerLayoutGuide type="bottom" id="dtj-EO-iXF"/>
+                        <viewControllerLayoutGuide type="top" id="ZbA-lh-TVN"/>
+                        <viewControllerLayoutGuide type="bottom" id="fdB-cx-zLp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2VE-Yg-loa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -352,8 +352,8 @@
             <objects>
                 <viewController id="CHf-z2-XeM" customClass="MessageController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7uR-bO-qzU"/>
-                        <viewControllerLayoutGuide type="bottom" id="S5b-LJ-QSy"/>
+                        <viewControllerLayoutGuide type="top" id="XC3-qW-Kkm"/>
+                        <viewControllerLayoutGuide type="bottom" id="AIW-S3-grF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Whu-T1-Ajq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -412,22 +412,56 @@
             </objects>
             <point key="canvasLocation" x="637" y="1568"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Like List Table - Favorite Movie-->
         <scene sceneID="hV8-AU-Kwd">
             <objects>
-                <tableViewController id="qTx-IM-A9M" sceneMemberID="viewController">
+                <tableViewController title="Favorite Movie" automaticallyAdjustsScrollViewInsets="NO" id="qTx-IM-A9M" customClass="LikeListTable" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="22" sectionFooterHeight="22" id="fzz-lb-Z9M">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="89" id="m89-5f-PLR">
+                            <tableViewCell hidden="YES" autoresizesSubviews="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="89" id="m89-5f-PLR">
                                 <rect key="frame" x="0.0" y="22" width="320" height="89"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m89-5f-PLR" id="yIw-ar-kxx">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LikeCell" rowHeight="67" id="SbM-tX-hY4" customClass="LikedTableCell">
+                                <rect key="frame" x="0.0" y="111" width="320" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SbM-tX-hY4" id="ZlM-oF-D6P">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FaQ-eW-BPp">
+                                            <rect key="frame" x="152" y="40" width="162" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Theater" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4Z-c6-F0S">
+                                            <rect key="frame" x="159" y="11" width="148" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuF-cV-whN">
+                                            <rect key="frame" x="20" y="11" width="131" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="date" destination="FaQ-eW-BPp" id="X9p-MH-vAb"/>
+                                    <outlet property="moviename" destination="fuF-cV-whN" id="0fY-hp-nfe"/>
+                                    <outlet property="theater" destination="T4Z-c6-F0S" id="wVE-64-Olb"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -435,18 +469,19 @@
                             <outlet property="delegate" destination="qTx-IM-A9M" id="ORd-i5-y54"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Favorite" id="Nfc-S7-NPG"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mtu-DU-gbV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-557" y="1322"/>
+            <point key="canvasLocation" x="605" y="742"/>
         </scene>
         <!--User Detail View Controller-->
         <scene sceneID="iuY-aK-22P">
             <objects>
                 <viewController id="B4x-jW-1jk" customClass="UserDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gme-Wt-TaU"/>
-                        <viewControllerLayoutGuide type="bottom" id="wgZ-vm-1Ug"/>
+                        <viewControllerLayoutGuide type="top" id="pwA-k7-I9A"/>
+                        <viewControllerLayoutGuide type="bottom" id="vFs-Oa-pUb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3dh-qZ-VYp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -571,71 +606,6 @@
             </objects>
             <point key="canvasLocation" x="1708" y="407"/>
         </scene>
-        <!--Second View Controller - Second-->
-        <scene sceneID="ot8-2e-RuS">
-            <objects>
-                <viewController title="Second" id="QUy-BD-bpt" customClass="SecondViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="FgS-U6-xeU"/>
-                        <viewControllerLayoutGuide type="bottom" id="stI-4g-hlJ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gMD-aP-Fq6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Favorite Movie list" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vw7-3y-fn1">
-                                <rect key="frame" x="76" y="27" width="168" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="47" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="koq-l5-xSx">
-                                <rect key="frame" x="0.0" y="55" width="320" height="462"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LikedTableCell" rowHeight="47" id="RUs-KE-z0d" customClass="LikedTableCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="47"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RUs-KE-z0d" id="7Y0-05-aVS">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MovieName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bm6-OG-L5V">
-                                                    <rect key="frame" x="20" y="12" width="187" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYO-7q-RCO">
-                                                    <rect key="frame" x="229" y="12" width="71" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="dateLabel" destination="DYO-7q-RCO" id="u4U-ph-5Us"/>
-                                            <outlet property="movieName" destination="bm6-OG-L5V" id="Sef-at-hbY"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="QUy-BD-bpt" id="yDQ-AN-RDd"/>
-                                    <outlet property="delegate" destination="QUy-BD-bpt" id="El9-Ur-fZN"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="second" id="Z7h-1E-pvt"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="691" y="701"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
             <objects>
@@ -648,7 +618,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Iiu-iV-JDh" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
-                        <segue destination="QUy-BD-bpt" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
+                        <segue destination="qTx-IM-A9M" kind="relationship" relationship="viewControllers" id="Lsk-z7-uxR"/>
                         <segue destination="CHf-z2-XeM" kind="relationship" relationship="viewControllers" id="qtK-Ec-b7c"/>
                     </connections>
                 </tabBarController>
@@ -678,7 +648,6 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

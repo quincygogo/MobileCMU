@@ -10,7 +10,8 @@
 
 @interface LikedTableCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UILabel *movieName;
-@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UILabel *moviename;
+@property (strong, nonatomic) IBOutlet UILabel *date;
+@property (strong, nonatomic) IBOutlet UILabel *theater;
 
 @end

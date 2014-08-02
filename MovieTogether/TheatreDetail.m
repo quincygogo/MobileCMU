@@ -17,7 +17,7 @@
 @end
 
 @implementation TheatreDetail {
-    AppDelegate *globalUser;
+    AppDelegate *global;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    globalUser = [[UIApplication sharedApplication] delegate];
+    global = [[UIApplication sharedApplication] delegate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,7 +78,7 @@
         [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])) // Check if user is linked to Facebook
     {
         NSLog(@"user exists");
-        if (globalUser.userName == NULL)
+        if (global.userName == NULL)
         {
             [self getUserInfor];
             NSLog(@"Setting global user");
@@ -97,7 +97,7 @@
 
 - (void) addLike
 {
-    NSLog(@"%@, %@", globalUser.userName, @"like");
+    NSLog(@"%@, %@", global.userName, @"like");
 }
 
 - (void) getUserInfor
@@ -137,10 +137,11 @@
                 }];
             }
             NSLog(@"Done setting global user");
-            globalUser.userName = name;
-            globalUser.gender = gender;
-            globalUser.picture = [pictureURL absoluteString];
-            
+            global.userName = name;
+            global.gender = gender;
+            global.picture = [pictureURL absoluteString];
+            //here
+            NSLog([@"hehe" stringByAppendingString:global.userName]);
             [self addLike];
         }
     

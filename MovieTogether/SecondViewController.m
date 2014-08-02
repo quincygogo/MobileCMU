@@ -57,8 +57,8 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"LikedTableCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-    cell.movieName.text = [list objectAtIndex:indexPath.row];
-    cell.dateLabel.text = [movieDate objectAtIndex:indexPath.row];
+    //cell.moviename.text = [list objectAtIndex:indexPath.row];
+    //cell.date.text = [movieDate objectAtIndex:indexPath.row];
     return cell;
 }
 
