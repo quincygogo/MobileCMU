@@ -10,6 +10,7 @@
 #import <Social/Social.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <Parse/Parse.h>
+#import <math.h>
 #import "AppDelegate.h"
 
 @interface TheatreDetail ()
@@ -18,7 +19,15 @@
 
 @implementation TheatreDetail {
     AppDelegate *global;
+    CLGeocoder *geocoder;
+    CLPlacemark *placemark;
+    NSString *address;
+    MKUserLocation *curLoc;
+    double latitude;
+    double longtitude;
 }
+
+@synthesize mapView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +43,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     global = [[UIApplication sharedApplication] delegate];
+    
+    self.mapView.delegate = self;
+    
+    geocoder = [[CLGeocoder alloc] init];
+    [self getCurrentLoc];
+    [self.mapView.userLocation addObserver:self
+                                forKeyPath:@"location"
+                                   options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld)
+                                   context:NULL];
 }
 
 - (void)didReceiveMemoryWarning
@@ -167,5 +185,54 @@
         }
         }];
 }
+
+
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLoc {
+    curLoc = userLoc;
+    
+    // reverse geocoding
+    NSLog(@"resolving the address");
+    [geocoder reverseGeocodeLocation:curLoc.location completionHandler:^(NSArray *placemarks, NSError *error) {
+        NSLog(@"found placemarks: %@, error: %@", placemarks, error);
+        if (error == nil && [placemarks count] > 0) {
+            placemark = [placemarks lastObject];
+            address = [NSString stringWithFormat:@"%@ %@",
+                       placemark.subThoroughfare, placemark.thoroughfare];
+        } else {
+            NSLog(@"%@", error.debugDescription);
+        }
+    }];
+}
+
+
+- (void)getCurrentLoc {
+    // AMC address
+    latitude= 40.401;
+    longtitude = -79.918;
+    
+    MKCoordinateRegion region;
+    region.center.latitude = (self.mapView.userLocation.coordinate.latitude + latitude)/2;
+    region.center.longitude = (self.mapView.userLocation.coordinate.longitude + longtitude)/2;
+    region.span.latitudeDelta = ([[[CLLocation alloc] initWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude] distanceFromLocation:[[CLLocation alloc] initWithLatitude:latitude longitude:longtitude]])* 1.3 / 111319.5;
+    region.span.longitudeDelta = 0.0;
+    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+    // add annotation
+    MKPointAnnotation *pin = [[MKPointAnnotation alloc] init];
+    pin.coordinate = CLLocationCoordinate2DMake(latitude, longtitude);
+    NSLog(@"log get cur loc");
+
+    [self.mapView addAnnotation:pin];
+    
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([self.mapView showsUserLocation]) {
+        [self getCurrentLoc];
+        // and of course you can use here old and new location values
+    }
+}
+
 
 @end
