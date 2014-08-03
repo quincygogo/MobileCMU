@@ -14,6 +14,9 @@
 @property (strong, nonatomic) IBOutlet UITableView *userTableView;  // firstVC.h
 @property (strong, nonatomic) IBOutlet UIImageView *movieImg;
 @property (strong, nonatomic) IBOutlet UILabel *movieLabel;
+@property (strong, nonatomic) IBOutlet UIButton *movieBtn;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
 @property NSUInteger pageIndex;
 @property NSString *movieName;
 @property NSString *imgFile;

@@ -124,11 +124,11 @@
     // Do any additional setup after loading the view.
     UIEdgeInsets inset = UIEdgeInsetsMake(25, 0, 0, 0);
     self.tableView.contentInset = inset;
-    CGRect movieFrame = CGRectMake(15.0f, 0.0f, 300.0f, 28.0f);
+    CGRect movieFrame = CGRectMake(10.0f, 0.0f, 300.0f, 28.0f);
     
     UILabel *movie = [[UILabel alloc] initWithFrame:movieFrame];
     movie.text = @"Favorite List";
-    [movie setFont:[UIFont systemFontOfSize:24.0f]];
+    [movie setFont:[UIFont systemFontOfSize:16.0f]];
     movie.textAlignment = NSTextAlignmentCenter;
     [self.tableView setTableHeaderView:movie];
     global = [[UIApplication sharedApplication] delegate];
