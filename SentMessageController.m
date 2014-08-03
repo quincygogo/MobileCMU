@@ -106,18 +106,27 @@
     [super viewDidLoad];
     self.parseClassName = @"Message";
     // Do any additional setup after loading the view.
-    UIEdgeInsets inset = UIEdgeInsetsMake(20, 0, 0, 0);
+    UIEdgeInsets inset = UIEdgeInsetsMake(25, 0, 0, 0);
     self.tableView.contentInset = inset;
-    CGRect movieFrame = CGRectMake(0.0f, 0.0f, 300.0f, 28.0f);
+    CGRect movieFrame = CGRectMake(15.0f, 0.0f, 300.0f, 28.0f);
     
     UILabel *header = [[UILabel alloc] initWithFrame:movieFrame];
     header.text = @"My invitation";
     [header setFont:[UIFont systemFontOfSize:26.0f]];
     header.textAlignment = NSTextAlignmentCenter;
     [self.tableView setTableHeaderView:header];
-    UIColor *myColor = [UIColor colorWithRed: 180.0/255.0 green: 238.0/255.0 blue:180.0/255.0 alpha: 1.0];
-    [self.tableView.tableHeaderView setBackgroundColor:myColor];
+ //   UIColor *myColor = [UIColor colorWithRed: 229.0/255.0 green: 203.0/255.0 blue:249.0/255.0 alpha: 0.8];
+  //  [self.tableView.tableHeaderView setBackgroundColor:myColor];
     global = [[UIApplication sharedApplication] delegate];
+    
+    // Assign our own backgroud for the view
+    self.parentViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"common_bg"]];
+    self.tableView.backgroundColor = [UIColor clearColor];
+    
+    // Add padding to the top of the table view
+ //   UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);
+ //   self.tableView.contentInset = UIEdgeInsetsMake(5, 0, 0, 0);
+
     
 }
 
@@ -197,6 +206,16 @@
         [cell.status setTextColor:color];
         
     }
+    
+    // Assign our own background image for the cell
+    UIImage *background = [self cellBackgroundForRowAtIndexPath:indexPath];
+    
+    UIImageView *cellBackgroundView = [[UIImageView alloc] initWithImage:background];
+    cellBackgroundView.image = background;
+    cell.backgroundView = cellBackgroundView;
+    
+
+    
     return cell;
     
 }
@@ -214,7 +233,24 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return  180.0f;
+    return  90.0f;
+}
+
+- (UIImage *)cellBackgroundForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger rowCount = [self tableView:[self tableView] numberOfRowsInSection:0];
+    NSInteger rowIndex = indexPath.row;
+    UIImage *background = nil;
+    
+    if (rowIndex == 0) {
+        background = [UIImage imageNamed:@"cell_top.png"];
+    } else if (rowIndex == rowCount - 1) {
+        background = [UIImage imageNamed:@"cell_bottom.png"];
+    } else {
+        background = [UIImage imageNamed:@"cell_middle.png"];
+    }
+    
+    return background;
 }
 
 @end
