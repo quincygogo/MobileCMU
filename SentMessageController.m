@@ -112,7 +112,7 @@
     
     UILabel *header = [[UILabel alloc] initWithFrame:movieFrame];
     header.text = @"My invitation";
-    [header setFont:[UIFont systemFontOfSize:26.0f]];
+    [header setFont:[UIFont systemFontOfSize:24.0f]];
     header.textAlignment = NSTextAlignmentCenter;
     [self.tableView setTableHeaderView:header];
 //    UIColor *myColor = [UIColor colorWithRed: 229.0/255.0 green: 203.0/255.0 blue:249.0/255.0 alpha: 0.8];
@@ -122,11 +122,6 @@
     // Assign our own backgroud for the view
     self.parentViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"common_bg"]];
     self.tableView.backgroundColor = [UIColor clearColor];
-    
-    // Add padding to the top of the table view
- //   UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);
- //   self.tableView.contentInset = UIEdgeInsetsMake(5, 0, 0, 0);
-
     
 }
 
@@ -193,6 +188,13 @@
     User *user = (User*)[global.userList objectForKey:[object objectForKey:@"touser"]];
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:user.pic]];
     cell.toUserImg.image =  [UIImage imageWithData:data];
+    
+    // to corner angle
+    cell.toUserImg.layer.masksToBounds = YES;
+    cell.toUserImg.layer.cornerRadius = 5.0;
+    cell.toUserImg.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    cell.toUserImg.layer.shouldRasterize = YES;
+    cell.toUserImg.clipsToBounds = YES;
 
     cell.status.text = [object objectForKey:@"status"];
     if ([cell.status.text isEqualToString:@"pending"])

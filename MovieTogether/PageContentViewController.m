@@ -116,6 +116,13 @@
     cell.dateLabel.text = like.showTime;
     cell.theatre.text = like.theater;
     
+    // to corner angle
+    cell.userImg.layer.masksToBounds = YES;
+    cell.userImg.layer.cornerRadius = 5.0;
+    cell.userImg.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    cell.userImg.layer.shouldRasterize = YES;
+    cell.userImg.clipsToBounds = YES;
+    
     return cell;
 }
 

@@ -106,19 +106,21 @@
     [super viewDidLoad];
     self.parseClassName = @"Message";
     // Do any additional setup after loading the view.
-    UIEdgeInsets inset = UIEdgeInsetsMake(20, 0, 0, 0);
+    UIEdgeInsets inset = UIEdgeInsetsMake(25, 0, 0, 0);
     self.tableView.contentInset = inset;
-    CGRect movieFrame = CGRectMake(0.0f, 0.0f, 300.0f, 28.0f);
+    CGRect movieFrame = CGRectMake(15.0f, 0.0f, 300.0f, 28.0f);
     
     UILabel *header = [[UILabel alloc] initWithFrame:movieFrame];
     header.text = @"Received Invitation";
-    [header setFont:[UIFont systemFontOfSize:26.0f]];
+    [header setFont:[UIFont systemFontOfSize:24.0f]];
     header.textAlignment = NSTextAlignmentCenter;
     [self.tableView setTableHeaderView:header];
-    UIColor *myColor = [UIColor colorWithRed: 180.0/255.0 green: 238.0/255.0 blue:180.0/255.0 alpha: 1.0];
     
-    [self.tableView.tableHeaderView setBackgroundColor:myColor];
     global = [[UIApplication sharedApplication] delegate];
+    
+    // Assign our own backgroud for the view
+    self.parentViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"common_bg"]];
+    self.tableView.backgroundColor = [UIColor clearColor];
     
 }
 
@@ -186,6 +188,13 @@
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:user.pic]];
     cell.fromUserImg.image =  [UIImage imageWithData:data];
     
+    // to corner angle
+    cell.fromUserImg.layer.masksToBounds = YES;
+    cell.fromUserImg.layer.cornerRadius = 5.0;
+    cell.fromUserImg.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    cell.fromUserImg.layer.shouldRasterize = YES;
+    cell.fromUserImg.clipsToBounds = YES;
+    
     cell.messageId = object.objectId;
     if ([[object objectForKey:@"status"] isEqualToString:@"Pending"])
     {
@@ -197,7 +206,7 @@
     {
         cell.status.hidden = NO;
         cell.status.text = @"Declined";
-        [cell.status setTextColor:[UIColor redColor]];
+        [cell.status setTextColor:[UIColor colorWithRed: 246.0/255.0 green: 37.0/255.0 blue:86.0/255.0 alpha: 0.8]];
         cell.acceptButton.hidden = YES;
         cell.declineButton.hidden = YES;
         
@@ -206,11 +215,20 @@
     {
         cell.status.hidden = NO;
         cell.status.text = @"Accepted";
-        [cell.status setTextColor:[UIColor greenColor]];
+        [cell.status setTextColor:[UIColor colorWithRed: 88.0/255.0 green: 191.0/255.0 blue:98/255.0 alpha: 0.8]];
         cell.acceptButton.hidden = YES;
         cell.declineButton.hidden = YES;
         
     }
+    
+    // Assign our own background image for the cell
+    UIImage *background = [self cellBackgroundForRowAtIndexPath:indexPath];
+    
+    UIImageView *cellBackgroundView = [[UIImageView alloc] initWithImage:background];
+    cellBackgroundView.image = background;
+    cell.backgroundView = cellBackgroundView;
+    
+
     return cell;
     
 }
@@ -228,7 +246,25 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return  180.0f;
+    return  93.0f;
 }
+
+- (UIImage *)cellBackgroundForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger rowCount = [self tableView:[self tableView] numberOfRowsInSection:0];
+    NSInteger rowIndex = indexPath.row;
+    UIImage *background = nil;
+    
+    if (rowIndex == 0) {
+        background = [UIImage imageNamed:@"cell_top.png"];
+    } else if (rowIndex == rowCount - 1) {
+        background = [UIImage imageNamed:@"cell_bottom.png"];
+    } else {
+        background = [UIImage imageNamed:@"cell_middle.png"];
+    }
+    
+    return background;
+}
+
 
 @end
