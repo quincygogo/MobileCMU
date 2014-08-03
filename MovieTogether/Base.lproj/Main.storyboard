@@ -315,11 +315,11 @@ West Homestead, PA 15120</string>
                     </view>
                     <navigationItem key="navigationItem" id="zeq-OV-Acl"/>
                     <connections>
-                        <outlet property="address" destination="gFU-Dc-zWd" id="pLO-Tc-mVA"/>
                         <outlet property="date" destination="YQ1-xp-P1k" id="3Rl-O6-CFO"/>
                         <outlet property="mapView" destination="JGx-Cd-BrZ" id="2kM-Gf-ijE"/>
-                        <outlet property="name" destination="3Ed-hA-9Hw" id="Dna-fO-I59"/>
                         <outlet property="phone" destination="bKZ-ZH-p9Y" id="RP9-sx-i3j"/>
+                        <outlet property="theater" destination="3Ed-hA-9Hw" id="xLJ-OQ-Rz9"/>
+                        <outlet property="theaterAddress" destination="gFU-Dc-zWd" id="DHq-To-PUI"/>
                         <outlet property="time" destination="myv-lT-6cx" id="UtC-zg-UIg"/>
                         <outlet property="type" destination="ugm-av-yAu" id="Dqg-pE-Zhq"/>
                     </connections>
