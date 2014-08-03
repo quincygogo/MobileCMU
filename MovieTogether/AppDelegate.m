@@ -87,7 +87,6 @@
         user.pic =[object objectForKey:@"pic"];
         [userList setObject:user forKey:user.name];
     }
-    
     PFQuery *query2 = [PFQuery queryWithClassName:@"LikedList"];
     [query2 selectKeys:@[@"moviename", @"showtime", @"theater", @"username"]];
     objects = [query2 findObjects];
@@ -99,6 +98,11 @@
         like.userName = [object objectForKey:@"username"];
         [likeList addObject:like];
     }
-
+    
+//    for (NSObject *object in [userList objectEnumerator])
+//    {
+//        User *user = (User *)object;
+//        NSLog(@"%@" "%@", user.name, user.pic);
+//    }
 }
 @end

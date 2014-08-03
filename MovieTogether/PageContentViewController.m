@@ -132,11 +132,19 @@
     {
         NSIndexPath *indexPath = [self.userTableView indexPathForSelectedRow];
         UserTableViewCell *cell =(UserTableViewCell *)[self.userTableView cellForRowAtIndexPath:indexPath];
-        NSLog(cell.userName.text);
         
         UserDetailController *view = segue.destinationViewController;
-        view.user = (User *)[global.userList objectForKey:cell.userName];
-        view.like = (Liked *)[tomorrow objectAtIndex:indexPath.row];
+        User *user = (User *)[global.userList objectForKey:cell.userName.text];
+        Liked *like = (Liked *)[tomorrow objectAtIndex:indexPath.row];
+        
+        view.userNameContent = user.name;
+        view.genderContent = user.gender;
+        view.userImgContent = user.pic;
+        
+        view.movieNameContent = like.movieName;
+        view.dateContent = like.showTime;
+        view.theaterContent = like.theater;
+        
     }
 }
 @end

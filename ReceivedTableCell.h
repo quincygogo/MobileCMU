@@ -22,4 +22,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *status;
 
 @property (strong, nonatomic) NSString *messageId;
+
 @end
