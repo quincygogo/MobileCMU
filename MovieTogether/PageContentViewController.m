@@ -27,9 +27,6 @@
     NSMutableArray *genderList;
     NSMutableArray *dateList;
     NSMutableArray *theatreList;
-    NSMutableArray *tomorrow;
-    NSMutableArray *transformer;
-
     AppDelegate *global;
 }
 
@@ -41,9 +38,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     global = [[UIApplication sharedApplication] delegate];
-    tomorrow = [[NSMutableArray alloc] init];
-    transformer = [[NSMutableArray alloc] init];
-    
     userList = [[NSMutableArray alloc]init];
     movies = [[NSMutableArray alloc] init];
     
@@ -53,7 +47,7 @@
     // ---revised-------
     self.movieImg.image = [UIImage imageNamed:self.imgFile];
     movieLabel.text = self.movieName;
-    
+    global.movieName = movieLabel.text;
     
 //    imgList = [NSMutableArray arrayWithObjects:@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png", nil];
   //  userList = [NSMutableArray arrayWithObjects:@"Transformer", @"Tomorrow", @"Lucy", @"Ape", @"Transformer", @"The", @"Lucy", @"Transformer", @"Edge", @"Lucy", nil];
@@ -65,18 +59,6 @@
     for (NSObject *object in value) {
         [userList addObject:object];
    //     NSLog(object);
-    }
-    for (NSObject *object in global.likeList)
-    {
-        Liked *liked = (Liked *) object;
-        if ([liked.movieName isEqualToString:@"Tomorrow"])
-        {
-            [tomorrow addObject :liked];
-        }
-        else if ([liked.movieName isEqualToString:@"Transformer"])
-        {
-            [transformer addObject:liked];
-        }
     }
 }
 
@@ -141,7 +123,7 @@
         
         UserDetailController *view = segue.destinationViewController;
         User *user = (User *)[global.userList objectForKey:cell.userName.text];
-        Liked *like = (Liked *)[tomorrow objectAtIndex:indexPath.row];
+        Liked *like = (Liked *)[movies objectAtIndex:indexPath.row];
         
         view.userNameContent = user.name;
         view.genderContent = user.gender;

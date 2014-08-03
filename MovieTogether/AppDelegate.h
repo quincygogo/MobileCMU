@@ -19,6 +19,6 @@
 @property (strong, nonatomic) NSMutableArray *likeList;
 @property (strong, nonatomic) NSMutableDictionary *movieList;
 @property (strong, nonatomic) NSMutableDictionary *theaterList;
-
+@property (strong, nonatomic) NSString *movieName;
 
 @end
