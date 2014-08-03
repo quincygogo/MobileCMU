@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C10BF11198E84890029E6F9 /* heart-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C10BF10198E84890029E6F9 /* heart-icon.png */; };
+		2C10BF13198EB7BC0029E6F9 /* u4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C10BF12198EB7BC0029E6F9 /* u4.jpg */; };
 		2C3C2BEB19857D5200E970FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3C2BEA19857D5200E970FB /* Foundation.framework */; };
 		2C3C2BED19857D5200E970FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3C2BEC19857D5200E970FB /* CoreGraphics.framework */; };
 		2C3C2BEF19857D5200E970FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3C2BEE19857D5200E970FB /* UIKit.framework */; };
@@ -74,6 +75,7 @@
 
 /* Begin PBXFileReference section */
 		2C10BF10198E84890029E6F9 /* heart-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-icon.png"; sourceTree = "<group>"; };
+		2C10BF12198EB7BC0029E6F9 /* u4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = u4.jpg; sourceTree = "<group>"; };
 		2C3C2BE719857D5200E970FB /* MovieTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C3C2BEA19857D5200E970FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2C3C2BEC19857D5200E970FB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -289,6 +291,7 @@
 		2C3C2C251985A70A00E970FB /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2C10BF12198EB7BC0029E6F9 /* u4.jpg */,
 				2C10BF10198E84890029E6F9 /* heart-icon.png */,
 				2CC1E230198DA5F000A87727 /* cell_top_tile.png */,
 				2CC1E231198DA5F000A87727 /* common_bg.png */,
@@ -451,6 +454,7 @@
 				2CC1E22E198DA5D000A87727 /* cell_top.png in Resources */,
 				2CC1E232198DA5F000A87727 /* cell_top_tile.png in Resources */,
 				2CC1E22F198DA5D000A87727 /* navbar_bg.png in Resources */,
+				2C10BF13198EB7BC0029E6F9 /* u4.jpg in Resources */,
 				2C3C2BFE19857D5200E970FB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

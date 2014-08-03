@@ -39,8 +39,8 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     //-----revised
-    pageImages = [NSMutableArray arrayWithObjects:@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png", nil];
-    pageTitles = [NSMutableArray arrayWithObjects:@"Transformer", @"Tomorrow", @"Lucy", @"Ape", @"Transformer", @"The", @"Lucy", @"Transformer", @"Edge", @"Lucy", nil];
+    pageImages = [NSMutableArray arrayWithObjects:@"movie.png", @"u2.png",@"u1.png", @"u4.jpg", nil];
+    pageTitles = [NSMutableArray arrayWithObjects:@"The Edge of Tomorrow", @"Lucy", @"Ape", @"Transformer", nil];
     
     // -----origin---
     genderList = [NSMutableArray arrayWithObjects:@"Female", @"Male", @"Female", @"Male", @"Female", @"Male", @"Female", @"Male", @"Female", @"Male", nil];
