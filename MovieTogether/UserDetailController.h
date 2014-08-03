@@ -17,9 +17,15 @@
 @property (strong, nonatomic) IBOutlet UIImageView *userImg;
 @property (strong, nonatomic) IBOutlet UILabel *movieName;
 @property (strong, nonatomic) IBOutlet UILabel *date;
-
 @property (strong, nonatomic) IBOutlet UILabel *theater;
-@property (strong, nonatomic) User *user;
-@property (strong, nonatomic) Liked *like;
+
+@property (strong, nonatomic) NSString *userNameContent;
+@property (strong, nonatomic) NSString *genderContent;
+@property (strong, nonatomic) NSString *userImgContent;
+@property (strong, nonatomic) NSString *movieNameContent;
+@property (strong, nonatomic) NSString *dateContent;
+@property (strong, nonatomic) NSString *theaterContent;
+@property (strong, nonatomic) IBOutlet UIScrollView *likelist;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end
