@@ -47,7 +47,7 @@
     // ---revised-------
     self.movieImg.image = [UIImage imageNamed:self.imgFile];
     movieLabel.text = self.movieName;
-    
+    global.movieName = movieLabel.text;
     
 //    imgList = [NSMutableArray arrayWithObjects:@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png", nil];
   //  userList = [NSMutableArray arrayWithObjects:@"Transformer", @"Tomorrow", @"Lucy", @"Ape", @"Transformer", @"The", @"Lucy", @"Transformer", @"Edge", @"Lucy", nil];
