@@ -34,7 +34,6 @@
 }
 
 @synthesize userTableView;
-@synthesize spinner;
 @synthesize movieLabel;
 
 - (void)viewDidLoad
@@ -47,9 +46,6 @@
     
     userList = [[NSMutableArray alloc]init];
     movies = [[NSMutableArray alloc] init];
-    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    spinner.hidesWhenStopped = YES;
-    [spinner startAnimating];
     
     userTableView.hidden = YES;
     [self updateLikeList];
@@ -94,8 +90,6 @@
 // inform how many rows - need to implement if has UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"%d", [movies count]);
-    
     return [movies count];
 }
 
@@ -138,7 +132,6 @@
         NSIndexPath *indexPath = [self.userTableView indexPathForSelectedRow];
         MovieDetailViewController *movieDetailVC = segue.destinationViewController;
         //       movieDetailVC.movieName = [movies]
-        NSLog(@"%d", indexPath.row);
     }
 
    else if ([segue.identifier isEqualToString:@"likeDetail"])
@@ -182,8 +175,6 @@
                 [movies addObject:liked];
             }
         }
-        [spinner stopAnimating];
-        spinner.hidden = YES;
         [userTableView reloadData];
         userTableView.hidden = NO;
     }];

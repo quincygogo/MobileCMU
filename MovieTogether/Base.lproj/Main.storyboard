@@ -96,17 +96,12 @@
                                     <segue destination="QDa-2C-hTf" kind="push" id="Bq2-7U-fKH"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MWR-Ek-bfk">
-                                <rect key="frame" x="0.0" y="274" width="320" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="movieImg" destination="Htr-hQ-ob4" id="Zu7-0b-38k"/>
                         <outlet property="movieLabel" destination="AX9-UB-47F" id="UB3-Kv-9eX"/>
-                        <outlet property="spinner" destination="MWR-Ek-bfk" id="kqc-1q-hOA"/>
                         <outlet property="userTableView" destination="5zN-SN-VBz" id="5Rq-ud-0hJ"/>
                     </connections>
                 </viewController>
