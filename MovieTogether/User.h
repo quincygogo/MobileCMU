@@ -13,4 +13,5 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *gender;
 @property (strong, nonatomic) NSString *pic;
+
 @end
