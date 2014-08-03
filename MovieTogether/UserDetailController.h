@@ -27,5 +27,6 @@
 @property (strong, nonatomic) NSString *theaterContent;
 @property (strong, nonatomic) IBOutlet UIScrollView *likelist;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+- (IBAction)invite:(id)sender;
 
 @end

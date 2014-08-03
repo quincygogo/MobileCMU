@@ -8,12 +8,16 @@
 
 #import "UserDetailController.h"
 #import <Parse/Parse.h>
+#import "AppDelegate.h"
 
 @interface UserDetailController ()
 
 @end
 
 @implementation UserDetailController
+{
+    AppDelegate *global;
+}
 
 @synthesize userName;
 @synthesize gender;
@@ -37,6 +41,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        global = [[UIApplication sharedApplication] delegate];
+        
     }
     return self;
 }
@@ -44,6 +50,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    global = [[UIApplication sharedApplication] delegate];
+    
     // Do any additional setup after loading the view.
 //    userName.text = user.name;
     userName.text = userNameContent;
@@ -104,4 +112,19 @@
     }];
 }
 
+- (IBAction)invite:(id)sender {
+    PFObject *message = [PFObject objectWithClassName:@"Message"];
+    NSString *name = global.userName;
+    if (name == nil)
+    {
+        userName = @"Quincy Yip";
+    }
+    
+    message[@"fromuser"] = name;
+    message[@"moviename"] = movieNameContent;
+    message[@"status"] = @"Pending";
+    message[@"time"] = dateContent;
+//    message[@"theater"] = 
+    [message saveInBackground];
+}
 @end

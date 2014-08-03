@@ -191,7 +191,7 @@
     {
         cell.status.hidden = YES;
         cell.acceptButton.hidden = NO;
-        cell.acceptButton.hidden = NO;
+        cell.declineButton.hidden = NO;
     }
     else if ([[object objectForKey:@"status"] isEqualToString:@"Declined"])
     {
