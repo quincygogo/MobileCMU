@@ -113,12 +113,18 @@
 }
 
 - (IBAction)invite:(id)sender {
+    [self checkLogin];
+    
+}
+
+- (void) sendInvitation
+{
     PFObject *message = [PFObject objectWithClassName:@"Message"];
     NSString *name = global.userName;
-    if (name == nil)
-    {
-        name = @"Quincy Yip";
-    }
+    // if (name == nil)
+    //{
+    //  name = @"Quincy Yip";
+    //}
     
     message[@"fromuser"] = name;
     message[@"moviename"] = movieNameContent;
@@ -127,13 +133,95 @@
     message[@"theater"] = theaterContent;
     message[@"touser"] = userNameContent;
     [message saveInBackground];
-
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congratulations"
-                                                                message:@"Your invitation has been sent!"
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
+                                                    message:@"Your invitation has been sent!"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
     [alert show];
-  
+}
+
+- (void) checkLogin
+{
+    if (([PFUser currentUser] && // Check if a user is cached
+         [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])) // Check if user is linked to Facebook
+    {
+        NSLog(@"user exists");
+        if (global.userName == NULL)
+        {
+            [self getUserInfor];
+            NSLog(@"Setting global user");
+        }
+        else
+        {
+            [self sendInvitation];
+        }
+    }
+    // Login PFUser using Facebook
+    else {
+        [self loginFacebook];
+    }
+}
+
+- (void) getUserInfor
+{
+    FBRequest *request = [FBRequest requestForMe];
+    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        if (!error) {
+            // result is a dictionary with the user's Facebook data
+            NSDictionary *userData = (NSDictionary *)result;
+            
+            NSString *facebookID = userData[@"id"];
+            NSString *name = userData[@"name"];
+            NSString *gender = userData[@"gender"];
+            
+            NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
+            
+            PFUser *user = [PFUser currentUser];
+            if (![[user objectForKey:@"set"] boolValue])
+            {
+                user[@"set"] = @YES;
+                user[@"name"] = name;
+                user[@"gender"] = gender;
+                user[@"pic"] = [pictureURL absoluteString];
+                [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (!error)
+                    {
+                        NSLog(@"Saved!");
+                    }
+                    else
+                    {
+                        NSLog(error);
+                    }
+                }];
+            }
+            NSLog(@"Done setting global user");
+            global.userName = name;
+            global.gender = gender;
+            global.picture = [pictureURL absoluteString];
+            [self sendInvitation];
+        }
+        else
+        {
+            NSLog(error);
+        }
+    }];
+}
+
+- (void) loginFacebook
+{
+    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+        if (!user) {
+            if (!error) {
+                NSLog(@"Uh oh. The user cancelled the Facebook login.");
+            } else {
+                NSLog(@"Uh oh. An error occurred: %@", error);
+            }
+        } else {
+            [self getUserInfor];
+        }
+    }];
 }
 @end
