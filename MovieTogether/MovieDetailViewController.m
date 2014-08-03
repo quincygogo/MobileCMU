@@ -38,7 +38,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     global = [[UIApplication sharedApplication] delegate];
+    NSLog(global.movieName);
     Movie *movie = (Movie *)[global.movieList objectForKey:global.movieName];
+  //  NSLog(global);
     director.text = movie.director;
     releaseDate.text = movie.releaseDate;
     summary.text = movie.summary;

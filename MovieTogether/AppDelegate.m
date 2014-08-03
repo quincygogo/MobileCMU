@@ -79,6 +79,8 @@
 {
     userList = [[NSMutableDictionary alloc] init];
     likeList = [[NSMutableArray alloc] init];
+    movieList = [[NSMutableDictionary alloc] init];
+    theaterList = [[NSMutableDictionary alloc] init];
     
     PFQuery *query1 = [PFUser query];
     [query1 whereKey:@"set" equalTo:@YES];
@@ -104,7 +106,7 @@
         movie.summary = [object objectForKey:@"summary"];
         [movieList setObject:movie forKey:movie.name];
     }
-    
+    NSLog(@"%d", [objects count]);
     PFQuery *query4 = [PFQuery queryWithClassName:@"Theater"];
     
     [query4 selectKeys:@[@"address", @"name", @"tel"]];
