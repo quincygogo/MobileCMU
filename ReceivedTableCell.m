@@ -36,7 +36,6 @@
 
 - (IBAction)accept:(id)sender {
     PFQuery *query = [PFQuery queryWithClassName:@"Message"];
-    NSLog(messageId);
     // Retrieve the object by id
     [query getObjectInBackgroundWithId:messageId block:^(PFObject *message, NSError *error) {
         
