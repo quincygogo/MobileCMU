@@ -240,6 +240,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="cW8-4K-VKz"/>
+                    <connections>
+                        <outlet property="director" destination="u7z-r4-mzU" id="Mwv-kb-PhL"/>
+                        <outlet property="releaseDate" destination="bW2-tv-JXX" id="WFo-1G-uFY"/>
+                        <outlet property="summary" destination="AaX-SQ-ROJ" id="2KZ-n3-MbK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EnI-gY-aOK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

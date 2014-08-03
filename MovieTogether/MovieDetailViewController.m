@@ -7,20 +7,28 @@
 //
 
 #import "MovieDetailViewController.h"
+#import "AppDelegate.h"
+#import "Movie.h"
 
 @interface MovieDetailViewController ()
 
 @end
 
 @implementation MovieDetailViewController
+{
+    AppDelegate *global;
+}
 @synthesize movieName;
-@synthesize movieLabel;
+@synthesize summary;
+@synthesize releaseDate;
+@synthesize director;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        global = [[UIApplication sharedApplication] delegate];
     }
     return self;
 }
@@ -29,8 +37,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    movieLabel.text = movieName;
-    
+    global = [[UIApplication sharedApplication] delegate];
+    Movie *movie = (Movie *)[global.movieList objectForKey:global.movieName];
+    director.text = movie.director;
+    releaseDate.text = movie.releaseDate;
+    summary.text = movie.summary;
 }
 
 - (void)didReceiveMemoryWarning

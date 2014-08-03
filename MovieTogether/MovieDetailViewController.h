@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface MovieDetailViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UILabel *movieLabel;
+
 @property (strong, nonatomic) NSString *movieName;
+@property (strong, nonatomic) IBOutlet UILabel *director;
+@property (strong, nonatomic) IBOutlet UILabel *releaseDate;
+@property (strong, nonatomic) IBOutlet UITextView *summary;
 
 @end
