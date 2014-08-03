@@ -117,14 +117,23 @@
     NSString *name = global.userName;
     if (name == nil)
     {
-        userName = @"Quincy Yip";
+        name = @"Quincy Yip";
     }
     
     message[@"fromuser"] = name;
     message[@"moviename"] = movieNameContent;
     message[@"status"] = @"Pending";
     message[@"time"] = dateContent;
-//    message[@"theater"] = 
+    message[@"theater"] = theaterContent;
+    message[@"touser"] = userNameContent;
     [message saveInBackground];
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congratulations"
+                                                                message:@"Your invitation has been sent!"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+    [alert show];
+  
 }
 @end
