@@ -20,4 +20,5 @@
 @property (strong, nonatomic) NSMutableDictionary *movieList;
 @property (strong, nonatomic) NSMutableDictionary *theaterList;
 
+
 @end
