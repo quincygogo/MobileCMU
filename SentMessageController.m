@@ -115,7 +115,7 @@
     [header setFont:[UIFont systemFontOfSize:26.0f]];
     header.textAlignment = NSTextAlignmentCenter;
     [self.tableView setTableHeaderView:header];
- //   UIColor *myColor = [UIColor colorWithRed: 229.0/255.0 green: 203.0/255.0 blue:249.0/255.0 alpha: 0.8];
+//    UIColor *myColor = [UIColor colorWithRed: 229.0/255.0 green: 203.0/255.0 blue:249.0/255.0 alpha: 0.8];
   //  [self.tableView.tableHeaderView setBackgroundColor:myColor];
     global = [[UIApplication sharedApplication] delegate];
     
@@ -197,12 +197,12 @@
     cell.status.text = [object objectForKey:@"status"];
     if ([cell.status.text isEqualToString:@"pending"])
     {
-        UIColor *color = [UIColor redColor];
+        UIColor *color = [UIColor colorWithRed: 246.0/255.0 green: 37.0/255.0 blue:86.0/255.0 alpha: 0.8];
         [cell.status setTextColor:color];
     }
     else
     {
-        UIColor *color = [UIColor greenColor];
+        UIColor *color = [UIColor colorWithRed: 88.0/255.0 green: 191.0/255.0 blue:98/255.0 alpha: 0.8];
         [cell.status setTextColor:color];
         
     }
@@ -233,7 +233,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return  90.0f;
+    return  93.0f;
 }
 
 - (UIImage *)cellBackgroundForRowAtIndexPath:(NSIndexPath *)indexPath
