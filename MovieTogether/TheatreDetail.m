@@ -28,6 +28,13 @@
 }
 
 @synthesize mapView;
+@synthesize theater;
+@synthesize time;
+@synthesize date;
+@synthesize theaterAddress;
+@synthesize phone;
+@synthesize type;
+@synthesize movieName;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,7 +58,8 @@
     [self.mapView.userLocation addObserver:self
                                 forKeyPath:@"location"
                                    options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld)
-                                   context:NULL];
+                                    context:NULL];
+    movieName = @"Tomorrow";
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,11 +103,20 @@
 
 - (void) addLike
 {
-//    PFObject *like = [PFObject objectWithClassName:@"LikedList"];
-//    like[@"moviename"] = @1337;
-//    like[@"playerName"] = @"Sean Plott";
-//    like[@"cheatMode"] = @NO;
-//    [like saveInBackground];
+    PFObject *like = [PFObject objectWithClassName:@"LikedList"];
+    like[@"moviename"] = movieName;
+    like[@"showtime"] = time.text;
+    like[@"theater"] = theater.text;
+    like[@"username"] = global.userName;
+    like[@"gender"] = global.gender;
+    [like saveInBackground];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congratulations"
+                                                    message:@"You have added the movie to your wish list!"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+
 }
 
 - (void) getUserInfor
