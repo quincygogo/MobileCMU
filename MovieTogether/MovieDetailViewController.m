@@ -29,8 +29,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     movieLabel.text = movieName;
+    
 }
 
 - (void)didReceiveMemoryWarning

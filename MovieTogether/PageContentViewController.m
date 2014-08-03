@@ -34,6 +34,8 @@
 }
 
 @synthesize userTableView;
+@synthesize spinner;
+@synthesize movieLabel;
 
 - (void)viewDidLoad
 {
@@ -42,16 +44,19 @@
     global = [[UIApplication sharedApplication] delegate];
     tomorrow = [[NSMutableArray alloc] init];
     transformer = [[NSMutableArray alloc] init];
-//    [self addToList];
     
     userList = [[NSMutableArray alloc]init];
-//    for (id objcet in global.userList)
-//    {
-//        NSLog(((User *)objcet).name);
-//    }
+    movies = [[NSMutableArray alloc] init];
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    spinner.hidesWhenStopped = YES;
+    [spinner startAnimating];
+    
+    userTableView.hidden = YES;
+    [self updateLikeList];
+    
     // ---revised-------
     self.movieImg.image = [UIImage imageNamed:self.imgFile];
-    self.movieLabel.text = self.movieName;
+    movieLabel.text = self.movieName;
     
     
 //    imgList = [NSMutableArray arrayWithObjects:@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png", nil];
@@ -89,8 +94,9 @@
 // inform how many rows - need to implement if has UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
- //   NSLog(@"%d", [userList count]);
-    return [tomorrow count];
+    NSLog(@"%d", [movies count]);
+    
+    return [movies count];
 }
 
 // called every time when a table row is displayed - need to implement if has UITableViewDataSource
@@ -105,7 +111,7 @@
         cell = [nib objectAtIndex:0];
     }
     
-    Liked *like = (Liked *)[tomorrow objectAtIndex:indexPath.row];
+    Liked *like = (Liked *)[movies objectAtIndex:indexPath.row];
     User *user = (User *)[global.userList objectForKey:like.userName];
 //    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://scontent-b.xx.fbcdn.net/hphotos-xpa1/t1.0-9/1425657_1441170366110528_269769878_n.jpg"]];
     
@@ -153,5 +159,34 @@
         view.theaterContent = like.theater;
         
     }
+}
+
+- (void) updateLikeList
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"LikedList"];
+    [query selectKeys:@[@"moviename", @"showtime", @"theater", @"username"]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        for (PFObject *object in objects) {
+            Liked *like = [[Liked alloc] init];
+            like.movieName =[object objectForKey:@"moviename"];
+            like.showTime =[object objectForKey:@"showtime"];
+            like.theater = [object objectForKey:@"theater"];
+            like.userName = [object objectForKey:@"username"];
+            [global.likeList addObject:like];
+        }
+        for (NSObject *object in global.likeList)
+        {
+            Liked *liked = (Liked *) object;
+            if ([liked.movieName isEqualToString:movieLabel.text])
+            {
+                [movies addObject:liked];
+            }
+        }
+        [spinner stopAnimating];
+        spinner.hidden = YES;
+        [userTableView reloadData];
+        userTableView.hidden = NO;
+    }];
+    
 }
 @end

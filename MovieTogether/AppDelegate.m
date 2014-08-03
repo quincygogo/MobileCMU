@@ -11,6 +11,8 @@
 #import <Parse/Parse.h>
 #import "User.h"
 #import "Liked.h"
+#import "Movie.h"
+#import "Theater.h"
 
 @implementation AppDelegate
 
@@ -20,6 +22,8 @@
 @synthesize picHeader;
 @synthesize userList;
 @synthesize likeList;
+@synthesize movieList;
+@synthesize theaterList;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -87,17 +91,32 @@
         user.pic =[object objectForKey:@"pic"];
         [userList setObject:user forKey:user.name];
     }
-    PFQuery *query2 = [PFQuery queryWithClassName:@"LikedList"];
-    [query2 selectKeys:@[@"moviename", @"showtime", @"theater", @"username"]];
-    objects = [query2 findObjects];
+
+    PFQuery *query3 = [PFQuery queryWithClassName:@"Movie"];
+    
+    [query3 selectKeys:@[@"director", @"name", @"releasedate", @"summary"]];
+    objects = [query3 findObjects];
     for (PFObject *object in objects) {
-        Liked *like = [[Liked alloc] init];
-        like.movieName =[object objectForKey:@"moviename"];
-        like.showTime =[object objectForKey:@"showtime"];
-        like.theater = [object objectForKey:@"theater"];
-        like.userName = [object objectForKey:@"username"];
-        [likeList addObject:like];
+        Movie *movie = [[Movie alloc] init];
+        movie.name = [object objectForKey:@"name"];
+        movie.director = [object objectForKey:@"director"];
+        movie.releaseDate = [object objectForKey:@"releasedate"];
+        movie.summary = [object objectForKey:@"summary"];
+        [movieList setObject:movie forKey:movie.name];
     }
+    
+    PFQuery *query4 = [PFQuery queryWithClassName:@"Theater"];
+    
+    [query4 selectKeys:@[@"address", @"name", @"tel"]];
+    objects = [query4 findObjects];
+    for (PFObject *object in objects) {
+        Theater *theater = [[Theater alloc] init];
+        theater.name = [object objectForKey:@"name"];
+        theater.phone = [object objectForKey:@"tel"];
+        theater.address = [object objectForKey:@"address"];
+        [theaterList setObject:theater forKey:theater.name];
+    }
+    
     
 //    for (NSObject *object in [userList objectEnumerator])
 //    {

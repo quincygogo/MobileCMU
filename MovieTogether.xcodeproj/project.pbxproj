@@ -49,6 +49,8 @@
 		3B79CA2B198AFB6E00AE76AB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B79CA2A198AFB6E00AE76AB /* Security.framework */; };
 		3B79CA2D198AFB7800AE76AB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B79CA2C198AFB7800AE76AB /* StoreKit.framework */; };
 		3B79CA2F198AFB8800AE76AB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B79CA2E198AFB8800AE76AB /* SystemConfiguration.framework */; };
+		3B886A98198EA8D70097B3B6 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B886A97198EA8D70097B3B6 /* Movie.m */; };
+		3B886A9B198EAA850097B3B6 /* Theater.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B886A9A198EAA850097B3B6 /* Theater.m */; };
 		3BD5B689198D524B00032D63 /* SentMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5B688198D524B00032D63 /* SentMessageController.m */; };
 		3BD5B68C198D52A100032D63 /* SentTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5B68B198D52A100032D63 /* SentTableCell.m */; };
 		3BD5B68F198D72AB00032D63 /* ReceivedMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5B68E198D72AB00032D63 /* ReceivedMessageController.m */; };
@@ -124,6 +126,10 @@
 		3B79CA2A198AFB6E00AE76AB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3B79CA2C198AFB7800AE76AB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3B79CA2E198AFB8800AE76AB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3B886A96198EA8D70097B3B6 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		3B886A97198EA8D70097B3B6 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		3B886A99198EAA850097B3B6 /* Theater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theater.h; sourceTree = "<group>"; };
+		3B886A9A198EAA850097B3B6 /* Theater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theater.m; sourceTree = "<group>"; };
 		3BD5B687198D524B00032D63 /* SentMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SentMessageController.h; sourceTree = "<group>"; };
 		3BD5B688198D524B00032D63 /* SentMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SentMessageController.m; sourceTree = "<group>"; };
 		3BD5B68A198D52A100032D63 /* SentTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SentTableCell.h; sourceTree = "<group>"; };
@@ -297,10 +303,14 @@
 		2C57CB1E198AAB58006B5FFC /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				3B886A99198EAA850097B3B6 /* Theater.h */,
+				3B886A9A198EAA850097B3B6 /* Theater.m */,
 				2C57CB1F198AAB82006B5FFC /* User.h */,
 				2C57CB20198AAB82006B5FFC /* User.m */,
 				3B294592198C2E8400A93E6D /* Liked.h */,
 				3B294593198C2E8400A93E6D /* Liked.m */,
+				3B886A96198EA8D70097B3B6 /* Movie.h */,
+				3B886A97198EA8D70097B3B6 /* Movie.m */,
 			);
 			name = Object;
 			sourceTree = "<group>";
@@ -462,10 +472,12 @@
 				2C3C2BFB19857D5200E970FB /* AppDelegate.m in Sources */,
 				3BD5B689198D524B00032D63 /* SentMessageController.m in Sources */,
 				3B294594198C2E8400A93E6D /* Liked.m in Sources */,
+				3B886A98198EA8D70097B3B6 /* Movie.m in Sources */,
 				2C3C2CB41986BF2A00E970FB /* LikedTableCell.m in Sources */,
 				2C3C2C2419858D7200E970FB /* PageContentViewController.m in Sources */,
 				2C57CB21198AAB82006B5FFC /* User.m in Sources */,
 				3BD5B68C198D52A100032D63 /* SentTableCell.m in Sources */,
+				3B886A9B198EAA850097B3B6 /* Theater.m in Sources */,
 				3BD5B68F198D72AB00032D63 /* ReceivedMessageController.m in Sources */,
 				2C3C2C0119857D5200E970FB /* FirstViewController.m in Sources */,
 				3BE2A835198AC56800048879 /* TheatreDetail.m in Sources */,
