@@ -88,7 +88,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m54-IL-rEk">
-                                <rect key="frame" x="185" y="103" width="46" height="30"/>
+                                <rect key="frame" x="185" y="103" width="115" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -102,6 +102,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="btnImg" destination="m54-IL-rEk" id="jAl-dg-Qre"/>
                         <outlet property="movieBtn" destination="m54-IL-rEk" id="vqM-y4-6Mh"/>
                         <outlet property="movieImg" destination="Htr-hQ-ob4" id="Zu7-0b-38k"/>
                         <outlet property="movieLabel" destination="AX9-UB-47F" id="UB3-Kv-9eX"/>

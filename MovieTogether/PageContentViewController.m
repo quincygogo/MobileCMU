@@ -32,6 +32,7 @@
 
 @synthesize userTableView;
 @synthesize movieLabel;
+@synthesize btnImg;
 
 - (void)viewDidLoad
 {
@@ -45,9 +46,20 @@
     [self updateLikeList];
     
     // ---revised-------
-    self.movieImg.image = [UIImage imageNamed:self.imgFile];
+     self.movieImg.image = [UIImage imageNamed:self.imgFile];
     movieLabel.text = self.movieName;
     global.movieName = movieLabel.text;
+ 
+//    [btnImg setImage:[UIImage imageNamed:self.imgFile] forState:UIControlStateNormal];
+    
+    /*
+    UIImage *buttonImage = [UIImage imageNamed:@"u1.png"];
+    UIButton *myBtn = [[UIButton alloc] init];
+    myBtn.frame = CGRectMake(185, 103, 115, 60);
+    [myBtn setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [self.view addSubview:myBtn];
+    
+*/
     
 //    imgList = [NSMutableArray arrayWithObjects:@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png", nil];
   //  userList = [NSMutableArray arrayWithObjects:@"Transformer", @"Tomorrow", @"Lucy", @"Ape", @"Transformer", @"The", @"Lucy", @"Transformer", @"Edge", @"Lucy", nil];
