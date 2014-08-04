@@ -12,6 +12,7 @@
 #import "MovieDetailCell.h"
 #import <Parse/Parse.h>
 #import "TheatreDetail.h"
+#import "Showtime.h"
 
 @interface MovieDetailViewController ()
 
@@ -97,8 +98,8 @@
     cell.timeList.text = @"";
     for (NSObject *object in timeList)
     {
-        NSString *time = (NSString *) object;
-        cell.timeList.text = [cell.timeList.text stringByAppendingString:time];
+        Showtime *show = (Showtime *) object;
+        cell.timeList.text = [cell.timeList.text stringByAppendingString:show.time];
         cell.timeList.text = [cell.timeList.text stringByAppendingString:@" "];
     }
     
@@ -136,13 +137,18 @@
     [query whereKey:@"moviename" equalTo:global.movieName];
     [query whereKey:@"date" equalTo:date];
     
-    
     [query addAscendingOrder:@"theatrename"];
     [query addAscendingOrder:@"time"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         for (PFObject *object in objects) {
             NSString *theaterName = [object objectForKey:@"theatrename"];
+            Showtime *show = [[Showtime alloc] init];
+            show.theaterName = theaterName;
+            show.movieName = global.movieName;
+            show.date = date;
+            show.time = [object objectForKey:@"time"];
+            show.type = [object objectForKey:@"type"];
             if (![theaterName isEqualToString:last] && (![last isEqualToString:@"%"]))
             {
                 [showTime setObject:timeList forKey:last];
@@ -151,7 +157,7 @@
               
             }
             last = theaterName;
-            [timeList addObject:[object objectForKey:@"time"]];
+            [timeList addObject:show];
         }
         if (![last isEqualToString:@"%"])
         {
@@ -181,7 +187,6 @@
 
 - (IBAction)pickDate:(UISegmentedControl *)sender {
     NSString *date = [sender titleForSegmentAtIndex:sender.selectedSegmentIndex];
-    NSLog(date);
     [self getShowTime:date];
 }
 @end
