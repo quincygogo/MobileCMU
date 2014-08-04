@@ -14,4 +14,5 @@
 @property (strong, nonatomic) NSString *date;
 @property (strong, nonatomic) NSString *type;
 
+-(void) setLabel;
 @end

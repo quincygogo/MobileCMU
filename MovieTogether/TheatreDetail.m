@@ -14,6 +14,7 @@
 #import "Theater.h"
 #import "AppDelegate.h"
 #import "Showtime.h"
+#import "LikeButton.h"
 
 @interface TheatreDetail ()
 
@@ -33,6 +34,8 @@
     
     NSMutableArray *twoD;
     NSMutableArray *threeD;
+    
+    NSString *timeVal;
 }
 
 @synthesize mapView;
@@ -81,10 +84,62 @@
         }
     }
     
+    NSInteger width = 60;
+    NSInteger height = 20;
+    [timeDetail setScrollEnabled:YES];
+    int numberPerLine = 4;
+    timeDetail.contentSize = CGSizeMake(271, 500);
+    CGRect labelFrame = CGRectMake(0.0f, 0.0f, 60.0f, 20.0f);
+    UILabel *threeDLabel = [[UILabel alloc] initWithFrame:labelFrame];
+    threeDLabel.text = @"3D";
+    [timeDetail addSubview:threeDLabel];
+    int count = 1;
+    CGRect frame = CGRectMake(0.0f, 25.0f, 60.0f, 20.0f);
+    for (int i = 0; i < [threeD count]; i++)
+    {
+        Showtime *showtime = (Showtime *)[threeD objectAtIndex:i];
+        LikeButton *btn = [[LikeButton alloc] initWithFrame:frame];
+        btn.time = showtime.time;
+        btn.date = date;
+        [btn setLabel];
+        [btn addTarget:self action:@selector(like:) forControlEvents:UIControlEventTouchUpInside];
+        [timeDetail addSubview:btn];
+        frame = CGRectMake(frame.origin.x + width + 10.0f , frame.origin.y, 60.0f, 20.0f);
+        if (count == numberPerLine)
+        {
+            frame = CGRectMake(0 , frame.origin.y + height + 10.0f, 60.0f, 20.0f);
+            count = 0;
+        }
+        count++;
+    }
+    
+    labelFrame = CGRectMake(0, frame.origin.y + height + 10.0f, 60.0f, 20.0f);
+    UILabel *twoDLabel = [[UILabel alloc] initWithFrame:labelFrame];
+    twoDLabel.text = @"2D";
+    [timeDetail addSubview:twoDLabel];
+    
+    frame = CGRectMake(0.0f, labelFrame.origin.y + 25.0f, 60.0f, 20.0f);
+    count = 1;
+    for (int i = 0; i < [twoD count]; i++)
+    {
+        Showtime *showtime = (Showtime *)[twoD objectAtIndex:i];
+        LikeButton *btn = [[LikeButton alloc] initWithFrame:frame];
+        btn.time = showtime.time;
+        btn.date = date;
+        [btn setLabel];
+        [timeDetail addSubview:btn];
+        frame = CGRectMake(frame.origin.x + width + 10.0f , frame.origin.y, 60.0f, 20.0f);
+        if (count == numberPerLine)
+        {
+            frame = CGRectMake(0 , frame.origin.y + height + 10.0f, 60.0f, 20.0f);
+            count = 0;
+        }
+        count++;
+    }
+
     
     mapView.delegate = self;
     
-    NSLog(@"%d", [showTimeList count]);
     geocoder = [[CLGeocoder alloc] init];
     address = @"";
     
@@ -102,10 +157,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (IBAction)like:(id)sender {
+- (IBAction) like:(id)sender {
+    LikeButton *btn = (LikeButton *)sender;
+    timeVal = btn.time;
+    //do as you please with buttonClicked.argOne
+    NSLog(timeVal);
     if (([PFUser currentUser] && // Check if a user is cached
-        [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])) // Check if user is linked to Facebook
+         [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])) // Check if user is linked to Facebook
     {
         NSLog(@"user exists");
         if (global.userName == NULL)
@@ -122,14 +180,39 @@
     else {
         [self loginFacebook];
     }
+
 }
+
+//- (IBAction)like:(id)sender {
+//    if (([PFUser currentUser] && // Check if a user is cached
+//        [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])) // Check if user is linked to Facebook
+//    {
+//        NSLog(@"user exists");
+//        if (global.userName == NULL)
+//        {
+//            [self getUserInfor];
+//            NSLog(@"Setting global user");
+//        }
+//        else
+//        {
+//            [self addLike];
+//        }
+//    }
+//    // Login PFUser using Facebook
+//    else {
+//        [self loginFacebook];
+//    }
+//}
 
 
 - (void) addLike
 {
     PFObject *like = [PFObject objectWithClassName:@"LikedList"];
     like[@"moviename"] = movieName;
-    like[@"showtime"] = time.text;
+    NSString *dateTime = [date stringByAppendingString:@" "];
+    dateTime = [dateTime stringByAppendingString:timeVal];
+    like[@"showtime"] = dateTime;
+    NSLog([@"hehe" stringByAppendingString:dateTime]);
     like[@"theater"] = theater.text;
     like[@"username"] = global.userName;
     like[@"gender"] = global.gender;
@@ -140,7 +223,6 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
-    [self locate];
 }
 
 - (void) getUserInfor
