@@ -121,7 +121,10 @@
         
         TheatreDetail *view = segue.destinationViewController;
         view.theaterName = cell.theater.text;
+        view.showTimeList = [[NSMutableArray alloc] init];
+        view.showTimeList = (NSMutableArray *)[showTime objectForKey:(cell.theater.text)];
     }
+    
 }
 
 
@@ -189,4 +192,6 @@
     NSString *date = [sender titleForSegmentAtIndex:sender.selectedSegmentIndex];
     [self getShowTime:date];
 }
+
+
 @end
