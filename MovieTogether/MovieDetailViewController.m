@@ -11,6 +11,7 @@
 #import "Movie.h"
 #import "MovieDetailCell.h"
 #import <Parse/Parse.h>
+#import "TheatreDetail.h"
 
 @interface MovieDetailViewController ()
 
@@ -104,7 +105,7 @@
     return cell;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -112,8 +113,16 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"theaterDetail"])
+    {
+        NSIndexPath *indexPath = [self.showTimeTable indexPathForSelectedRow];
+        MovieDetailCell *cell =(MovieDetailCell *)[self.showTimeTable cellForRowAtIndexPath:indexPath];
+        
+        TheatreDetail *view = segue.destinationViewController;
+        view.theaterName = cell.theater.text;
+    }
 }
-*/
+
 
 - (void) getShowTime: (NSString*) date
 {

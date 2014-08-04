@@ -177,16 +177,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngg-ad-5cJ">
-                                <rect key="frame" x="244" y="161" width="44" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="more..">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="75N-UC-LjW" kind="push" id="12G-qc-sdM"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eW9-ln-tk7">
                                 <rect key="frame" x="20" y="193" width="268" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -229,6 +219,7 @@
                                         <connections>
                                             <outlet property="theater" destination="26c-5g-4E0" id="tZR-8H-r0f"/>
                                             <outlet property="timeList" destination="iwG-Cv-kPc" id="FJ0-ay-O9G"/>
+                                            <segue destination="75N-UC-LjW" kind="push" identifier="theaterDetail" id="Hgm-qm-RpF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -309,8 +300,8 @@ West Homestead, PA 15120</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JGx-Cd-BrZ">
-                                <rect key="frame" x="33" y="185" width="255" height="218"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kgh-Rl-8FL">
+                                <rect key="frame" x="29" y="174" width="271" height="226"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
                         </subviews>
@@ -318,7 +309,7 @@ West Homestead, PA 15120</string>
                     </view>
                     <navigationItem key="navigationItem" id="zeq-OV-Acl"/>
                     <connections>
-                        <outlet property="mapView" destination="JGx-Cd-BrZ" id="2kM-Gf-ijE"/>
+                        <outlet property="mapView" destination="kgh-Rl-8FL" id="HeN-ea-5Et"/>
                         <outlet property="phone" destination="bKZ-ZH-p9Y" id="RP9-sx-i3j"/>
                         <outlet property="theater" destination="3Ed-hA-9Hw" id="xLJ-OQ-Rz9"/>
                         <outlet property="theaterAddress" destination="gFU-Dc-zWd" id="DHq-To-PUI"/>

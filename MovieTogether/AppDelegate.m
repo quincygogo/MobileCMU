@@ -23,7 +23,7 @@
 @synthesize userList;
 @synthesize likeList;
 @synthesize movieList;
-@synthesize theaterList;
+//@synthesize theaterList;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -80,7 +80,7 @@
     userList = [[NSMutableDictionary alloc] init];
     likeList = [[NSMutableArray alloc] init];
     movieList = [[NSMutableDictionary alloc] init];
-    theaterList = [[NSMutableDictionary alloc] init];
+//    theaterList = [[NSMutableDictionary alloc] init];
     
     PFQuery *query1 = [PFUser query];
     [query1 whereKey:@"set" equalTo:@YES];
@@ -106,18 +106,18 @@
         movie.summary = [object objectForKey:@"summary"];
         [movieList setObject:movie forKey:movie.name];
     }
-    NSLog(@"%d", [objects count]);
-    PFQuery *query4 = [PFQuery queryWithClassName:@"Theater"];
-    
-    [query4 selectKeys:@[@"address", @"name", @"tel"]];
-    objects = [query4 findObjects];
-    for (PFObject *object in objects) {
-        Theater *theater = [[Theater alloc] init];
-        theater.name = [object objectForKey:@"name"];
-        theater.phone = [object objectForKey:@"tel"];
-        theater.address = [object objectForKey:@"address"];
-        [theaterList setObject:theater forKey:theater.name];
-    }
+   
+//    PFQuery *query4 = [PFQuery queryWithClassName:@"Theater"];
+//    
+//    [query4 selectKeys:@[@"address", @"name", @"tel"]];
+//    objects = [query4 findObjects];
+//    for (PFObject *object in objects) {
+//        Theater *theater = [[Theater alloc] init];
+//        theater.name = [object objectForKey:@"name"];
+//        theater.phone = [object objectForKey:@"tel"];
+//        theater.address = [object objectForKey:@"address"];
+//        [theaterList setObject:theater forKey:theater.name];
+//    }
     
     
 //    for (NSObject *object in [userList objectEnumerator])
