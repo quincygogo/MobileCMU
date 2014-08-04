@@ -46,32 +46,24 @@
     [self updateLikeList];
     
     // ---revised-------
-     self.movieImg.image = [UIImage imageNamed:self.imgFile];
     movieLabel.text = self.movieName;
     global.movieName = movieLabel.text;
+    
  
-//    [btnImg setImage:[UIImage imageNamed:self.imgFile] forState:UIControlStateNormal];
+    [btnImg setBackgroundImage:[UIImage imageNamed:self.imgFile] forState:UIControlStateNormal];
     
-    /*
-    UIImage *buttonImage = [UIImage imageNamed:@"u1.png"];
-    UIButton *myBtn = [[UIButton alloc] init];
-    myBtn.frame = CGRectMake(185, 103, 115, 60);
-    [myBtn setBackgroundImage:buttonImage forState:UIControlStateNormal];
-    [self.view addSubview:myBtn];
     
-*/
-    
-//    imgList = [NSMutableArray arrayWithObjects:@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png", nil];
-  //  userList = [NSMutableArray arrayWithObjects:@"Transformer", @"Tomorrow", @"Lucy", @"Ape", @"Transformer", @"The", @"Lucy", @"Transformer", @"Edge", @"Lucy", nil];
-//    genderList = [NSMutableArray arrayWithObjects:@"Female", @"Male", @"Female", @"Male", @"Female", @"Male", @"Female", @"Male", @"Female", @"Male", nil];
-//    dateList = [NSMutableArray arrayWithObjects:@"Jul 27", @"Jul 28", @"Jul 29", @"Jul 27", @"Jul 28", @"Jul 29", @"Jul 27", @"Jul 28", @"Jul 2923", @"Jul 27", nil];
-//    theatreList = [NSMutableArray arrayWithObjects:@"WaterFront", @"EMC", @"CMU", @"WaterFront", @"EMC", @"CMU", @"WaterFront", @"EMC", @"CMU", @"sdf", nil];
-//    
-    NSEnumerator * value = [global.userList objectEnumerator];
+       NSEnumerator * value = [global.userList objectEnumerator];
     for (NSObject *object in value) {
         [userList addObject:object];
    //     NSLog(object);
     }
+    
+    // Assign our own backgroud for the view
+    self.parentViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"common_bg"]];
+    userTableView.backgroundColor = [UIColor clearColor];
+    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -117,8 +109,34 @@
     cell.userImg.layer.shouldRasterize = YES;
     cell.userImg.clipsToBounds = YES;
     
+    
+    // Assign our own background image for the cell
+    UIImage *background = [self cellBackgroundForRowAtIndexPath:indexPath];
+    
+    UIImageView *cellBackgroundView = [[UIImageView alloc] initWithImage:background];
+    cellBackgroundView.image = background;
+    cell.backgroundView = cellBackgroundView;
+    
     return cell;
 }
+
+- (UIImage *)cellBackgroundForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger rowCount = [self tableView:[self userTableView] numberOfRowsInSection:0];
+    NSInteger rowIndex = indexPath.row;
+    UIImage *background = nil;
+    
+    if (rowIndex == 0) {
+        background = [UIImage imageNamed:@"cell_top.png"];
+    } else if (rowIndex == rowCount - 1) {
+        background = [UIImage imageNamed:@"cell_bottom.png"];
+    } else {
+        background = [UIImage imageNamed:@"cell_middle.png"];
+    }
+    
+    return background;
+}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

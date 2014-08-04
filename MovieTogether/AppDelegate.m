@@ -34,6 +34,28 @@
     [FBSettings setDefaultAppID: @"1439364956345872"];
     [PFFacebookUtils initializeFacebook];
     [self getInfo];
+    
+    
+    // Assign tab bar item with titles
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    UITabBar *tabBar = tabBarController.tabBar;
+    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
+    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
+    UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
+    
+    tabBarItem1.title = @"Movies";
+    tabBarItem2.title = @"Liked List";
+    tabBarItem3.title = @"Messages";
+    tabBarItem4.title = @"Messages";
+    
+    [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"movie-icon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"movie-icon"]];
+    [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"list-icon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"list-icon.png"]];
+    [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"msg-icon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"msg-icon"]];
+    [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"msg-icon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"msg-icon"]];
+    
+    
+    
     return YES;
 }
 							
