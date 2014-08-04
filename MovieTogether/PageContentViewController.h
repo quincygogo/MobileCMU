@@ -17,7 +17,7 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *btnImg;
 
-- (IBAction)movieBtn:(id)sender;
+//- (IBAction)movieBtn:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 

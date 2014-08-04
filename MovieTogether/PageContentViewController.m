@@ -132,6 +132,7 @@
     {
         NSIndexPath *indexPath = [self.userTableView indexPathForSelectedRow];
         UserTableViewCell *cell =(UserTableViewCell *)[self.userTableView cellForRowAtIndexPath:indexPath];
+//        NSLog([@"abc" stringByAppendingString:liked.movieName]);
         
         UserDetailController *view = segue.destinationViewController;
         User *user = (User *)[global.userList objectForKey:cell.userName.text];
@@ -164,6 +165,7 @@
         for (NSObject *object in global.likeList)
         {
             Liked *liked = (Liked *) object;
+            
             if ([liked.movieName isEqualToString:movieLabel.text])
             {
                 [movies addObject:liked];
@@ -174,6 +176,8 @@
     }];
     
 }
-- (IBAction)movieBtn:(id)sender {
+- (IBAction)button:(id)sender {
+    global.movieName = movieLabel.text;
 }
+
 @end
