@@ -21,6 +21,7 @@
 @property NSString *movieName;
 @property NSString *imgFile;
 
+- (IBAction)button:(id)sender;
 
 // ???? tableview   ？？？？？？？？？？？？？？？？？？？？？？？
 

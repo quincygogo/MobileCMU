@@ -94,7 +94,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="QDa-2C-hTf" kind="push" id="Bq2-7U-fKH"/>
+                                    <action selector="button:" destination="m6f-S2-ir1" eventType="touchUpInside" id="RKD-8h-5xv"/>
+                                    <segue destination="QDa-2C-hTf" kind="push" id="c3V-fI-xD9"/>
                                 </connections>
                             </button>
                         </subviews>
