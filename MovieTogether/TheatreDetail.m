@@ -34,6 +34,8 @@
     
     NSMutableArray *twoD;
     NSMutableArray *threeD;
+    
+    NSString *timeVal;
 }
 
 @synthesize mapView;
@@ -86,10 +88,7 @@
     NSInteger height = 20;
     [timeDetail setScrollEnabled:YES];
     int numberPerLine = 4;
-    int numberOFLines = ([threeD count] + [twoD count]) / numberPerLine;
-    timeDetail.contentSize = CGSizeMake(271, (numberOFLines * height + 10) + 60);
-    NSLog(@"%d", timeDetail.contentSize.height);
-    int offset = timeDetail.frame.size.height;
+    timeDetail.contentSize = CGSizeMake(271, 500);
     CGRect labelFrame = CGRectMake(0.0f, 0.0f, 60.0f, 20.0f);
     UILabel *threeDLabel = [[UILabel alloc] initWithFrame:labelFrame];
     threeDLabel.text = @"3D";
@@ -103,9 +102,10 @@
         btn.time = showtime.time;
         btn.date = date;
         [btn setLabel];
+        [btn addTarget:self action:@selector(like:) forControlEvents:UIControlEventTouchUpInside];
         [timeDetail addSubview:btn];
         frame = CGRectMake(frame.origin.x + width + 10.0f , frame.origin.y, 60.0f, 20.0f);
-        if (count == 2)
+        if (count == numberPerLine)
         {
             frame = CGRectMake(0 , frame.origin.y + height + 10.0f, 60.0f, 20.0f);
             count = 0;
@@ -129,7 +129,7 @@
         [btn setLabel];
         [timeDetail addSubview:btn];
         frame = CGRectMake(frame.origin.x + width + 10.0f , frame.origin.y, 60.0f, 20.0f);
-        if (count == 2)
+        if (count == numberPerLine)
         {
             frame = CGRectMake(0 , frame.origin.y + height + 10.0f, 60.0f, 20.0f);
             count = 0;
@@ -157,10 +157,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (IBAction)like:(id)sender {
+- (IBAction) like:(id)sender {
+    LikeButton *btn = (LikeButton *)sender;
+    timeVal = btn.time;
+    //do as you please with buttonClicked.argOne
+    NSLog(timeVal);
     if (([PFUser currentUser] && // Check if a user is cached
-        [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])) // Check if user is linked to Facebook
+         [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])) // Check if user is linked to Facebook
     {
         NSLog(@"user exists");
         if (global.userName == NULL)
@@ -177,14 +180,39 @@
     else {
         [self loginFacebook];
     }
+
 }
+
+//- (IBAction)like:(id)sender {
+//    if (([PFUser currentUser] && // Check if a user is cached
+//        [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])) // Check if user is linked to Facebook
+//    {
+//        NSLog(@"user exists");
+//        if (global.userName == NULL)
+//        {
+//            [self getUserInfor];
+//            NSLog(@"Setting global user");
+//        }
+//        else
+//        {
+//            [self addLike];
+//        }
+//    }
+//    // Login PFUser using Facebook
+//    else {
+//        [self loginFacebook];
+//    }
+//}
 
 
 - (void) addLike
 {
     PFObject *like = [PFObject objectWithClassName:@"LikedList"];
     like[@"moviename"] = movieName;
-    like[@"showtime"] = time.text;
+    NSString *dateTime = [date stringByAppendingString:@" "];
+    dateTime = [dateTime stringByAppendingString:timeVal];
+    like[@"showtime"] = dateTime;
+    NSLog([@"hehe" stringByAppendingString:dateTime]);
     like[@"theater"] = theater.text;
     like[@"username"] = global.userName;
     like[@"gender"] = global.gender;
@@ -195,7 +223,6 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
-    [self locate];
 }
 
 - (void) getUserInfor
