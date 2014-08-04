@@ -127,6 +127,7 @@
         btn.time = showtime.time;
         btn.date = date;
         [btn setLabel];
+        [btn addTarget:self action:@selector(like:) forControlEvents:UIControlEventTouchUpInside];
         [timeDetail addSubview:btn];
         frame = CGRectMake(frame.origin.x + width + 10.0f , frame.origin.y, 60.0f, 20.0f);
         if (count == numberPerLine)
@@ -325,7 +326,17 @@
                  }
      ];
     
-    [self locate];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 800, 800);
+    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+    
+    
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = currentLocation.coordinate;
+    point.title = address;
+    
+    [self.mapView addAnnotation:point];
+    
+//    [self locate];
     
     CLLocationCoordinate2D coordinates = [self getLocationFromAddressString:address];
 }

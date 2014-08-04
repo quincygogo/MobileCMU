@@ -58,7 +58,7 @@
     dateFormatter =[[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM-dd"];
     today = [dateFormatter stringFromDate:todayDate];
-    
+    dateVal = today;
     [self getShowTime:today];
     [self initDateControl];
     
