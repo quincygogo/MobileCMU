@@ -13,7 +13,7 @@
 #import <math.h>
 #import "Theater.h"
 #import "AppDelegate.h"
-
+#import "Showtime.h"
 
 @interface TheatreDetail ()
 
@@ -21,21 +21,18 @@
 
 @implementation TheatreDetail {
     AppDelegate *global;
-//    CLGeocoder *geocoder;
-//    CLPlacemark *placemark;
-//    NSString *address;
-//    MKUserLocation *curLoc;
     double latitude;
     double longtitude;
     
     //mine
     CLGeocoder *geocoder;
     CLPlacemark *placemark;
-    //    CLLocationManager *locationManager;
     NSString *address;
     MKUserLocation *currentLocation;
     Theater *theaterInfo;
-    //use theaterInfo.address as the theater's address
+    
+    NSMutableArray *twoD;
+    NSMutableArray *threeD;
 }
 
 @synthesize mapView;
@@ -47,6 +44,8 @@
 @synthesize type;
 @synthesize movieName;
 @synthesize theaterName;
+@synthesize showTimeList;
+@synthesize timeDetail;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -67,8 +66,25 @@
     [self view].hidden = YES;
     [self getTheater];
     
+    twoD = [[NSMutableArray alloc] init];
+    threeD = [[NSMutableArray alloc] init];
+    for (NSObject *object in showTimeList)
+    {
+        Showtime *showtime = (Showtime *) object;
+        if ([showtime.type isEqualToString: @"2D"])
+        {
+            [twoD addObject:showtime];
+        }
+        else if ([showtime.type isEqualToString:@"3D"])
+        {
+            [threeD addObject:showtime];
+        }
+    }
+    
+    
     mapView.delegate = self;
     
+    NSLog(@"%d", [showTimeList count]);
     geocoder = [[CLGeocoder alloc] init];
     address = @"";
     
@@ -335,7 +351,6 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         for (PFObject *object in objects)
         {
-            NSLog(@"yo");
             theaterInfo.name = [object objectForKey:@"name"];
             theaterInfo.phone = [object objectForKey:@"tel"];
             theaterInfo.address = [object objectForKey:@"address"];

@@ -19,7 +19,11 @@
 @property (strong, nonatomic) IBOutlet UILabel *type;
 @property (strong, nonatomic) NSString *movieName;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) IBOutlet UIScrollView *timeDetail;
 
 @property (strong, nonatomic) NSString *theaterName;
+@property (strong, nonatomic) NSMutableArray *showTimeList;
+
+
 - (IBAction)like:(id)sender;
 @end
