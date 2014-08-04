@@ -14,13 +14,14 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *phone;
 @property (strong, nonatomic) IBOutlet UITextView *theaterAddress;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *date;
 @property (strong, nonatomic) IBOutlet UILabel *time;
+
 @property (strong, nonatomic) IBOutlet UILabel *type;
 @property (strong, nonatomic) NSString *movieName;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIScrollView *timeDetail;
 
+@property (strong, nonatomic) NSString *date;
 @property (strong, nonatomic) NSString *theaterName;
 @property (strong, nonatomic) NSMutableArray *showTimeList;
 

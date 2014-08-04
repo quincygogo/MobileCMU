@@ -28,6 +28,7 @@
     NSString *today;
     NSDate *todayDate;
     NSDateFormatter *dateFormatter;
+    NSString *dateVal;
 }
 
 @synthesize movieName;
@@ -123,6 +124,7 @@
         view.theaterName = cell.theater.text;
         view.showTimeList = [[NSMutableArray alloc] init];
         view.showTimeList = (NSMutableArray *)[showTime objectForKey:(cell.theater.text)];
+        view.date = dateVal;
     }
     
 }
@@ -189,8 +191,8 @@
 }
 
 - (IBAction)pickDate:(UISegmentedControl *)sender {
-    NSString *date = [sender titleForSegmentAtIndex:sender.selectedSegmentIndex];
-    [self getShowTime:date];
+    dateVal = [sender titleForSegmentAtIndex:sender.selectedSegmentIndex];
+    [self getShowTime:dateVal];
 }
 
 

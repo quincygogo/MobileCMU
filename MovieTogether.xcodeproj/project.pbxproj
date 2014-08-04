@@ -305,6 +305,7 @@
 		2C3C2C251985A70A00E970FB /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2C3C2C261985A72400E970FB /* movie.png */,
 				2C10BF14199004230029E6F9 /* likeBtn.png */,
 				2C10BF12198EB7BC0029E6F9 /* u4.jpg */,
 				2C10BF10198E84890029E6F9 /* heart-icon.png */,
@@ -313,10 +314,9 @@
 				2CC1E228198DA5D000A87727 /* cell_bottom.png */,
 				2CC1E229198DA5D000A87727 /* cell_middle.png */,
 				2CC1E22A198DA5D000A87727 /* cell_top.png */,
-				2CC1E22B198DA5D000A87727 /* navbar_bg.png */,
 				2C3C2C281985A77D00E970FB /* u2.png */,
+				2CC1E22B198DA5D000A87727 /* navbar_bg.png */,
 				2C3C2C291985A77D00E970FB /* u1.png */,
-				2C3C2C261985A72400E970FB /* movie.png */,
 			);
 			name = images;
 			sourceTree = "<group>";

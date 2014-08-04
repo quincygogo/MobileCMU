@@ -14,6 +14,7 @@
 #import "Theater.h"
 #import "AppDelegate.h"
 #import "Showtime.h"
+#import "LikeButton.h"
 
 @interface TheatreDetail ()
 
@@ -81,10 +82,64 @@
         }
     }
     
+    NSInteger width = 60;
+    NSInteger height = 20;
+    [timeDetail setScrollEnabled:YES];
+    int numberPerLine = 4;
+    int numberOFLines = ([threeD count] + [twoD count]) / numberPerLine;
+    timeDetail.contentSize = CGSizeMake(271, (numberOFLines * height + 10) + 60);
+    NSLog(@"%d", timeDetail.contentSize.height);
+    int offset = timeDetail.frame.size.height;
+    CGRect labelFrame = CGRectMake(0.0f, 0.0f, 60.0f, 20.0f);
+    UILabel *threeDLabel = [[UILabel alloc] initWithFrame:labelFrame];
+    threeDLabel.text = @"3D";
+    [timeDetail addSubview:threeDLabel];
+    int count = 1;
+    CGRect frame = CGRectMake(0.0f, 25.0f, 60.0f, 20.0f);
+    for (int i = 0; i < [threeD count]; i++)
+    {
+        Showtime *showtime = (Showtime *)[threeD objectAtIndex:i];
+        LikeButton *btn = [[LikeButton alloc] initWithFrame:frame];
+        btn.time = showtime.time;
+        btn.date = date;
+        [btn setLabel];
+        [timeDetail addSubview:btn];
+        frame = CGRectMake(frame.origin.x + width + 10.0f , frame.origin.y, 60.0f, 20.0f);
+        if (count == 2)
+        {
+            frame = CGRectMake(0 , frame.origin.y + height + 10.0f, 60.0f, 20.0f);
+            count = 0;
+        }
+        count++;
+    }
+    
+    labelFrame = CGRectMake(0, frame.origin.y + height + 10.0f, 60.0f, 20.0f);
+    UILabel *twoDLabel = [[UILabel alloc] initWithFrame:labelFrame];
+    twoDLabel.text = @"2D";
+    [timeDetail addSubview:twoDLabel];
+    
+    frame = CGRectMake(0.0f, labelFrame.origin.y + 25.0f, 60.0f, 20.0f);
+    count = 1;
+    for (int i = 0; i < [twoD count]; i++)
+    {
+        Showtime *showtime = (Showtime *)[twoD objectAtIndex:i];
+        LikeButton *btn = [[LikeButton alloc] initWithFrame:frame];
+        btn.time = showtime.time;
+        btn.date = date;
+        [btn setLabel];
+        [timeDetail addSubview:btn];
+        frame = CGRectMake(frame.origin.x + width + 10.0f , frame.origin.y, 60.0f, 20.0f);
+        if (count == 2)
+        {
+            frame = CGRectMake(0 , frame.origin.y + height + 10.0f, 60.0f, 20.0f);
+            count = 0;
+        }
+        count++;
+    }
+
     
     mapView.delegate = self;
     
-    NSLog(@"%d", [showTimeList count]);
     geocoder = [[CLGeocoder alloc] init];
     address = @"";
     
