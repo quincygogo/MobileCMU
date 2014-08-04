@@ -32,6 +32,7 @@
 
 @synthesize userTableView;
 @synthesize movieLabel;
+@synthesize btnImg;
 
 - (void)viewDidLoad
 {
@@ -45,8 +46,20 @@
     [self updateLikeList];
     
     // ---revised-------
-    self.movieImg.image = [UIImage imageNamed:self.imgFile];
+     self.movieImg.image = [UIImage imageNamed:self.imgFile];
     movieLabel.text = self.movieName;
+    global.movieName = movieLabel.text;
+ 
+//    [btnImg setImage:[UIImage imageNamed:self.imgFile] forState:UIControlStateNormal];
+    
+    /*
+    UIImage *buttonImage = [UIImage imageNamed:@"u1.png"];
+    UIButton *myBtn = [[UIButton alloc] init];
+    myBtn.frame = CGRectMake(185, 103, 115, 60);
+    [myBtn setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [self.view addSubview:myBtn];
+    
+*/
     
 //    imgList = [NSMutableArray arrayWithObjects:@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png", nil];
   //  userList = [NSMutableArray arrayWithObjects:@"Transformer", @"Tomorrow", @"Lucy", @"Ape", @"Transformer", @"The", @"Lucy", @"Transformer", @"Edge", @"Lucy", nil];
@@ -119,6 +132,7 @@
     {
         NSIndexPath *indexPath = [self.userTableView indexPathForSelectedRow];
         UserTableViewCell *cell =(UserTableViewCell *)[self.userTableView cellForRowAtIndexPath:indexPath];
+//        NSLog([@"abc" stringByAppendingString:liked.movieName]);
         
         UserDetailController *view = segue.destinationViewController;
         User *user = (User *)[global.userList objectForKey:cell.userName.text];
@@ -151,6 +165,7 @@
         for (NSObject *object in global.likeList)
         {
             Liked *liked = (Liked *) object;
+            
             if ([liked.movieName isEqualToString:movieLabel.text])
             {
                 [movies addObject:liked];
@@ -164,4 +179,5 @@
 - (IBAction)button:(id)sender {
     global.movieName = movieLabel.text;
 }
+
 @end

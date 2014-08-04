@@ -86,16 +86,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)like:(id)sender {
     if (([PFUser currentUser] && // Check if a user is cached
@@ -206,7 +196,7 @@
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     currentLocation = userLocation;
-    
+/*
     // Add an annotation
     [geocoder reverseGeocodeLocation:currentLocation.location completionHandler:^(NSArray *placemarks, NSError *error) {
         if (error == nil && [placemarks count] > 0) {
@@ -217,8 +207,54 @@
             NSLog(@"%@", error.debugDescription);
         }
     } ];
+ */
+    
+    [geocoder geocodeAddressString:theaterInfo.address
+                 completionHandler:^(NSArray* placemarks, NSError* error){
+                     if (placemarks && placemarks.count > 0) {
+                         CLPlacemark *topResult = [placemarks objectAtIndex:0];
+                         MKPlacemark *pin = [[MKPlacemark alloc] initWithPlacemark:topResult];
+                         
+                         MKCoordinateRegion region = self.mapView.region;
+//                         region.center = pin.region.center;
+//                         region.span.longitudeDelta /= 6.0;
+//                         region.span.latitudeDelta /= 6.0;
+
+                         MKCoordinateRegion reg = MKCoordinateRegionMakeWithDistance(pin.coordinate, 2000, 2000);
+                         [self.mapView setRegion:region animated:YES];
+                         [self.mapView addAnnotation:pin];
+                     }
+                 }
+     ];
+    
     [self locate];
+    
+    CLLocationCoordinate2D coordinates = [self getLocationFromAddressString:address];
 }
+
+
+-(CLLocationCoordinate2D) getLocationFromAddressString:(NSString*) addressStr {
+    
+    double latitude = 0, longitude = 0;
+    NSString *esc_addr =  [addressStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *req = [NSString stringWithFormat:@"http://maps.google.com/maps/api/geocode/json?sensor=false&address=%@", esc_addr];
+    NSString *result = [NSString stringWithContentsOfURL:[NSURL URLWithString:req] encoding:NSUTF8StringEncoding error:NULL];
+    if (result) {
+        NSScanner *scanner = [NSScanner scannerWithString:result];
+        if ([scanner scanUpToString:@"\"lat\" :" intoString:nil] && [scanner scanString:@"\"lat\" :" intoString:nil]) {
+            [scanner scanDouble:&latitude];
+            if ([scanner scanUpToString:@"\"lng\" :" intoString:nil] && [scanner scanString:@"\"lng\" :" intoString:nil]) {
+                [scanner scanDouble:&longitude];
+            }
+        }
+    }
+    CLLocationCoordinate2D center;
+    center.latitude = latitude;
+    center.longitude = longitude;
+    return center;
+    
+}
+
 
 - (void) locate
 {
@@ -226,13 +262,24 @@
     [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
     
     
-//    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-//    point.coordinate = currentLocation.coordinate;
-//    point.title = address;
-//    
-//    [self.mapView addAnnotation:point];
-
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = currentLocation.coordinate;
+    point.title = address;
+    
+    [self.mapView addAnnotation:point];
+    
+    
+//    MKMapRect zoomRect = MKMapRectNull;
+//    for (id <MKAnnotation> annotation in mapView.annotations)
+//    {
+//        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+//        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+//        zoomRect = MKMapRectUnion(zoomRect, pointRect);
+//    }
+//    double inset = -zoomRect.size.width * 0.1;
+//    [mapView setVisibleMapRect:MKMapRectInset(zoomRect, inset, inset) animated:YES];
 }
+
 //
 //- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLoc {
 //    curLoc = userLoc;
