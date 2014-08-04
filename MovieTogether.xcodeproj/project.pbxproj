@@ -53,6 +53,8 @@
 		3B79CA2F198AFB8800AE76AB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B79CA2E198AFB8800AE76AB /* SystemConfiguration.framework */; };
 		3B886A98198EA8D70097B3B6 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B886A97198EA8D70097B3B6 /* Movie.m */; };
 		3B886A9B198EAA850097B3B6 /* Theater.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B886A9A198EAA850097B3B6 /* Theater.m */; };
+		3B886A9F198F25370097B3B6 /* MovieDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B886A9E198F25370097B3B6 /* MovieDetailCell.m */; };
+		3B886AA1198F4ACD0097B3B6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B886AA0198F4ACD0097B3B6 /* MapKit.framework */; };
 		3BD5B689198D524B00032D63 /* SentMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5B688198D524B00032D63 /* SentMessageController.m */; };
 		3BD5B68C198D52A100032D63 /* SentTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5B68B198D52A100032D63 /* SentTableCell.m */; };
 		3BD5B68F198D72AB00032D63 /* ReceivedMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5B68E198D72AB00032D63 /* ReceivedMessageController.m */; };
@@ -134,6 +136,9 @@
 		3B886A97198EA8D70097B3B6 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		3B886A99198EAA850097B3B6 /* Theater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theater.h; sourceTree = "<group>"; };
 		3B886A9A198EAA850097B3B6 /* Theater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theater.m; sourceTree = "<group>"; };
+		3B886A9D198F25370097B3B6 /* MovieDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailCell.h; sourceTree = "<group>"; };
+		3B886A9E198F25370097B3B6 /* MovieDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailCell.m; sourceTree = "<group>"; };
+		3B886AA0198F4ACD0097B3B6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3BD5B687198D524B00032D63 /* SentMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SentMessageController.h; sourceTree = "<group>"; };
 		3BD5B688198D524B00032D63 /* SentMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SentMessageController.m; sourceTree = "<group>"; };
 		3BD5B68A198D52A100032D63 /* SentTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SentTableCell.h; sourceTree = "<group>"; };
@@ -156,6 +161,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B79CA23198AFB1100AE76AB /* CoreLocation.framework in Frameworks */,
+				3B886AA1198F4ACD0097B3B6 /* MapKit.framework in Frameworks */,
 				3B79CA2F198AFB8800AE76AB /* SystemConfiguration.framework in Frameworks */,
 				3B79CA2D198AFB7800AE76AB /* StoreKit.framework in Frameworks */,
 				3B79CA2B198AFB6E00AE76AB /* Security.framework in Frameworks */,
@@ -163,7 +170,6 @@
 				3B79CA27198AFB5900AE76AB /* MobileCoreServices.framework in Frameworks */,
 				3B79CA25198AFB5100AE76AB /* libz.dylib in Frameworks */,
 				2CC1E214198B254500A87727 /* Parse.framework in Frameworks */,
-				3B79CA23198AFB1100AE76AB /* CoreLocation.framework in Frameworks */,
 				3B79CA21198AFB0300AE76AB /* CFNetwork.framework in Frameworks */,
 				3B79CA1F198AFAFA00AE76AB /* AudioToolbox.framework in Frameworks */,
 				3BE2A87C198AE93E00048879 /* Social.framework in Frameworks */,
@@ -210,6 +216,7 @@
 		2C3C2BE919857D5200E970FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B886AA0198F4ACD0097B3B6 /* MapKit.framework */,
 				2CC1E213198B254500A87727 /* Parse.framework */,
 				3B79CA2E198AFB8800AE76AB /* SystemConfiguration.framework */,
 				3B79CA2C198AFB7800AE76AB /* StoreKit.framework */,
@@ -234,6 +241,7 @@
 		2C3C2BF019857D5200E970FB /* MovieTogether */ = {
 			isa = PBXGroup;
 			children = (
+				3B886A9C198F1E9A0097B3B6 /* MovieDetail */,
 				3BD5B693198D949C00032D63 /* UserDetail */,
 				3BE68869198C752C00162264 /* LikedList */,
 				3BE2A832198AC51300048879 /* Theater  */,
@@ -252,8 +260,6 @@
 				2C3C2BF119857D5200E970FB /* Supporting Files */,
 				2C3C2CB61986C9ED00E970FB /* UserTableViewCell.h */,
 				2C3C2CB71986C9ED00E970FB /* UserTableViewCell.m */,
-				2C3C2CBB1986FB9A00E970FB /* MovieDetailViewController.h */,
-				2C3C2CBC1986FB9A00E970FB /* MovieDetailViewController.m */,
 			);
 			path = MovieTogether;
 			sourceTree = "<group>";
@@ -335,6 +341,17 @@
 			);
 			name = Message;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		3B886A9C198F1E9A0097B3B6 /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				2C3C2CBB1986FB9A00E970FB /* MovieDetailViewController.h */,
+				2C3C2CBC1986FB9A00E970FB /* MovieDetailViewController.m */,
+				3B886A9D198F25370097B3B6 /* MovieDetailCell.h */,
+				3B886A9E198F25370097B3B6 /* MovieDetailCell.m */,
+			);
+			name = MovieDetail;
 			sourceTree = "<group>";
 		};
 		3BD5B693198D949C00032D63 /* UserDetail */ = {
@@ -489,6 +506,7 @@
 				3BD5B68F198D72AB00032D63 /* ReceivedMessageController.m in Sources */,
 				2C3C2C0119857D5200E970FB /* FirstViewController.m in Sources */,
 				3BE2A835198AC56800048879 /* TheatreDetail.m in Sources */,
+				3B886A9F198F25370097B3B6 /* MovieDetailCell.m in Sources */,
 				3BD5B696198D94DD00032D63 /* UserDetailController.m in Sources */,
 				3BD5B692198D72E600032D63 /* ReceivedTableCell.m in Sources */,
 				3BE6886C198C765400162264 /* LikeListTable.m in Sources */,

@@ -178,16 +178,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngg-ad-5cJ">
-                                <rect key="frame" x="244" y="161" width="44" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="more..">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="75N-UC-LjW" kind="push" id="12G-qc-sdM"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eW9-ln-tk7">
                                 <rect key="frame" x="20" y="193" width="268" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -196,52 +186,60 @@
                                     <segment title="07-31"/>
                                     <segment title="08-01"/>
                                 </segments>
+                                <connections>
+                                    <action selector="pickDate:" destination="QDa-2C-hTf" eventType="valueChanged" id="MAl-lu-5NN"/>
+                                </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Df2-X3-UK3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Df2-X3-UK3">
                                 <rect key="frame" x="20" y="229" width="268" height="284"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="59" id="49Z-p5-mba">
-                                        <rect key="frame" x="0.0" y="22" width="268" height="59"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieDetailCell" rowHeight="91" id="49Z-p5-mba" customClass="MovieDetailCell">
+                                        <rect key="frame" x="0.0" y="22" width="268" height="91"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="49Z-p5-mba" id="WRa-A6-HTB">
-                                            <rect key="frame" x="0.0" y="0.0" width="235" height="58"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="235" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WaterFront" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26c-5g-4E0">
-                                                    <rect key="frame" x="20" y="5" width="85" height="21"/>
+                                                    <rect key="frame" x="20" y="5" width="238" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10:15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5U-hn-QJQ">
-                                                    <rect key="frame" x="20" y="27" width="43" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwG-Cv-kPc">
+                                                    <rect key="frame" x="20" y="31" width="215" height="51"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12:31" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JkW-mg-Yjc">
-                                                    <rect key="frame" x="71" y="27" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15:23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkf-do-of2">
-                                                    <rect key="frame" x="119" y="27" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="theater" destination="26c-5g-4E0" id="tZR-8H-r0f"/>
+                                            <outlet property="timeList" destination="iwG-Cv-kPc" id="FJ0-ay-O9G"/>
+                                            <segue destination="75N-UC-LjW" kind="push" identifier="theaterDetail" id="Hgm-qm-RpF"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="QDa-2C-hTf" id="tWx-UK-7Qj"/>
+                                    <outlet property="delegate" destination="QDa-2C-hTf" id="TWX-Ab-Trs"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="cW8-4K-VKz"/>
+                    <connections>
+                        <outlet property="dateControl" destination="eW9-ln-tk7" id="Q3o-ch-Lt1"/>
+                        <outlet property="director" destination="u7z-r4-mzU" id="Mwv-kb-PhL"/>
+                        <outlet property="releaseDate" destination="bW2-tv-JXX" id="WFo-1G-uFY"/>
+                        <outlet property="showTimeTable" destination="Df2-X3-UK3" id="vOs-hb-m6u"/>
+                        <outlet property="summary" destination="AaX-SQ-ROJ" id="2KZ-n3-MbK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EnI-gY-aOK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -303,8 +301,8 @@ West Homestead, PA 15120</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JGx-Cd-BrZ">
-                                <rect key="frame" x="33" y="185" width="255" height="218"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kgh-Rl-8FL">
+                                <rect key="frame" x="29" y="174" width="271" height="226"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
                         </subviews>
@@ -312,7 +310,7 @@ West Homestead, PA 15120</string>
                     </view>
                     <navigationItem key="navigationItem" id="zeq-OV-Acl"/>
                     <connections>
-                        <outlet property="mapView" destination="JGx-Cd-BrZ" id="2kM-Gf-ijE"/>
+                        <outlet property="mapView" destination="kgh-Rl-8FL" id="HeN-ea-5Et"/>
                         <outlet property="phone" destination="bKZ-ZH-p9Y" id="RP9-sx-i3j"/>
                         <outlet property="theater" destination="3Ed-hA-9Hw" id="xLJ-OQ-Rz9"/>
                         <outlet property="theaterAddress" destination="gFU-Dc-zWd" id="DHq-To-PUI"/>

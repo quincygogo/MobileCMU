@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MovieDetailViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UILabel *movieLabel;
+@interface MovieDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
 @property (strong, nonatomic) NSString *movieName;
+@property (strong, nonatomic) IBOutlet UILabel *director;
+@property (strong, nonatomic) IBOutlet UILabel *releaseDate;
+@property (strong, nonatomic) IBOutlet UITextView *summary;
+@property (strong, nonatomic) IBOutlet UITableView *showTimeTable;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *dateControl;
+- (IBAction)pickDate:(UISegmentedControl *)sender;
 
 @end
