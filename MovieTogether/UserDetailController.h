@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *movieName;
 @property (strong, nonatomic) IBOutlet UILabel *date;
 @property (strong, nonatomic) IBOutlet UILabel *theater;
+@property (strong, nonatomic) IBOutlet UITextView *message;
 
 @property (strong, nonatomic) NSString *userNameContent;
 @property (strong, nonatomic) NSString *genderContent;
@@ -27,6 +28,7 @@
 @property (strong, nonatomic) NSString *theaterContent;
 @property (strong, nonatomic) IBOutlet UIScrollView *likelist;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (strong, nonatomic) NSString *messageContent;
 - (IBAction)invite:(id)sender;
 
 @end

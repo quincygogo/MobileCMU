@@ -25,6 +25,7 @@
 @synthesize theater;
 @synthesize date;
 @synthesize movieName;
+@synthesize message;
 
 @synthesize userNameContent;
 @synthesize genderContent;
@@ -32,6 +33,7 @@
 @synthesize theaterContent;
 @synthesize dateContent;
 @synthesize movieNameContent;
+@synthesize messageContent;
 
 @synthesize spinner;
 @synthesize likelist;
@@ -59,6 +61,7 @@
     theater.text = theaterContent;
     date.text = dateContent;
     movieName.text = movieNameContent;
+    message.text = messageContent;
     
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:userImgContent]];
     userImg.image = [UIImage imageWithData:data];
@@ -118,7 +121,7 @@
 
 - (void) sendInvitation
 {
-    PFObject *message = [PFObject objectWithClassName:@"Message"];
+    PFObject *invitation = [PFObject objectWithClassName:@"Message"];
     NSString *name = global.userName;
    
     if ([name isEqualToString:userNameContent])
@@ -132,13 +135,13 @@
         
         return;
     }
-    message[@"fromuser"] = name;
-    message[@"moviename"] = movieNameContent;
-    message[@"status"] = @"Pending";
-    message[@"time"] = dateContent;
-    message[@"theater"] = theaterContent;
-    message[@"touser"] = userNameContent;
-    [message saveInBackground];
+    invitation[@"fromuser"] = name;
+    invitation[@"moviename"] = movieNameContent;
+    invitation[@"status"] = @"Pending";
+    invitation[@"time"] = dateContent;
+    invitation[@"theater"] = theaterContent;
+    invitation[@"touser"] = userNameContent;
+    [invitation saveInBackground];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congratulations"
                                                     message:@"Your invitation has been sent!"

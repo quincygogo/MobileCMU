@@ -13,6 +13,9 @@
 
 @synthesize messageId;
 @synthesize fromUserName;
+@synthesize acceptButton;
+@synthesize declineButton;
+@synthesize status;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -53,7 +56,13 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
-
+    
+    status.hidden = NO;
+    status.text = @"Accepted";
+    [status setTextColor:[UIColor colorWithRed: 88.0/255.0 green: 191.0/255.0 blue:98/255.0 alpha: 0.8]];
+    acceptButton.hidden = YES;
+    declineButton.hidden = YES;
+    
 }
 
 - (IBAction)decline:(id)sender {
@@ -74,7 +83,13 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
-
+    
+    status.hidden = NO;
+    status.text = @"Declined";
+    [status setTextColor:[UIColor colorWithRed: 246.0/255.0 green: 37.0/255.0 blue:86.0/255.0 alpha: 0.8]];
+    acceptButton.hidden = YES;
+    declineButton.hidden = YES;
+    
 }
 
 @end

@@ -41,6 +41,7 @@
     {
         [self checkLogin];
     }
+    
     // Do any additional setup after loading the view.
     global = [[UIApplication sharedApplication] delegate];
     userList = [[NSMutableArray alloc]init];
@@ -51,8 +52,7 @@
 
         movieLabel.text = self.movieName;
     global.movieName = movieLabel.text;
-  
-
+    
     [btnImg setBackgroundImage:[UIImage imageNamed:self.imgFile] forState:UIControlStateNormal];
     
     
@@ -166,14 +166,17 @@
         view.movieNameContent = like.movieName;
         view.dateContent = like.showTime;
         view.theaterContent = like.theater;
+        view.messageContent = like.message;
         
     }
 }
 
 - (void) updateLikeList
 {
+    global.likeList = [[NSMutableArray alloc] init];
     PFQuery *query = [PFQuery queryWithClassName:@"LikedList"];
-    [query selectKeys:@[@"moviename", @"showtime", @"theater", @"username"]];
+//    [query selectKeys:@[@"moviename", @"showtime", @"theater", @"username", @"message"]];
+    [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         for (PFObject *object in objects) {
             Liked *like = [[Liked alloc] init];
@@ -181,6 +184,7 @@
             like.showTime =[object objectForKey:@"showtime"];
             like.theater = [object objectForKey:@"theater"];
             like.userName = [object objectForKey:@"username"];
+            like.message = [object objectForKey:@"message"];
             [global.likeList addObject:like];
         }
         for (NSObject *object in global.likeList)
