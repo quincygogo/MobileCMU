@@ -162,7 +162,6 @@
     LikeButton *btn = (LikeButton *)sender;
     timeVal = btn.time;
     //do as you please with buttonClicked.argOne
-    NSLog(timeVal);
     if (([PFUser currentUser] && // Check if a user is cached
          [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])) // Check if user is linked to Facebook
     {
@@ -184,28 +183,6 @@
 
 }
 
-//- (IBAction)like:(id)sender {
-//    if (([PFUser currentUser] && // Check if a user is cached
-//        [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])) // Check if user is linked to Facebook
-//    {
-//        NSLog(@"user exists");
-//        if (global.userName == NULL)
-//        {
-//            [self getUserInfor];
-//            NSLog(@"Setting global user");
-//        }
-//        else
-//        {
-//            [self addLike];
-//        }
-//    }
-//    // Login PFUser using Facebook
-//    else {
-//        [self loginFacebook];
-//    }
-//}
-
-
 - (void) addLike
 {
     PFObject *like = [PFObject objectWithClassName:@"LikedList"];
@@ -213,7 +190,6 @@
     NSString *dateTime = [date stringByAppendingString:@" "];
     dateTime = [dateTime stringByAppendingString:timeVal];
     like[@"showtime"] = dateTime;
-    NSLog([@"hehe" stringByAppendingString:dateTime]);
     like[@"theater"] = theater.text;
     like[@"username"] = global.userName;
     like[@"gender"] = global.gender;
@@ -268,12 +244,7 @@
             global.picture = [pictureURL absoluteString];
             [self addLike];
         }
-    
-        else
-        {
-            NSLog(error);
-        }
-    }];
+       }];
 }
 
 - (void) loginFacebook
@@ -295,146 +266,52 @@
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     currentLocation = userLocation;
-/*
-    // Add an annotation
-    [geocoder reverseGeocodeLocation:currentLocation.location completionHandler:^(NSArray *placemarks, NSError *error) {
-        if (error == nil && [placemarks count] > 0) {
-            placemark = [placemarks lastObject];
-            address = [NSString stringWithFormat:@"%@ %@",
-                       placemark.thoroughfare, placemark.subThoroughfare];
-        } else {
-            NSLog(@"%@", error.debugDescription);
-        }
-    } ];
- */
-    
+    __block CLLocationDegrees lat;
+    __block CLLocationDegrees lon;
+    __block CLLocationCoordinate2D coordinate;
     [geocoder geocodeAddressString:theaterInfo.address
                  completionHandler:^(NSArray* placemarks, NSError* error){
                      if (placemarks && placemarks.count > 0) {
                          CLPlacemark *topResult = [placemarks objectAtIndex:0];
                          MKPlacemark *pin = [[MKPlacemark alloc] initWithPlacemark:topResult];
+                         lat = topResult.location.coordinate.latitude;
+                         lon = topResult.location.coordinate.longitude;
+                         MKCoordinateSpan locationSpan;
+                         CLLocationDegrees uppderLat, lowerLat, uppderLon, lowerLon;
+                         if (lat > currentLocation.coordinate.latitude)
+                         {
+                             uppderLat = lat;
+                             lowerLat = currentLocation.coordinate.latitude;
+                         } else {
+                             uppderLat = currentLocation.coordinate.latitude;
+                             lowerLat = lat;
+                         }
                          
-                         MKCoordinateRegion region = self.mapView.region;
-//                         region.center = pin.region.center;
-//                         region.span.longitudeDelta /= 6.0;
-//                         region.span.latitudeDelta /= 6.0;
-
-                         MKCoordinateRegion reg = MKCoordinateRegionMakeWithDistance(pin.coordinate, 2000, 2000);
-                         [self.mapView setRegion:region animated:YES];
+                         if (lon > currentLocation.coordinate.longitude)
+                         {
+                             uppderLon = lon;
+                             lowerLon = currentLocation.coordinate.longitude;
+                         } else {
+                             uppderLon = currentLocation.coordinate.longitude;
+                             lowerLon = lon;
+                         }
+                         
+                         
+                         coordinate.latitude = (uppderLat + uppderLat) / 2;
+                         coordinate.longitude = (uppderLon + lowerLon) / 2;
+    
+                         locationSpan.latitudeDelta = (uppderLat - lowerLat) * 2.5;
+                         locationSpan.longitudeDelta = (uppderLon - lowerLon) * 2.5;
+                         
+                         MKCoordinateRegion region = MKCoordinateRegionMake(coordinate, locationSpan);
+                         [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+                         
+                         
                          [self.mapView addAnnotation:pin];
                      }
                  }
      ];
-    
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 800, 800);
-    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
-    
-    
-    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-    point.coordinate = currentLocation.coordinate;
-    point.title = address;
-    
-    [self.mapView addAnnotation:point];
-    
-//    [self locate];
-    
-    CLLocationCoordinate2D coordinates = [self getLocationFromAddressString:address];
 }
-
-
--(CLLocationCoordinate2D) getLocationFromAddressString:(NSString*) addressStr {
-    
-    double latitude = 0, longitude = 0;
-    NSString *esc_addr =  [addressStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *req = [NSString stringWithFormat:@"http://maps.google.com/maps/api/geocode/json?sensor=false&address=%@", esc_addr];
-    NSString *result = [NSString stringWithContentsOfURL:[NSURL URLWithString:req] encoding:NSUTF8StringEncoding error:NULL];
-    if (result) {
-        NSScanner *scanner = [NSScanner scannerWithString:result];
-        if ([scanner scanUpToString:@"\"lat\" :" intoString:nil] && [scanner scanString:@"\"lat\" :" intoString:nil]) {
-            [scanner scanDouble:&latitude];
-            if ([scanner scanUpToString:@"\"lng\" :" intoString:nil] && [scanner scanString:@"\"lng\" :" intoString:nil]) {
-                [scanner scanDouble:&longitude];
-            }
-        }
-    }
-    CLLocationCoordinate2D center;
-    center.latitude = latitude;
-    center.longitude = longitude;
-    return center;
-    
-}
-
-
-- (void) locate
-{
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 800, 800);
-    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
-    
-    
-    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-    point.coordinate = currentLocation.coordinate;
-    point.title = address;
-    
-    [self.mapView addAnnotation:point];
-    
-    
-//    MKMapRect zoomRect = MKMapRectNull;
-//    for (id <MKAnnotation> annotation in mapView.annotations)
-//    {
-//        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
-//        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
-//        zoomRect = MKMapRectUnion(zoomRect, pointRect);
-//    }
-//    double inset = -zoomRect.size.width * 0.1;
-//    [mapView setVisibleMapRect:MKMapRectInset(zoomRect, inset, inset) animated:YES];
-}
-
-//
-//- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLoc {
-//    curLoc = userLoc;
-//    
-//    // reverse geocoding
-//    NSLog(@"resolving the address");
-//    [geocoder reverseGeocodeLocation:curLoc.location completionHandler:^(NSArray *placemarks, NSError *error) {
-//        NSLog(@"found placemarks: %@, error: %@", placemarks, error);
-//        if (error == nil && [placemarks count] > 0) {
-//            placemark = [placemarks lastObject];
-//            address = [NSString stringWithFormat:@"%@ %@",
-//                       placemark.subThoroughfare, placemark.thoroughfare];
-//        } else {
-//            NSLog(@"%@", error.debugDescription);
-//        }
-//    }];
-//}
-
-//
-//- (void)getCurrentLoc {
-//    // AMC address
-//    latitude= 40.401;
-//    longtitude = -79.918;
-//    
-//    MKCoordinateRegion region;
-//    region.center.latitude = (self.mapView.userLocation.coordinate.latitude + latitude)/2;
-//    region.center.longitude = (self.mapView.userLocation.coordinate.longitude + longtitude)/2;
-//    region.span.latitudeDelta = ([[[CLLocation alloc] initWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude] distanceFromLocation:[[CLLocation alloc] initWithLatitude:latitude longitude:longtitude]])* 1.3 / 111319.5;
-//    region.span.longitudeDelta = 0.0;
-//    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
-//    // add annotation
-//    MKPointAnnotation *pin = [[MKPointAnnotation alloc] init];
-//    pin.coordinate = CLLocationCoordinate2DMake(latitude, longtitude);
-//    NSLog(@"log get cur loc");
-//
-//    [self.mapView addAnnotation:pin];
-//    
-//}
-//
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-//{
-//    if ([self.mapView showsUserLocation]) {
-//        [self getCurrentLoc];
-//        // and of course you can use here old and new location values
-//    }
-//}
 
 - (void) getTheater
 {
