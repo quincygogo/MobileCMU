@@ -69,7 +69,7 @@
     director.text = movie.director;
     releaseDate.text = movie.releaseDate;
     summary.text = movie.summary;
-    movieImg.image = [UIImage imageNamed:movie.name];
+    movieImg.image = [UIImage imageNamed:[movie.name stringByAppendingString:@"_s"]];
 }
 
 - (void)didReceiveMemoryWarning
