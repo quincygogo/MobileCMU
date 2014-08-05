@@ -69,7 +69,7 @@
     director.text = movie.director;
     releaseDate.text = movie.releaseDate;
     summary.text = movie.summary;
-    movieImg.image = [UIImage imageNamed:[movie.name stringByAppendingString:@"_s"]];
+    movieImg.image = [UIImage imageNamed:[movie.name stringByAppendingString:@"_s.jpg"]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -103,7 +103,7 @@
     {
         Showtime *show = (Showtime *) object;
         cell.timeList.text = [cell.timeList.text stringByAppendingString:show.time];
-        cell.timeList.text = [cell.timeList.text stringByAppendingString:@" "];
+        cell.timeList.text = [cell.timeList.text stringByAppendingString:@"   "];
     }
     
     return cell;

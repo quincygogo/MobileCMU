@@ -25,6 +25,7 @@
 		2C10BF35199062FC0029E6F9 /* inbox-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C10BF34199062FC0029E6F9 /* inbox-selected.png */; };
 		2C10BF37199063120029E6F9 /* inbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C10BF36199063120029E6F9 /* inbox.png */; };
 		2C10BF39199072020029E6F9 /* The Edge of Tomorrow_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C10BF38199072020029E6F9 /* The Edge of Tomorrow_s.png */; };
+		2C15B6EC199124D300E3E1C5 /* heartBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C15B6EB199124D300E3E1C5 /* heartBtn.png */; };
 		2C3C2BEB19857D5200E970FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3C2BEA19857D5200E970FB /* Foundation.framework */; };
 		2C3C2BED19857D5200E970FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3C2BEC19857D5200E970FB /* CoreGraphics.framework */; };
 		2C3C2BEF19857D5200E970FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3C2BEE19857D5200E970FB /* UIKit.framework */; };
@@ -120,6 +121,7 @@
 		2C10BF34199062FC0029E6F9 /* inbox-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inbox-selected.png"; sourceTree = "<group>"; };
 		2C10BF36199063120029E6F9 /* inbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inbox.png; sourceTree = "<group>"; };
 		2C10BF38199072020029E6F9 /* The Edge of Tomorrow_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "The Edge of Tomorrow_s.png"; sourceTree = "<group>"; };
+		2C15B6EB199124D300E3E1C5 /* heartBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heartBtn.png; sourceTree = "<group>"; };
 		2C3C2BE719857D5200E970FB /* MovieTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C3C2BEA19857D5200E970FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2C3C2BEC19857D5200E970FB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -351,6 +353,7 @@
 		2C3C2C251985A70A00E970FB /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2C15B6EB199124D300E3E1C5 /* heartBtn.png */,
 				2C5CA296199099A400FC68BF /* Edge of Tomorrow_s.jpg */,
 				2C5CA297199099A400FC68BF /* Edge of Tomorrow.jpg */,
 				2C5CA298199099A400FC68BF /* Guardians of the Galaxy.jpg */,
@@ -579,6 +582,7 @@
 				2CC1E232198DA5F000A87727 /* cell_top_tile.png in Resources */,
 				2C10BF1919901CEC0029E6F9 /* previous.png in Resources */,
 				2CC1E22F198DA5D000A87727 /* navbar_bg.png in Resources */,
+				2C15B6EC199124D300E3E1C5 /* heartBtn.png in Resources */,
 				2C10BF13198EB7BC0029E6F9 /* u4.jpg in Resources */,
 				2C3C2BFE19857D5200E970FB /* Main.storyboard in Resources */,
 			);
