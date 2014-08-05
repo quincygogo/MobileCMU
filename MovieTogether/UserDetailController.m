@@ -107,7 +107,7 @@
         if (!error) {
             UITextView * text = [[UITextView alloc] initWithFrame:CGRectMake(0,0,likelist.frame.size.width,likelist.frame.size.height)];
             [text setEditable:NO];
-            text.font = [UIFont systemFontOfSize:17.0f];
+            text.font = [UIFont systemFontOfSize:14.0f];
             // The find succeeded.
             // Do something with the found objects
             for (PFObject *object in objects) {
