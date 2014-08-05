@@ -10,6 +10,7 @@
 
 @interface MovieDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) IBOutlet UIImageView *movieImg;
 @property (strong, nonatomic) NSString *movieName;
 @property (strong, nonatomic) IBOutlet UILabel *director;
 @property (strong, nonatomic) IBOutlet UILabel *releaseDate;

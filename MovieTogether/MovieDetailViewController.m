@@ -37,6 +37,7 @@
 @synthesize director;
 @synthesize showTimeTable;
 @synthesize dateControl;
+@synthesize movieImg;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -68,6 +69,7 @@
     director.text = movie.director;
     releaseDate.text = movie.releaseDate;
     summary.text = movie.summary;
+    movieImg.image = [UIImage imageNamed:movie.name];
 }
 
 - (void)didReceiveMemoryWarning
