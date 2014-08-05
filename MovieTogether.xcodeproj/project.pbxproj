@@ -15,7 +15,6 @@
 		2C10BF2219902D510029E6F9 /* msg-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C10BF2019902D510029E6F9 /* msg-icon.png */; };
 		2C10BF2319902D510029E6F9 /* movie-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C10BF2119902D510029E6F9 /* movie-icon.png */; };
 		2C10BF2519902D850029E6F9 /* list-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C10BF2419902D850029E6F9 /* list-icon.png */; };
-		2C10BF27199051BE0029E6F9 /* movie.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C10BF26199051BE0029E6F9 /* movie.png */; };
 		2C10BF291990562D0029E6F9 /* message-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C10BF281990562D0029E6F9 /* message-selected.png */; };
 		2C10BF2B199056460029E6F9 /* movie-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C10BF2A199056460029E6F9 /* movie-selected.png */; };
 		2C10BF2D1990568C0029E6F9 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C10BF2C1990568C0029E6F9 /* message.png */; };
@@ -90,6 +89,7 @@
 		3BE2A835198AC56800048879 /* TheatreDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2A834198AC56800048879 /* TheatreDetail.m */; };
 		3BE2A87C198AE93E00048879 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE2A87B198AE93E00048879 /* Social.framework */; };
 		3BE6886C198C765400162264 /* LikeListTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6886B198C765400162264 /* LikeListTable.m */; };
+		3BF03AF119913556004D48B7 /* movie.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BF03AF019913556004D48B7 /* movie.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,7 +111,6 @@
 		2C10BF2019902D510029E6F9 /* msg-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "msg-icon.png"; sourceTree = "<group>"; };
 		2C10BF2119902D510029E6F9 /* movie-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "movie-icon.png"; sourceTree = "<group>"; };
 		2C10BF2419902D850029E6F9 /* list-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-icon.png"; sourceTree = "<group>"; };
-		2C10BF26199051BE0029E6F9 /* movie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movie.png; sourceTree = "<group>"; };
 		2C10BF281990562D0029E6F9 /* message-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message-selected.png"; sourceTree = "<group>"; };
 		2C10BF2A199056460029E6F9 /* movie-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "movie-selected.png"; sourceTree = "<group>"; };
 		2C10BF2C1990568C0029E6F9 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
@@ -210,6 +209,7 @@
 		3BE2A87B198AE93E00048879 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3BE6886A198C765400162264 /* LikeListTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeListTable.h; sourceTree = "<group>"; };
 		3BE6886B198C765400162264 /* LikeListTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeListTable.m; sourceTree = "<group>"; };
+		3BF03AF019913556004D48B7 /* movie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movie.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +357,7 @@
 				2C5CA296199099A400FC68BF /* Edge of Tomorrow_s.jpg */,
 				2C5CA297199099A400FC68BF /* Edge of Tomorrow.jpg */,
 				2C5CA298199099A400FC68BF /* Guardians of the Galaxy.jpg */,
+				3BF03AF019913556004D48B7 /* movie.png */,
 				2C5CA299199099A400FC68BF /* Lucy.jpg */,
 				2C5CA29A199099A400FC68BF /* Hercules.jpg */,
 				2C5CA29B199099A400FC68BF /* Hercules_s.jpg */,
@@ -371,7 +372,6 @@
 				2C10BF2C1990568C0029E6F9 /* message.png */,
 				2C10BF2A199056460029E6F9 /* movie-selected.png */,
 				2C10BF281990562D0029E6F9 /* message-selected.png */,
-				2C10BF26199051BE0029E6F9 /* movie.png */,
 				2C10BF2419902D850029E6F9 /* list-icon.png */,
 				2C10BF2019902D510029E6F9 /* msg-icon.png */,
 				2C10BF2119902D510029E6F9 /* movie-icon.png */,
@@ -563,6 +563,7 @@
 				2C10BF291990562D0029E6F9 /* message-selected.png in Resources */,
 				2C10BF39199072020029E6F9 /* The Edge of Tomorrow_s.png in Resources */,
 				2CC1E233198DA5F000A87727 /* common_bg.png in Resources */,
+				3BF03AF119913556004D48B7 /* movie.png in Resources */,
 				2CC1E22C198DA5D000A87727 /* cell_bottom.png in Resources */,
 				2C3C2BF519857D5200E970FB /* InfoPlist.strings in Resources */,
 				2C10BF2319902D510029E6F9 /* movie-icon.png in Resources */,
@@ -575,7 +576,6 @@
 				2C10BF2F199056B00029E6F9 /* list.png in Resources */,
 				2C10BF31199056DE0029E6F9 /* list-selected.png in Resources */,
 				2C5CA29F199099A400FC68BF /* Edge of Tomorrow.jpg in Resources */,
-				2C10BF27199051BE0029E6F9 /* movie.png in Resources */,
 				2C10BF33199057220029E6F9 /* movie-25.png in Resources */,
 				2C10BF2519902D850029E6F9 /* list-icon.png in Resources */,
 				2C10BF2B199056460029E6F9 /* movie-selected.png in Resources */,
