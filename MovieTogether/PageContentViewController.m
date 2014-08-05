@@ -48,12 +48,11 @@
     
     userTableView.hidden = YES;
     [self updateLikeList];
-    
-    // ---revised-------
-    movieLabel.text = self.movieName;
+
+        movieLabel.text = self.movieName;
     global.movieName = movieLabel.text;
-    
- 
+  
+
     [btnImg setBackgroundImage:[UIImage imageNamed:self.imgFile] forState:UIControlStateNormal];
     
     
