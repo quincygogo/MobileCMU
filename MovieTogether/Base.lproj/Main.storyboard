@@ -525,6 +525,7 @@ West Homestead, PA 15120</string>
                         <outlet property="date" destination="E4y-3b-wlK" id="Fwm-Ia-o25"/>
                         <outlet property="gender" destination="e2E-nS-40k" id="Nw5-Tm-6I9"/>
                         <outlet property="likelist" destination="82j-xE-dz4" id="qtb-2K-See"/>
+                        <outlet property="message" destination="Gbq-rT-Mtj" id="Yya-ad-0Gm"/>
                         <outlet property="movieName" destination="dfV-gs-HrJ" id="exm-3Z-8vz"/>
                         <outlet property="spinner" destination="CKo-uv-llX" id="Gyn-iT-7yZ"/>
                         <outlet property="theater" destination="ZPV-GT-tXu" id="Hvf-iu-8WL"/>

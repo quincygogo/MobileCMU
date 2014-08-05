@@ -14,5 +14,5 @@
 @property (strong, nonatomic) NSString *showTime;
 @property (strong, nonatomic) NSString *theater;
 @property (strong, nonatomic) NSString *userName;
-
+@property (strong, nonatomic) NSString *message;
 @end

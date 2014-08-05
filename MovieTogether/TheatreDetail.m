@@ -34,8 +34,9 @@
     
     NSMutableArray *twoD;
     NSMutableArray *threeD;
-    
+
     NSString *timeVal;
+    NSString *message;
 }
 
 @synthesize mapView;
@@ -185,6 +186,22 @@
 
 - (void) addLike
 {
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congratulations"
+                                                    message:@"You have added the movie to your wish list! Enter your message below:"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:@"share", nil];
+    
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+//    UITextField * alertTextField = [alert textFieldAtIndex:0];
+    
+    [alert show];
+    
+ }
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     PFObject *like = [PFObject objectWithClassName:@"LikedList"];
     like[@"moviename"] = movieName;
     NSString *dateTime = [date stringByAppendingString:@" "];
@@ -193,13 +210,21 @@
     like[@"theater"] = theater.text;
     like[@"username"] = global.userName;
     like[@"gender"] = global.gender;
+    like[@"message"] = [alertView textFieldAtIndex:0].text;
     [like saveInBackground];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congratulations"
-                                                    message:@"You have added the movie to your wish list!"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+    
+    if (buttonIndex == [alertView firstOtherButtonIndex]) {
+        if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+            
+            SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+            
+            NSString *text = [@"I liked " stringByAppendingString:movieName];
+            text = [text stringByAppendingString:@" using MovieTogether!! "];
+//            text = [text stringByAppendingString:alertTextField.text];
+            [controller setInitialText:text];
+            [self presentViewController:controller animated:YES completion:Nil];
+        }
+    }
 }
 
 - (void) getUserInfor
@@ -231,10 +256,6 @@
                     if (!error)
                     {
                         NSLog(@"Saved!");
-                    }
-                    else
-                    {
-                        NSLog(error);
                     }
                 }];
             }
