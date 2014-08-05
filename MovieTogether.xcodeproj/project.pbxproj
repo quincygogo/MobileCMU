@@ -48,6 +48,14 @@
 		2C3C2CB91986C9ED00E970FB /* UserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3C2CB71986C9ED00E970FB /* UserTableViewCell.m */; };
 		2C3C2CBD1986FB9A00E970FB /* MovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3C2CBC1986FB9A00E970FB /* MovieDetailViewController.m */; };
 		2C57CB21198AAB82006B5FFC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C57CB20198AAB82006B5FFC /* User.m */; };
+		2C5CA29E199099A400FC68BF /* Edge of Tomorrow_s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C5CA296199099A400FC68BF /* Edge of Tomorrow_s.jpg */; };
+		2C5CA29F199099A400FC68BF /* Edge of Tomorrow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C5CA297199099A400FC68BF /* Edge of Tomorrow.jpg */; };
+		2C5CA2A0199099A400FC68BF /* Guardians of the Galaxy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C5CA298199099A400FC68BF /* Guardians of the Galaxy.jpg */; };
+		2C5CA2A1199099A400FC68BF /* Lucy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C5CA299199099A400FC68BF /* Lucy.jpg */; };
+		2C5CA2A2199099A400FC68BF /* Hercules.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C5CA29A199099A400FC68BF /* Hercules.jpg */; };
+		2C5CA2A3199099A400FC68BF /* Hercules_s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C5CA29B199099A400FC68BF /* Hercules_s.jpg */; };
+		2C5CA2A4199099A400FC68BF /* Lucy_s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C5CA29C199099A400FC68BF /* Lucy_s.jpg */; };
+		2C5CA2A5199099A400FC68BF /* Guardians of the Galaxy_s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C5CA29D199099A400FC68BF /* Guardians of the Galaxy_s.jpg */; };
 		2CC1E214198B254500A87727 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC1E213198B254500A87727 /* Parse.framework */; };
 		2CC1E22C198DA5D000A87727 /* cell_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC1E228198DA5D000A87727 /* cell_bottom.png */; };
 		2CC1E22D198DA5D000A87727 /* cell_middle.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC1E229198DA5D000A87727 /* cell_middle.png */; };
@@ -146,6 +154,14 @@
 		2C3C2CBC1986FB9A00E970FB /* MovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailViewController.m; sourceTree = "<group>"; };
 		2C57CB1F198AAB82006B5FFC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		2C57CB20198AAB82006B5FFC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		2C5CA296199099A400FC68BF /* Edge of Tomorrow_s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Edge of Tomorrow_s.jpg"; sourceTree = "<group>"; };
+		2C5CA297199099A400FC68BF /* Edge of Tomorrow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Edge of Tomorrow.jpg"; sourceTree = "<group>"; };
+		2C5CA298199099A400FC68BF /* Guardians of the Galaxy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Guardians of the Galaxy.jpg"; sourceTree = "<group>"; };
+		2C5CA299199099A400FC68BF /* Lucy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Lucy.jpg; sourceTree = "<group>"; };
+		2C5CA29A199099A400FC68BF /* Hercules.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Hercules.jpg; sourceTree = "<group>"; };
+		2C5CA29B199099A400FC68BF /* Hercules_s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Hercules_s.jpg; sourceTree = "<group>"; };
+		2C5CA29C199099A400FC68BF /* Lucy_s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Lucy_s.jpg; sourceTree = "<group>"; };
+		2C5CA29D199099A400FC68BF /* Guardians of the Galaxy_s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Guardians of the Galaxy_s.jpg"; sourceTree = "<group>"; };
 		2CC1E213198B254500A87727 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		2CC1E228198DA5D000A87727 /* cell_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_bottom.png; sourceTree = "<group>"; };
 		2CC1E229198DA5D000A87727 /* cell_middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_middle.png; sourceTree = "<group>"; };
@@ -335,6 +351,14 @@
 		2C3C2C251985A70A00E970FB /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2C5CA296199099A400FC68BF /* Edge of Tomorrow_s.jpg */,
+				2C5CA297199099A400FC68BF /* Edge of Tomorrow.jpg */,
+				2C5CA298199099A400FC68BF /* Guardians of the Galaxy.jpg */,
+				2C5CA299199099A400FC68BF /* Lucy.jpg */,
+				2C5CA29A199099A400FC68BF /* Hercules.jpg */,
+				2C5CA29B199099A400FC68BF /* Hercules_s.jpg */,
+				2C5CA29C199099A400FC68BF /* Lucy_s.jpg */,
+				2C5CA29D199099A400FC68BF /* Guardians of the Galaxy_s.jpg */,
 				2C10BF38199072020029E6F9 /* The Edge of Tomorrow_s.png */,
 				2C10BF36199063120029E6F9 /* inbox.png */,
 				2C10BF34199062FC0029E6F9 /* inbox-selected.png */,
@@ -520,8 +544,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CC1E22D198DA5D000A87727 /* cell_middle.png in Resources */,
+				2C5CA29E199099A400FC68BF /* Edge of Tomorrow_s.jpg in Resources */,
+				2C5CA2A5199099A400FC68BF /* Guardians of the Galaxy_s.jpg in Resources */,
+				2C5CA2A1199099A400FC68BF /* Lucy.jpg in Resources */,
 				2C10BF11198E84890029E6F9 /* heart-icon.png in Resources */,
 				2C3C2C2A1985A77D00E970FB /* u2.png in Resources */,
+				2C5CA2A2199099A400FC68BF /* Hercules.jpg in Resources */,
+				2C5CA2A4199099A400FC68BF /* Lucy_s.jpg in Resources */,
+				2C5CA2A3199099A400FC68BF /* Hercules_s.jpg in Resources */,
 				2C10BF37199063120029E6F9 /* inbox.png in Resources */,
 				2C10BF35199062FC0029E6F9 /* inbox-selected.png in Resources */,
 				2C3C2C271985A72400E970FB /* movie.png in Resources */,
@@ -535,11 +565,13 @@
 				2C10BF2319902D510029E6F9 /* movie-icon.png in Resources */,
 				2C10BF2D1990568C0029E6F9 /* message.png in Resources */,
 				2C10BF15199004230029E6F9 /* likeBtn.png in Resources */,
+				2C5CA2A0199099A400FC68BF /* Guardians of the Galaxy.jpg in Resources */,
 				2C10BF1719901CE10029E6F9 /* next.png in Resources */,
 				2CC1E22E198DA5D000A87727 /* cell_top.png in Resources */,
 				2C10BF2219902D510029E6F9 /* msg-icon.png in Resources */,
 				2C10BF2F199056B00029E6F9 /* list.png in Resources */,
 				2C10BF31199056DE0029E6F9 /* list-selected.png in Resources */,
+				2C5CA29F199099A400FC68BF /* Edge of Tomorrow.jpg in Resources */,
 				2C10BF27199051BE0029E6F9 /* movie.png in Resources */,
 				2C10BF33199057220029E6F9 /* movie-25.png in Resources */,
 				2C10BF2519902D850029E6F9 /* list-icon.png in Resources */,

@@ -42,8 +42,8 @@
 	// Do any additional setup after loading the view, typically from a nib.
     global = [[UIApplication sharedApplication] delegate];
     //-----revised
-    pageImages = [NSMutableArray arrayWithObjects:@"movie.png", @"u2.png",@"u1.png", @"u4.jpg", nil];
-    pageTitles = [NSMutableArray arrayWithObjects:@"The Edge of Tomorrow", @"Lucy", @"Ape", @"Transformer", nil];
+    pageImages = [NSMutableArray arrayWithObjects:@"Guardians of the Galaxy.jpg", @"Edge of Tomorrow.jpg", @"Lucy.jpg", @"Hercules.jpg", nil];
+    pageTitles = [NSMutableArray arrayWithObjects:@"Guardians of the Galaxy", @"Edge of Tomorrow", @"Lucy", @"Hercules", nil];
     
     // -----origin---
     genderList = [NSMutableArray arrayWithObjects:@"Female", @"Male", @"Female", @"Male", @"Female", @"Male", @"Female", @"Male", @"Female", @"Male", nil];
