@@ -233,6 +233,7 @@
                     <connections>
                         <outlet property="dateControl" destination="eW9-ln-tk7" id="Q3o-ch-Lt1"/>
                         <outlet property="director" destination="u7z-r4-mzU" id="Mwv-kb-PhL"/>
+                        <outlet property="movieImg" destination="9y2-3P-epo" id="HNU-gQ-SWK"/>
                         <outlet property="releaseDate" destination="bW2-tv-JXX" id="WFo-1G-uFY"/>
                         <outlet property="showTimeTable" destination="Df2-X3-UK3" id="vOs-hb-m6u"/>
                         <outlet property="summary" destination="AaX-SQ-ROJ" id="2KZ-n3-MbK"/>
