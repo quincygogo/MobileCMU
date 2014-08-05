@@ -62,6 +62,16 @@
     
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:userImgContent]];
     userImg.image = [UIImage imageWithData:data];
+    
+    // to corner angle
+    userImg.layer.masksToBounds = YES;
+    userImg.layer.cornerRadius = 5.0;
+    userImg.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    userImg.layer.shouldRasterize = YES;
+    userImg.clipsToBounds = YES;
+    
+
+    
     likelist.hidden = YES;
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [spinner startAnimating];
