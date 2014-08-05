@@ -102,7 +102,7 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:@"LikedList"];
     [query whereKey:@"username" equalTo:userNameContent];
-    
+    __block NSMutableSet *set = [[NSMutableSet alloc] init];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             UITextView * text = [[UITextView alloc] initWithFrame:CGRectMake(0,0,likelist.frame.size.width,likelist.frame.size.height)];
@@ -111,8 +111,16 @@
             // The find succeeded.
             // Do something with the found objects
             for (PFObject *object in objects) {
-                text.text = [text.text stringByAppendingString:[object objectForKey:@"moviename"]];
+                [set addObject:[object objectForKey:@"moviename"]];
+                //                text.text = [text.text stringByAppendingString:[object objectForKey:@"moviename"]];
+                //                text.text = [text.text stringByAppendingString:@"\n"];
+            }
+            for (NSObject *object in set)
+            {
+                NSString *temp = (NSString *) object;
+                text.text = [text.text stringByAppendingString:temp];
                 text.text = [text.text stringByAppendingString:@"\n"];
+                
             }
             [likelist addSubview:text];
         } else {
