@@ -189,16 +189,21 @@
     cell.toUserImg.clipsToBounds = YES;
 
     cell.status.text = [object objectForKey:@"status"];
-    if ([cell.status.text isEqualToString:@"pending"])
+    if ([cell.status.text isEqualToString:@"Pending"])
+    {
+        UIColor *color = [UIColor colorWithRed: 74.0/255.0 green: 134.0/255.0 blue:232.0/255.0 alpha: 0.8];
+        [cell.status setTextColor:color];
+    }
+    else if ([cell.status.text isEqualToString:@"Declined"])
     {
         UIColor *color = [UIColor colorWithRed: 246.0/255.0 green: 37.0/255.0 blue:86.0/255.0 alpha: 0.8];
         [cell.status setTextColor:color];
+        
     }
     else
     {
         UIColor *color = [UIColor colorWithRed: 88.0/255.0 green: 191.0/255.0 blue:98/255.0 alpha: 0.8];
         [cell.status setTextColor:color];
-        
     }
     
     // Assign our own background image for the cell
