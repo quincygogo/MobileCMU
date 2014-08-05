@@ -12,6 +12,7 @@
 @implementation ReceivedTableCell
 
 @synthesize messageId;
+@synthesize fromUserName;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -45,6 +46,14 @@
         [message saveInBackground];
         
     }];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmation"
+                                                    message:[@"You have just accpeted the invitation from " stringByAppendingString:fromUserName.text]
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+
 }
 
 - (IBAction)decline:(id)sender {
@@ -58,6 +67,14 @@
         message[@"status"] = @"Declined";
         [message saveInBackground];
     }];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmation"
+                                                    message:[@"You have just declined the invitation from " stringByAppendingString:fromUserName.text]
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+
 }
 
 @end

@@ -152,12 +152,7 @@
     }
     
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    if (global.userName == nil)
-    {
-        NSString *name = @"Quincy Yip";
-        global.userName = name;
-        
-    }
+
     [query whereKey:@"touser" equalTo:global.userName];
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
@@ -165,7 +160,7 @@
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
     
-    [query orderByAscending:@"createdAt"];
+    [query orderByDescending:@"createdAt"];
     
     return query;
 }

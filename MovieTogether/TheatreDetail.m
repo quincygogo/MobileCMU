@@ -183,28 +183,6 @@
 
 }
 
-//- (IBAction)like:(id)sender {
-//    if (([PFUser currentUser] && // Check if a user is cached
-//        [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])) // Check if user is linked to Facebook
-//    {
-//        NSLog(@"user exists");
-//        if (global.userName == NULL)
-//        {
-//            [self getUserInfor];
-//            NSLog(@"Setting global user");
-//        }
-//        else
-//        {
-//            [self addLike];
-//        }
-//    }
-//    // Login PFUser using Facebook
-//    else {
-//        [self loginFacebook];
-//    }
-//}
-
-
 - (void) addLike
 {
     PFObject *like = [PFObject objectWithClassName:@"LikedList"];
@@ -266,12 +244,7 @@
             global.picture = [pictureURL absoluteString];
             [self addLike];
         }
-    
-        else
-        {
-            NSLog(error);
-        }
-    }];
+       }];
 }
 
 - (void) loginFacebook

@@ -128,24 +128,5 @@
         movie.summary = [object objectForKey:@"summary"];
         [movieList setObject:movie forKey:movie.name];
     }
-   
-//    PFQuery *query4 = [PFQuery queryWithClassName:@"Theater"];
-//    
-//    [query4 selectKeys:@[@"address", @"name", @"tel"]];
-//    objects = [query4 findObjects];
-//    for (PFObject *object in objects) {
-//        Theater *theater = [[Theater alloc] init];
-//        theater.name = [object objectForKey:@"name"];
-//        theater.phone = [object objectForKey:@"tel"];
-//        theater.address = [object objectForKey:@"address"];
-//        [theaterList setObject:theater forKey:theater.name];
-//    }
-    
-    
-//    for (NSObject *object in [userList objectEnumerator])
-//    {
-//        User *user = (User *)object;
-//        NSLog(@"%@" "%@", user.name, user.pic);
-//    }
 }
 @end

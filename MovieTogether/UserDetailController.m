@@ -96,7 +96,6 @@
             [text setEditable:NO];
             text.font = [UIFont systemFontOfSize:17.0f];
             // The find succeeded.
-            NSLog(@"Successfully retrieved %d scores.", objects.count);
             // Do something with the found objects
             for (PFObject *object in objects) {
                 text.text = [text.text stringByAppendingString:[object objectForKey:@"moviename"]];
@@ -121,11 +120,18 @@
 {
     PFObject *message = [PFObject objectWithClassName:@"Message"];
     NSString *name = global.userName;
-    // if (name == nil)
-    //{
-    //  name = @"Quincy Yip";
-    //}
-    
+   
+    if ([name isEqualToString:userNameContent])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Come on!"
+                                                        message:@"You can't invite yourself!"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+        return;
+    }
     message[@"fromuser"] = name;
     message[@"moviename"] = movieNameContent;
     message[@"status"] = @"Pending";
@@ -174,7 +180,7 @@
             
             NSString *facebookID = userData[@"id"];
             NSString *name = userData[@"name"];
-            NSString *gender = userData[@"gender"];
+            NSString *userGender = userData[@"gender"];
             
             NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
             
@@ -183,28 +189,20 @@
             {
                 user[@"set"] = @YES;
                 user[@"name"] = name;
-                user[@"gender"] = gender;
+                user[@"gender"] = userGender;
                 user[@"pic"] = [pictureURL absoluteString];
                 [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     if (!error)
                     {
                         NSLog(@"Saved!");
                     }
-                    else
-                    {
-                        NSLog(error);
-                    }
                 }];
             }
             NSLog(@"Done setting global user");
             global.userName = name;
-            global.gender = gender;
+            global.gender = userGender;
             global.picture = [pictureURL absoluteString];
             [self sendInvitation];
-        }
-        else
-        {
-            NSLog(error);
         }
     }];
 }
