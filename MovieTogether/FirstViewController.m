@@ -10,6 +10,7 @@
 #import "UserTableViewCell.h"
 #import "MovieDetailViewController.h"
 #import "PageContentViewController.h"
+#import "AppDelegate.h"
 
 @interface FirstViewController ()
 
@@ -24,6 +25,7 @@
     NSMutableArray *genderList;
     NSMutableArray *dateList;
     NSMutableArray *theatreList;
+    AppDelegate *global;
 }
 
 //@synthesize userTableView;
@@ -32,12 +34,13 @@
 @synthesize pageImages;
 @synthesize pageTitles;
 @synthesize pageViewController;
+@synthesize navigationTitle;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
+    global = [[UIApplication sharedApplication] delegate];
     //-----revised
     pageImages = [NSMutableArray arrayWithObjects:@"movie.png", @"u2.png",@"u1.png", @"u4.jpg", nil];
     pageTitles = [NSMutableArray arrayWithObjects:@"The Edge of Tomorrow", @"Lucy", @"Ape", @"Transformer", nil];
@@ -48,7 +51,8 @@
     theatreList = [NSMutableArray arrayWithObjects:@"WaterFront", @"EMC", @"CMU", @"WaterFront", @"EMC", @"CMU", @"WaterFront", @"EMC", @"CMU", @"sdf", nil];
     
     
-    // ------revised-----
+    
+        // ------revised-----
     // create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];      // create the PageViewController instance.
     // specify the data source(itself)

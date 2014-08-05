@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Page Content View Controller-->
+        <!--Page Content View Controller - the-->
         <scene sceneID="tjW-hs-a9H">
             <objects>
-                <viewController storyboardIdentifier="PageContentViewController" id="m6f-S2-ir1" customClass="PageContentViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PageContentViewController" title="the" id="m6f-S2-ir1" customClass="PageContentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cfk-jG-8E7"/>
                         <viewControllerLayoutGuide type="bottom" id="WFy-Cx-jSw"/>
@@ -313,7 +313,10 @@ West Homestead, PA 15120</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="d0z-g3-6vV"/>
+                    <navigationItem key="navigationItem" title="Movie" id="d0z-g3-6vV"/>
+                    <connections>
+                        <outlet property="navigationTitle" destination="d0z-g3-6vV" id="sd7-hb-2hU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
@@ -755,6 +758,10 @@ West Homestead, PA 15120</string>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="b6O-at-PoU">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="CZ4-MO-1fc" kind="relationship" relationship="rootViewController" id="wkr-VG-NV9"/>
                     </connections>
@@ -766,6 +773,8 @@ West Homestead, PA 15120</string>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="next.png" width="30" height="30"/>
+        <image name="previous.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

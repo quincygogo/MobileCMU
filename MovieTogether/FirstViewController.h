@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSArray *pageTitles;
 @property (strong, nonatomic) NSArray *pageImages;
 @property (strong, nonatomic) UITableView *pageTable;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navigationTitle;
 
 
 

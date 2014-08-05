@@ -46,15 +46,17 @@
     
     tabBarItem1.title = @"Movies";
     tabBarItem2.title = @"Liked List";
-    tabBarItem3.title = @"Messages";
+    tabBarItem3.title = @"My Invitations";
     tabBarItem4.title = @"Messages";
     
-    [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"movie-icon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"movie-icon"]];
-    [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"list-icon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"list-icon.png"]];
-    [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"msg-icon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"msg-icon"]];
-    [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"msg-icon.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"msg-icon"]];
+    [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"movie-selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"movie-25.png"]];
+    [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"list-selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"list.png"]];
+    [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"message-selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"message.png"]];
+    [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"inbox-selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"inbox.png"]];
     
     
+    
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], UITextAttributeTextColor, [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],UITextAttributeTextShadowColor,[NSValue valueWithUIOffset:UIOffsetMake(0, 1)],UITextAttributeTextShadowOffset,[UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], UITextAttributeFont, nil]];
     
     return YES;
 }
